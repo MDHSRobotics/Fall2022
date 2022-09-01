@@ -1,7 +1,7 @@
 package frc.robot;
 
-import frc.robot.consoles.Logger;
 import frc.robot.subsystems.*;
+import frc.robot.consoles.Logger;
 
 // Contains singleton instances of all the subsystems on the robot.
 public class BotSubsystems {
