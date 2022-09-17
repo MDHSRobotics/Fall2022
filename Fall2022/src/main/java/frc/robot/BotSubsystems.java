@@ -6,13 +6,13 @@ import frc.robot.subsystems.*;
 // Contains singleton instances of all the subsystems on the robot.
 public class BotSubsystems {
 
-    //public static SwerveDriver swerveDriver;
+    public static SwerveDriver swerveDriver;
 
     // Initialize all robot subsystems
     public static void initializeSubsystems() {
         Logger.setup("Initializing BotSubsystems...");
 
-        //swerveDriver = new SwerveDriver();
+        swerveDriver = new SwerveDriver();
     
     }
 
@@ -21,7 +21,7 @@ public class BotSubsystems {
 
         // SwerveDriver
         Logger.setup("SwerveDriver Teleop Default Command -> SwerveDrive...");
-        //swerveDriver.setDefaultCommand(BotCommands.swerveDrive);
+        swerveDriver.setDefaultCommand(BotCommands.swerveDrive);
 
     }
 
