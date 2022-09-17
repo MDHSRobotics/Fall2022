@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 //import frc.robot.commands.swervedriver.*;
 import frc.robot.commands.auto.*;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.swervedrive.*;
 
 import frc.robot.consoles.Logger;
 
@@ -22,9 +23,9 @@ public class BotCommands {
 
 
 	// SwerveDriver
-    // public static SwerveDrive swerveDrive;
-    // public static ToggleDriverOrientation toggleDriverOrientation;
-    // public static DriveBox driveBox;
+    public static SwerveDrive swerveDrive;
+    public static ToggleDriverOrientation toggleDriverOrientation;
+    public static DriveBox driveBox;
 
     // Initialize all robot commands
     public static void initializeCommands() {
@@ -44,8 +45,8 @@ public class BotCommands {
         autoCommandChooser.addOption("Auto Command Two", BotCommands.autoCommand2);
 
         // SwerveDriver
-        // swerveDrive = new SwerveDrive(BotSubsystems.swerveDriver, BotControllers.xbox);
-        // toggleDriverOrientation = new ToggleDriverOrientation(BotSubsystems.swerveDriver);
-        // driveBox = new DriveBox();
+        swerveDrive = new SwerveDrive(BotSubsystems.swerveDriver, BotControllers.xbox);
+        toggleDriverOrientation = new ToggleDriverOrientation(BotSubsystems.swerveDriver);
+        driveBox = new DriveBox();
     }
 }

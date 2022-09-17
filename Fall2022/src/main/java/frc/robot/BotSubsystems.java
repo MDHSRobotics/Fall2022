@@ -7,22 +7,22 @@ import frc.robot.subsystems.*;
 public class BotSubsystems {
 
     public static ExampleSubsystem exampleSubsystem;
-    //public static SwerveDriver swerveDriver;
+    public static SwerveDriver swerveDriver;
 
     // Initialize all robot subsystems
     public static void initializeSubsystems() {
         Logger.setup("Initializing BotSubsystems...");
 
         exampleSubsystem = new ExampleSubsystem();
-        //swerveDriver = new SwerveDriver();
+        swerveDriver = new SwerveDriver();
     }
 
     // Set all the subsystem "teleop" default commands
     public static void setTeleopDefaultCommands() {
 
         // SwerveDriver
-        //Logger.setup("SwerveDriver Teleop Default Command -> SwerveDrive...");
-        //swerveDriver.setDefaultCommand(BotCommands.swerveDrive);
+        Logger.setup("SwerveDriver Teleop Default Command -> SwerveDrive...");
+        swerveDriver.setDefaultCommand(BotCommands.swerveDrive);
 
     }
 
