@@ -6,12 +6,15 @@ import edu.wpi.first.wpilibj2.command.Command;
 //import frc.robot.commands.swervedriver.*;
 import frc.robot.commands.auto.*;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.pickup.*;
 
 import frc.robot.consoles.Logger;
 
-// Contains singleton instances of all the commands on the robot.
 public class BotCommands {
 
+	// Pickup
+    public static TogglePickup togglePickup;
+    public static FeedPickup feedPickup;
     // Example Command to be used as a placeholder until real commands implemented
     public static ExampleCommand exampleCommand;
 
@@ -26,10 +29,13 @@ public class BotCommands {
     // public static ToggleDriverOrientation toggleDriverOrientation;
     // public static DriveBox driveBox;
 
-    // Initialize all robot commands
     public static void initializeCommands() {
         
         Logger.setup("Initializing BotCommands...");
+
+        // Pickup
+        togglePickup =  new TogglePickup(BotSubsystems.pickup);
+        feedPickup = new FeedPickup(BotSubsystems.pickup);
 
         // Re-usable Example Command
         exampleCommand = new ExampleCommand(BotSubsystems.exampleSubsystem, "Default", 10);
