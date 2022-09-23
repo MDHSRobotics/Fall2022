@@ -1,7 +1,9 @@
 
 package frc.robot.subsystems.constants;
 
-import edu.wpi.first.math.kinematics.DifferentialDriveKinematics;
+import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
+import edu.wpi.first.math.geometry.Translation2d;
+
 /**
  * The Constants class provides a convenient place for teams to hold
  * subsystem-wide numerical or boolean constants. This class should not be used
@@ -14,18 +16,27 @@ import edu.wpi.first.math.kinematics.DifferentialDriveKinematics;
  */
 public final class PathConstants {
 
+    // Motor Ports
     public static final int kLeftMotor1Port = 0;
     public static final int kLeftMotor2Port = 1;
     public static final int kRightMotor1Port = 2;
     public static final int kRightMotor2Port = 3;
 
+    // Encoder Constants
     public static final int[] kLeftEncoderPorts = new int[] { 0, 1 };
     public static final int[] kRightEncoderPorts = new int[] { 2, 3 };
     public static final boolean kLeftEncoderReversed = false;
     public static final boolean kRightEncoderReversed = true;
 
-    public static final double kTrackwidthMeters = 0.69;
-    public static final DifferentialDriveKinematics kDriveKinematics = new DifferentialDriveKinematics(kTrackwidthMeters);
+    public static final double kTrackWidth = 0.69;
+    public static final double kWheelBase = 0.7;
+    
+    public static final SwerveDriveKinematics kSwerveDriveKinematics = new SwerveDriveKinematics(
+        new Translation2d(kWheelBase / 2, -kTrackWidth / 2),
+        new Translation2d(kWheelBase / 2, kTrackWidth / 2),
+        new Translation2d(-kWheelBase / 2, -kTrackWidth / 2),
+        new Translation2d(-kWheelBase / 2, kTrackWidth / 2)
+    );
 
     public static final int kEncoderCPR = 2048;
     public static final double kWheelDiameterMeters = 0.1524;
