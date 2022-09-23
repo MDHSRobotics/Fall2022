@@ -1,10 +1,12 @@
 package frc.robot;
 
+import edu.wpi.first.math.trajectory.Trajectory;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 
 import frc.robot.consoles.Logger;
+import frc.robot.subsystems.Pathweaver;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -13,6 +15,9 @@ import frc.robot.consoles.Logger;
  * project.
  */
 public class Robot extends TimedRobot {
+
+    int m_chosenPath = 1;
+    Trajectory m_chosenTrajectory = Pathweaver.getChosenTrajectory(m_chosenPath);
 
     // When connected to the RoboRio, use this constructor because it will use the
     // proper period duration
@@ -39,6 +44,8 @@ public class Robot extends TimedRobot {
         // including flags, sensors, devices, subsystems, commands, shuffleboard,
         // and puts our autonomous chooser on the dashboard.
         RobotManager.initialize();
+        Pathweaver.intializeTrajectory();
+
     }
 
     /**
@@ -71,10 +78,13 @@ public class Robot extends TimedRobot {
     public void disabledPeriodic() {
     }
 
+<<<<<<< master
     public Command getAutonomousCommand() {
         return BotCommands.autoCommandChooser.getSelected();
     }
 
+=======
+>>>>>>> Set Pathweaver trajectories to run on autonomous mode
     /**
      * This autonomous runs the autonomous command selected by your {@link BotCommands} class.
      */
@@ -85,7 +95,7 @@ public class Robot extends TimedRobot {
         CommandScheduler.getInstance().cancelAll();
 
         // Schedule the autonomous command
-        Command autonomousCommand = getAutonomousCommand();
+        Command autonomousCommand = Pathweaver.getPathweaverCommand(m_chosenTrajectory);
         if (autonomousCommand != null) {
             autonomousCommand.schedule();
         }
@@ -133,7 +143,6 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void testPeriodic() {
-
     }
 
 }

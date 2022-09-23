@@ -2,6 +2,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.RobotBase;
+import edu.wpi.first.wpilibj2.command.Command;
 
 import frc.robot.consoles.Logger;
 import frc.robot.consoles.Shuffler;

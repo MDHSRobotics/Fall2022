@@ -75,7 +75,6 @@ public class SwerveDrive extends CommandBase {
     @Override
     public void end(boolean interrupted) {
         if (interrupted) {
-            System.out.println("--");
             Logger.ending("Interrupting Command: SwerveDrive...");
         } else {
             Logger.ending("Ending Command: SwerveDrive...");

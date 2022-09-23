@@ -7,10 +7,6 @@ public final class AutoConstants {
     public static final double kMaxSpeedMetersPerSecond = 3;
     public static final double kMaxAccelerationMetersPerSecondSquared = 3;
 
-    // Reasonable baseline values for a RAMSETE follower in units of meters and seconds
-    public static final double kRamseteB = 2;
-    public static final double kRamseteZeta = 0.7;
-    
     //Pid constants for trajectory following
     //TODO validate the pid constants
     public static final double kPXController = 1.5;
@@ -22,7 +18,7 @@ public final class AutoConstants {
                     SwerveConstants.kPhysicalMaxAngularSpeedRadiansPerSecond / 10;
     public static final double kMaxAngularAccelerationRadiansPerSecondSquared = Math.PI / 4;
 
-    public static final TrapezoidProfile.Constraints kThetaControllerConstraints = //
+    public static final TrapezoidProfile.Constraints kThetaControllerConstraints = 
                 new TrapezoidProfile.Constraints(
                         kMaxAngularSpeedRadiansPerSecond,
                         kMaxAngularAccelerationRadiansPerSecondSquared);
