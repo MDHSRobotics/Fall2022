@@ -10,7 +10,7 @@ public class ButtonBindings {
         Logger.setup("Configure Buttons -> Xbox Controller...");
 
         // SwerveDrive
-        //BotControllers.xbox.btnStart.whenPressed(BotCommands.toggleDriverOrientation);
+        BotControllers.xbox.btnStart.whileHeld(BotCommands.spin);
         // BotControllers.xbox.btnB.whenPressed(BotCommands.driveBox);
 
     }
