@@ -163,7 +163,7 @@ public class SwerveDriver extends SubsystemBase {
                     xSpeed, ySpeed, turningSpeed, getRotation2d());
         } else {
             // Relative to robot
-            chassisSpeeds = new ChassisSpeeds(xSpeed, -ySpeed, turningSpeed);
+            chassisSpeeds = new ChassisSpeeds(xSpeed, -ySpeed, -turningSpeed);
         }
 
         SmartDashboard.putString("06: Chassis Speeeds", chassisSpeeds.toString());

@@ -25,9 +25,9 @@ public class Pathweaver {
     private static PIDController yController = new PIDController(AutoConstants.kPYController, 0, 0);
     private static ProfiledPIDController thetaController = new ProfiledPIDController(AutoConstants.kPThetaController, 0, 0, AutoConstants.kThetaControllerConstraints);
 
-    private static String m_trajectoryJson1 = "/home/lvuser/deploy/paths/trajectory1.wpilib.json";
-    private static String m_trajectoryJson2 = "/home/lvuser/deploy/paths/trajectory2.wpilib.json";
-    private static String m_trajectoryJson3 = "/home/lvuser/deploy/paths/trajectory3.wpilib.json";
+    private static String m_trajectoryJson1 = "paths/Trajectory1.wpilib.json"; 
+    private static String m_trajectoryJson2 = "paths/Trajectory2.wpilib.json";
+    private static String m_trajectoryJson3 = "paths/Trajectory3.wpilib.json";
 
     private static Trajectory m_trajectory1 = new Trajectory();
     private static Trajectory m_trajectory2 = new Trajectory();
@@ -62,7 +62,7 @@ public class Pathweaver {
         new SwerveControllerCommand(
             pathweaverTrajectory,
             BotSubsystems.swerveDriver::getPose,
-            PathConstants.kSwerveDriveKinematics,
+            SwerveConstants.kDriveKinematics,
             xController,
             yController,
             thetaController,
@@ -75,10 +75,8 @@ public class Pathweaver {
         // Reset odometry to the starting pose of the trajectory.
         BotSubsystems.swerveDriver.resetOdometry(pathweaverTrajectory.getInitialPose());
 
-        // Stops SwerveDrive modules
-        BotSubsystems.swerveDriver.stopModules();
-
-        return swerveControllerCommand;
+        // Run path following command, then stop at the end.
+        return swerveControllerCommand.andThen(() -> BotSubsystems.swerveDriver.setChassisSpeed(0, 0, 0, false));
     }
 
     // Return the command to run in autonomous mode (AutoNav)
