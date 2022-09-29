@@ -17,7 +17,7 @@ import frc.robot.subsystems.Pathweaver;
 public class Robot extends TimedRobot {
 
     int m_chosenPath = 1;
-    Trajectory m_chosenTrajectory = Pathweaver.getChosenTrajectory(m_chosenPath);
+    Trajectory m_chosenTrajectory = new Trajectory();
 
     // When connected to the RoboRio, use this constructor because it will use the
     // proper period duration
@@ -44,8 +44,9 @@ public class Robot extends TimedRobot {
         // including flags, sensors, devices, subsystems, commands, shuffleboard,
         // and puts our autonomous chooser on the dashboard.
         RobotManager.initialize();
-        Pathweaver.intializeTrajectory();
 
+        Pathweaver.intializeTrajectory();
+        m_chosenTrajectory = Pathweaver.getChosenTrajectory(m_chosenPath);
     }
 
     /**
