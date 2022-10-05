@@ -16,8 +16,15 @@ import edu.wpi.first.wpilibj2.command.SwerveControllerCommand;
 import java.io.IOException; 
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.List;
 
 import edu.wpi.first.wpilibj.DriverStation;
+
+import edu.wpi.first.math.geometry.Pose2d;
+import edu.wpi.first.math.geometry.Rotation2d;
+import edu.wpi.first.math.geometry.Translation2d;
+import edu.wpi.first.math.trajectory.TrajectoryConfig;
+import edu.wpi.first.math.trajectory.TrajectoryGenerator;
 
 public class Pathweaver {
     
@@ -58,9 +65,32 @@ public class Pathweaver {
 
     public static Command getPathweaverCommand(Trajectory pathweaverTrajectory) {
 
+         // 1. Create trajectory settings
+         TrajectoryConfig trajectoryConfig = new TrajectoryConfig(
+            AutoConstants.kMaxSpeedMetersPerSecond,
+            AutoConstants.kMaxAccelerationMetersPerSecondSquared)
+                    .setKinematics(SwerveConstants.kDriveKinematics);
+
+        // 2. Generate trajectory
+        // Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
+        //         new Pose2d(0, 0, new Rotation2d(0)),
+        //         List.of(
+        //                 new Translation2d(2, 0)
+        //                 ),
+        //         new Pose2d(2, 0, Rotation2d.fromDegrees(0)),
+        //         trajectoryConfig);
+
+        Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
+            new Pose2d(0, 0, new Rotation2d(0)),
+            List.of(
+                    new Translation2d(1, 0)
+                    ),
+            new Pose2d(1, 0, Rotation2d.fromDegrees(90)),
+            trajectoryConfig);    
+
         SwerveControllerCommand swerveControllerCommand =
         new SwerveControllerCommand(
-            pathweaverTrajectory,
+            trajectory, //pathweaverTrajectory,
             BotSubsystems.swerveDriver::getPose,
             SwerveConstants.kDriveKinematics,
             xController,
@@ -73,7 +103,7 @@ public class Pathweaver {
         thetaController.enableContinuousInput(-Math.PI, Math.PI);
 
         // Reset odometry to the starting pose of the trajectory.
-        BotSubsystems.swerveDriver.resetOdometry(pathweaverTrajectory.getInitialPose());
+        BotSubsystems.swerveDriver.resetOdometry(trajectory.getInitialPose());
 
         // Run path following command, then stop at the end.
         return swerveControllerCommand.andThen(() -> BotSubsystems.swerveDriver.setChassisSpeed(0, 0, 0, false));
