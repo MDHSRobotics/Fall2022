@@ -92,6 +92,7 @@ public class SwerveDriver extends SubsystemBase {
     // Returns the current rotation2D
     public Rotation2d getRotation2d() {
         return Rotation2d.fromDegrees(getHeading());
+        //return.Rotation2d.fromDegrees(0);
     }
 
     public Pose2d getPose() {
