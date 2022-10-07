@@ -14,14 +14,14 @@ public class Shuffler {
     private MainTab m_mainTab;
     private InputsTab m_inputsTab;
     private DriveTab m_driveTab;
-    private ClimbTab m_climbTab;
+    private JoystickTab m_jstickTab;
 
     public Shuffler() {
         ShuffleLogger.logTrivial("Constructing Shuffler...");
         m_mainTab = new MainTab();
         m_inputsTab = new InputsTab();
         m_driveTab = new DriveTab();
-        m_climbTab = new ClimbTab();
+        m_jstickTab = new JoystickTab();
     }
 
     public void preInitialize() {
@@ -29,7 +29,7 @@ public class Shuffler {
         m_mainTab.preInitialize();
         m_inputsTab.preInitialize();
         m_driveTab.preInitialize();
-        m_climbTab.preInitialize();
+        m_jstickTab.preInitialize();
     }
 
     public void initialize() {
@@ -37,7 +37,7 @@ public class Shuffler {
         m_mainTab.initialize();
         m_inputsTab.initialize();
         m_driveTab.initialize();
-        m_climbTab.initialize();
+        m_jstickTab.initialize();
     }
 
     public void configure() {
@@ -45,8 +45,7 @@ public class Shuffler {
         m_mainTab.configure();
         m_inputsTab.configure();
         m_driveTab.configure();
-        m_climbTab.configure();
-
+        m_jstickTab.configure();
         setupSmartdashboard();
     }
 
@@ -54,7 +53,7 @@ public class Shuffler {
         m_mainTab.update();
         m_inputsTab.update();
         m_driveTab.update();
-        m_climbTab.update();
+        m_jstickTab.update();
     }
 
     // This is for stuff that can't be displayed easily in custom Shuffleboard tabs.

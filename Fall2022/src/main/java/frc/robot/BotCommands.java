@@ -45,7 +45,8 @@ public class BotCommands {
         autoCommandChooser.addOption("Auto Command Two", BotCommands.autoCommand2);
 
         // SwerveDriver
-        swerveDrive = new SwerveDrive(BotSubsystems.swerveDriver, BotControllers.xbox);
+        swerveDrive = new SwerveDrive(BotSubsystems.swerveDriver, BotControllers.jstick);
+        //swerveDrive = new SwerveDrive(BotSubsystems.swerveDriver, BotControllers.xbox);
         toggleDriverOrientation = new ToggleDriverOrientation(BotSubsystems.swerveDriver);
         driveBox = new DriveBox();
     }
