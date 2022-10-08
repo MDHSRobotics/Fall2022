@@ -8,6 +8,7 @@ import frc.robot.commands.auto.*;
 import frc.robot.commands.ExampleCommand;
 
 import frc.robot.consoles.Logger;
+import frc.robot.commands.climber.*;
 
 // Contains singleton instances of all the commands on the robot.
 public class BotCommands {
@@ -25,6 +26,12 @@ public class BotCommands {
     // public static SwerveDrive swerveDrive;
     // public static ToggleDriverOrientation toggleDriverOrientation;
     // public static DriveBox driveBox;
+
+    //Climber
+
+    public static RaiseClaws raiseClaws;
+    public static LowerClaws lowerClaws;
+    public static StopClimber stopClimber;
 
     // Initialize all robot commands
     public static void initializeCommands() {
@@ -47,5 +54,10 @@ public class BotCommands {
         // swerveDrive = new SwerveDrive(BotSubsystems.swerveDriver, BotControllers.xbox);
         // toggleDriverOrientation = new ToggleDriverOrientation(BotSubsystems.swerveDriver);
         // driveBox = new DriveBox();
+        // Climber
+        
+        raiseClaws = new RaiseClaws(BotSubsystems.Climber);
+        lowerClaws = new LowerClaws(BotSubsystems.Climber);  
+        stopClimber = new StopClimber(BotSubsystems.Climber);
     }
 }
