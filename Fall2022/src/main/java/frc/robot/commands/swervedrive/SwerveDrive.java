@@ -19,7 +19,7 @@ public class SwerveDrive extends CommandBase {
     private final JoystickPositionAccessible m_jstickController;
     private final XboxPositionAccessible m_xboxController;
     private final SlewRateLimiter m_forwardBackwardLimiter, m_sideToSideLimiter, m_rotationForwardBackLimiter, m_rotationSideToSideLimiter;
-    private String m_chosenController; //jstick or xbox
+    private static String m_chosenController; //jstick or xbox
 
     public SwerveDrive (SwerveDriver swerveDriver, JoystickPositionAccessible controller) {
         Logger.setup("Constructing Command: SwerveDrive...");
