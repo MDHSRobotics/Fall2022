@@ -2,6 +2,9 @@ package frc.robot.subsystems;
 
 import frc.robot.devices.*;
 
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.Solenoid;
@@ -17,8 +20,8 @@ public class Devices {
     //////////////////////
 
     // Pickup
-    public static DevTalonSRX talonSrxPickupLeft = new DevTalonSRX("talonSrxPickupLeft", 0);
-    public static DevTalonSRX talonSrxPickupRight = new DevTalonSRX("talonSrxPickupRight", 0);
+    public static CANSparkMax sparkMaxPickupLeft = new CANSparkMax(0, MotorType.kBrushless);
+    public static CANSparkMax sparkMaxPickupRight = new CANSparkMax(0, MotorType.kBrushless);
 
     // Pneumatics
     public static Compressor pcmCompressor = new Compressor(0, PneumaticsModuleType.CTREPCM);

@@ -11,24 +11,24 @@ public class Pickup extends SubsystemBase{
         pickupSolenoidTwo.set(false);
     }
 
-    public void extendPickup() {
+    public void lowerPickup() {
         pickupSolenoidOne.set(true);
         pickupSolenoidTwo.set(true);
     }
 
-    public void retractPickup() {
+    public void raisePickup() {
         pickupSolenoidOne.set(false);
         pickupSolenoidTwo.set(false);
     }
 
-    public void toggleRoller() {
-        talonSrxPickupLeft.set(0.5);
-        talonSrxPickupRight.set(-0.5);
+    public void startRoller() {
+        sparkMaxPickupLeft.set(0.5);
+        sparkMaxPickupRight.set(-0.5);
     }
 
     public void stopRoller() {
-        talonSrxPickupLeft.stopMotor();
-        talonSrxPickupRight.stopMotor();
+        sparkMaxPickupLeft.stopMotor();
+        sparkMaxPickupRight.stopMotor();
     }
 }
 

@@ -9,8 +9,7 @@ import java.util.Timer;
 public class TogglePickup extends CommandBase {
 
     private Pickup m_pickup;
-    private double m_msPassed;
-    private static boolean m_isPickupToggled;
+    private static boolean m_isPickupLowered = false;
 
     public TogglePickup(Pickup pickup) {
         Logger.setup("Constructing Command: TogglePickup...");
@@ -23,34 +22,25 @@ public class TogglePickup extends CommandBase {
     @Override
     public void initialize() {
         Logger.action("Initializing Command: TogglePistons...");
-
-        m_msPassed = 0;
-
-        m_isPickupToggled = !m_isPickupToggled;
-        if (m_isPickupToggled) {
-            m_pickup.extendPickup();
+        
+        if (!m_isPickupLowered) {
+            m_pickup.lowerPickup();
+            m_pickup.startRoller();
         } else {
-            m_pickup.retractPickup();
+            m_pickup.raisePickup();
             m_pickup.stopRoller();
         }
 
+        m_isPickupLowered = !m_isPickupLowered;
     }
 
     @Override
     public void execute() {
-        m_msPassed += 200;
+
     }
 
     @Override
     public boolean isFinished() {
-        if (!m_isPickupToggled) {
-            return true;
-        } else if (m_isPickupToggled) {
-            if (m_msPassed >= 1200) {
-                m_pickup.toggleRoller();
-                return true;
-            }
-        }
         return false;
     }
 
