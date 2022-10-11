@@ -2,8 +2,63 @@
   "NTProvider": {
     "types": {
       "/FMSInfo": "FMSInfo",
+      "/LiveWindow/ExampleSubsystem": "Subsystem",
+      "/LiveWindow/Module Front Left/Drive Motor": "Motor Controller",
+      "/LiveWindow/Module Front Left/Turning Motor": "Motor Controller",
+      "/LiveWindow/Module Front Right/Drive Motor": "Motor Controller",
+      "/LiveWindow/Module Front Right/Turning Motor": "Motor Controller",
+      "/LiveWindow/Module Rear Left/Drive Motor": "Motor Controller",
+      "/LiveWindow/Module Rear Left/Turning Motor": "Motor Controller",
+      "/LiveWindow/Module Rear Right/Drive Motor": "Motor Controller",
+      "/LiveWindow/Module Rear Right/Turning Motor": "Motor Controller",
+      "/LiveWindow/SwerveDriver": "Subsystem",
+      "/LiveWindow/Ungrouped/PIDController[1]": "PIDController",
+      "/LiveWindow/Ungrouped/PIDController[2]": "PIDController",
+      "/LiveWindow/Ungrouped/PIDController[3]": "PIDController",
+      "/LiveWindow/Ungrouped/PIDController[4]": "PIDController",
+      "/LiveWindow/Ungrouped/PIDController[5]": "PIDController",
+      "/LiveWindow/Ungrouped/PIDController[6]": "PIDController",
+      "/LiveWindow/Ungrouped/PIDController[7]": "PIDController",
       "/LiveWindow/Ungrouped/Scheduler": "Scheduler",
-      "/SmartDashboard/AutoMode": "String Chooser"
+      "/LiveWindow/Ungrouped/navX-Sensor[4]": "Gyro",
+      "/Shuffleboard/Climb/Commands/Auto 1": "Command",
+      "/Shuffleboard/Climb/Commands/Auto 2": "Command",
+      "/Shuffleboard/Climb/Commands/Command1": "Command",
+      "/Shuffleboard/Climb/Commands/Command2": "Command",
+      "/Shuffleboard/Climb/Commands/Command3": "Command",
+      "/Shuffleboard/Climb/Commands/Example": "Command",
+      "/Shuffleboard/Drive/Swerve Drive": "Subsystem",
+      "/Shuffleboard/Main/Auto Command": "String Chooser",
+      "/SmartDashboard/Auto Command": "String Chooser",
+      "/SmartDashboard/Auto Command to Run": "String Chooser",
+      "/SmartDashboard/Auto1 Command": "Command",
+      "/SmartDashboard/Auto2 Command": "Command",
+      "/SmartDashboard/AutoMode": "String Chooser",
+      "/SmartDashboard/Climb/commands/exam": "Command",
+      "/SmartDashboard/Example Command": "Command"
+    }
+  },
+  "NetworkTables": {
+    "Shuffleboard": {
+      "Climb": {
+        "Commands": {
+          "open": true
+        },
+        "open": true
+      },
+      "open": true
+    },
+    "SmartDashboard": {
+      "Climb": {
+        "commands": {
+          "exam": {
+            "open": true
+          },
+          "open": true
+        },
+        "open": true
+      },
+      "open": true
     }
   }
 }

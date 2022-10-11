@@ -19,4 +19,8 @@ public class ExampleSubsystem extends SubsystemBase {
   public void simulationPeriodic() {
     // This method will be called once per scheduler run during simulation
   }
+
+  public void doSomething() {
+    // Not much to do since this is an example
+  }
 }
