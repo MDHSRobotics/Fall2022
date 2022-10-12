@@ -57,7 +57,7 @@ public class JoystickPosition {
         // Sensitivity
         double ySensitivity = JoystickBrain.getYsensitivity();
         double xSensitivity = JoystickBrain.getXsensitivity();
-        double zSensitivity = JoystickBrain.getXsensitivity();
+        double zSensitivity = JoystickBrain.getZsensitivity();
 
         y = y * ySensitivity;
         x = x * xSensitivity;
