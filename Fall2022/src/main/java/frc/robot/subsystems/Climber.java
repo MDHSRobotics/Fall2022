@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import static frc.robot.subsystems.Devices.ClimberLeft;
 import static frc.robot.subsystems.Devices.ClimberRight;
 import frc.robot.consoles.Logger;
+import frc.robot.subsystems.constants.ClimberConstants;
 
 public class Climber extends SubsystemBase {
 
@@ -23,15 +24,14 @@ public class Climber extends SubsystemBase {
         ClimberLeft.stopMotor();
         ClimberRight.stopMotor();
    }
-
    // Raise the Claws
    public void raiseClaws() {
-        ClimberLeft.set(-0.8);
-        ClimberRight.set(-0.8);
+        ClimberLeft.set(-ClimberConstants.kClimbSpeed);
+        ClimberRight.set(-ClimberConstants.kClimbSpeed);
     }
     //Lower the Claws
    public void lowerClaws() {
-        ClimberLeft.set(0.8);
-        ClimberRight.set(0.8);
+        ClimberLeft.set(ClimberConstants.kClimbSpeed);
+        ClimberRight.set(ClimberConstants.kClimbSpeed);
     }
 }
