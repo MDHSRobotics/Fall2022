@@ -6,12 +6,12 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.consoles.Logger;
 import frc.robot.subsystems.Climber;
 
-public class LowerClaws extends CommandBase {
+public class RaiseClimb extends CommandBase {
 
     private Climber m_Climber; 
 
-    public LowerClaws(Climber climber) {
-        Logger.setup("Constructing Command: LowerArms...");
+    public RaiseClimb(Climber climber) {
+        Logger.setup("Constructing Command: RaiseArms...");
 
         // Add given subsystem requirements
         m_Climber = climber;
@@ -20,12 +20,12 @@ public class LowerClaws extends CommandBase {
 
     @Override
     public void initialize() {
-        Logger.action("Initializing Command: LowerArms...");
+        Logger.action("Initializing Command: RaiseArms...");
     }
 
     @Override
     public void execute() {
-        m_Climber.lowerClaws();
+        m_Climber.raiseClaws();
     }
 
     // This command continues until interrupted
@@ -38,9 +38,9 @@ public class LowerClaws extends CommandBase {
     public void end(boolean interrupted) {
         if (interrupted) {
             System.out.println("--");
-            Logger.ending("Interrupting Command: LowerArms...");
+            Logger.ending("Interrupting Command: RaiseArms...");
         } else {
-            Logger.ending("Ending Command: LowerArms...");
+            Logger.ending("Ending Command: RaiseArms...");
         }
      
     }
