@@ -41,8 +41,8 @@ public class ClimbTab {
     // Create all other Widgets
     public void initialize() {
         m_commandWidget1 = m_commandLayout.add("Example", BotCommands.exampleCommand);
-        m_commandWidget2 = m_commandLayout.add("Auto 1", BotCommands.autoCommand1);
-        m_commandWidget3 = m_commandLayout.add("Auto 2", BotCommands.autoCommand2);
+        m_commandWidget2 = m_commandLayout.add("Spin Neo", BotCommands.spin);
+        m_commandWidget3 = m_commandLayout.add("Stop Neo", BotCommands.stop);
     }
 
     // Configure all Widgets

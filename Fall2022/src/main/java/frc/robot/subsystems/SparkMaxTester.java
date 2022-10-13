@@ -21,7 +21,4 @@ public class SparkMaxTester extends SubsystemBase {
     sparkMaxTestMotor.stopMotor();
   }
 
-  public void doSomething() {
-    // Not much to do since this is an example
-  }
 }
