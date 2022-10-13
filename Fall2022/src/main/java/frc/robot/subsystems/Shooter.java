@@ -36,7 +36,14 @@ public class Shooter extends SubsystemBase {
 
     public Shooter() {
         Logger.setup("Constructing Subsystem: Shooter...");
-        
+        sparkMaxShooterTopWheel.restoreFactoryDefaults();
+        sparkMaxShooterBottomWheel.restoreFactoryDefaults();
+
+    }
+
+    public void shoot(){
+        sparkMaxShooterTopWheel.set(ShooterBrain.getTopWheelVelocity());
+        sparkMaxShooterBottomWheel.set((ShooterBrain.getTopWheelVelocity())*4);
     }
 
     @Override

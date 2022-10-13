@@ -6,38 +6,61 @@ package frc.robot.commands;
 
 import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.consoles.Logger;
 
 /** An example command that uses an example subsystem. */
 public class ExampleCommand extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final ExampleSubsystem m_subsystem;
+  private final String m_commandName;
+  private int m_tries;
+  private final int m_maxTries;
 
   /**
    * Creates a new ExampleCommand.
    *
    * @param subsystem The subsystem used by this command.
    */
-  public ExampleCommand(ExampleSubsystem subsystem) {
+  public ExampleCommand(ExampleSubsystem subsystem, String commandName, int maxTries) {
+
     m_subsystem = subsystem;
+    m_commandName = commandName;
+    m_maxTries = maxTries;
+    m_tries = 0;
+
+    Logger.setup("Constructing Command: Example (" + m_commandName + ") ...");
+
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(subsystem);
+    addRequirements(m_subsystem);
   }
 
-  // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+    Logger.action("Initializing Command: Example (" + m_commandName + ") ...");
+    m_tries = 0;
+  }
 
-  // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+    m_subsystem.doSomething();
+    m_tries += 1;
+  }
 
-  // Called once the command ends or is interrupted.
-  @Override
-  public void end(boolean interrupted) {}
-
-  // Returns true when the command should end.
+  // This command continues until interrupted
   @Override
   public boolean isFinished() {
-    return false;
+    boolean allDone = m_tries >= m_maxTries;
+    return allDone;
   }
+
+  @Override
+  public void end(boolean interrupted) {
+    if (interrupted) {
+        System.out.println("--");
+        Logger.ending("Interrupting Command: Example (" + m_commandName + ") ...");
+    } else {
+        Logger.ending("Ending Command: Example (" + m_commandName + ") ...");
+    }
+  }
+
 }
