@@ -7,6 +7,8 @@ import frc.robot.subsystems.*;
 public class BotSubsystems {
 
     public static SparkMaxTester sparkMaxTester;
+    public static ExampleSubsystem exampleSubsystem;
+    //public static SwerveDriver swerveDriver;
 
     // Initialize all robot subsystems
     public static void initializeSubsystems() {
@@ -14,6 +16,8 @@ public class BotSubsystems {
 
         sparkMaxTester = new SparkMaxTester();
     
+        exampleSubsystem = new ExampleSubsystem();
+        //swerveDriver = new SwerveDriver();
     }
 
     // Set all the subsystem "teleop" default commands
@@ -22,6 +26,8 @@ public class BotSubsystems {
         // SwerveDriver
         Logger.setup("SparkMaxTester Teleop Default Command -> Stop...");
         sparkMaxTester.setDefaultCommand(BotCommands.stop);
+        //Logger.setup("SwerveDriver Teleop Default Command -> SwerveDrive...");
+        //swerveDriver.setDefaultCommand(BotCommands.swerveDrive);
 
     }
 

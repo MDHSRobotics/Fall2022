@@ -3,9 +3,6 @@ package frc.robot;
 
 import static frc.robot.RobotManager.isReal;
 
-//import com.kauailabs.navx.frc.AHRS;
-import edu.wpi.first.wpilibj.SPI;
-
 import frc.robot.consoles.Logger;
 //import frc.robot.sensors.Gyro;
 

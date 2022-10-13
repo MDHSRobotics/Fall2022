@@ -72,7 +72,7 @@ public class Robot extends TimedRobot {
     }
 
     public Command getAutonomousCommand() {
-        return RobotManager.autoCommandChooser.getSelected();
+        return BotCommands.autoCommandChooser.getSelected();
     }
 
     /**
