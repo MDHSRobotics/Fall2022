@@ -22,7 +22,8 @@ public class BotSubsystems {
 
         // Climber
         Logger.setup("PickerUpper Teleop Default Command -> Climber...");
-        Climber.setDefaultCommand(BotCommands.stopClimber);
+        Climber.setDefaultCommand(BotCommands.raiseClimb);
+
 
     }
 

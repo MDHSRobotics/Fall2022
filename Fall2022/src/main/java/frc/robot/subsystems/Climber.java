@@ -25,12 +25,12 @@ public class Climber extends SubsystemBase {
         ClimberRight.stopMotor();
    }
    // Raise the Claws
-   public void raiseClaws() {
-        ClimberLeft.set(-ClimberConstants.kClimbSpeed);
-        ClimberRight.set(-ClimberConstants.kClimbSpeed);
+   public void raiseClimb(double value) {
+        ClimberLeft.set(-ClimberConstants.kClimbSpeed * value);
+        ClimberRight.set(-ClimberConstants.kClimbSpeed * value);
     }
     //Lower the Claws
-   public void lowerClaws() {
+   public void lowerClimb() {
         ClimberLeft.set(ClimberConstants.kClimbSpeed);
         ClimberRight.set(ClimberConstants.kClimbSpeed);
     }

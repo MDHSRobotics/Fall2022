@@ -25,6 +25,7 @@ public class LowerClimb extends CommandBase {
 
     @Override
     public void execute() {
+        
         m_Climber.lowerClimb();
     }
 
@@ -38,9 +39,9 @@ public class LowerClimb extends CommandBase {
     public void end(boolean interrupted) {
         if (interrupted) {
             System.out.println("--");
-            Logger.ending("Interrupting Command: LowerArms...");
+            Logger.ending("Interrupting Command: LowerClimb...");
         } else {
-            Logger.ending("Ending Command: LowerArms...");
+            Logger.ending("Ending Command: LowerClimb...");
         }
      
     }
