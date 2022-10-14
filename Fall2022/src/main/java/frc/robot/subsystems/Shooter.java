@@ -42,19 +42,22 @@ public class Shooter extends SubsystemBase {
     }
 
     public void shoot(){
-        sparkMaxShooterTopWheel.set(ShooterBrain.getTopWheelVelocity());
-        sparkMaxShooterBottomWheel.set((ShooterBrain.getTopWheelVelocity())*4);
-    }
+        double topWheelVelocity = 0.1;
+        double bottomWheelFactor = 4;
 
-    @Override
-    public void periodic() {
-        // This method will be called once per scheduler run
+        sparkMaxShooterTopWheel.set(topWheelVelocity);
+        sparkMaxShooterBottomWheel.set(topWheelVelocity * bottomWheelFactor);
     }
 
     // Stop the shooter
     public void stop() {
         sparkMaxShooterBottomWheel.stopMotor();
         sparkMaxShooterTopWheel.stopMotor();
+    }
+
+    @Override
+    public void periodic() {
+        // This method will be called once per scheduler run
     }
 
     // Translate a desired target velocity in feet per second to a motor speed in Ticks per 100 ms.
