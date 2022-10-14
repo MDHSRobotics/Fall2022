@@ -14,10 +14,10 @@ public class ButtonBindings {
         // BotControllers.xbox.btnB.whenPressed(BotCommands.driveBox);
         
         //Climb
-        BotControllers.xbox.btnA.whileHeld(BotCommands.lowerClaws);
-        BotControllers.xbox.btnY.whileHeld(BotCommands.raiseClaws);
-        BotControllers.xbox.btnA.whenReleased(BotCommands.stopClimber);
-        BotControllers.xbox.btnY.whenReleased(BotCommands.stopClimber);
+        BotControllers.xbox.btnA.whileHeld(BotCommands.lowerClimb);
+        BotControllers.xbox.btnY.whileHeld(BotCommands.raiseClimb);
+        BotControllers.xbox.btnA.whenReleased(BotCommands.stopClimb);
+        BotControllers.xbox.btnY.whenReleased(BotCommands.stopClimb);
     }
 
 }

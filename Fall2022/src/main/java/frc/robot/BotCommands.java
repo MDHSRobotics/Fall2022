@@ -29,9 +29,9 @@ public class BotCommands {
 
     //Climber
 
-    public static RaiseClaws raiseClaws;
-    public static LowerClaws lowerClaws;
-    public static StopClimber stopClimber;
+    public static RaiseClimb raiseClimb;
+    public static LowerClimb lowerClimb;
+    public static StopClimb stopClimb;
 
     // Initialize all robot commands
     public static void initializeCommands() {
@@ -56,8 +56,8 @@ public class BotCommands {
         // driveBox = new DriveBox();
         // Climber
         
-        raiseClaws = new RaiseClaws(BotSubsystems.Climber);
-        lowerClaws = new LowerClaws(BotSubsystems.Climber);  
-        stopClimber = new StopClimber(BotSubsystems.Climber);
+        raiseClimb = new RaiseClimb(BotSubsystems.Climber, BotControllers.xbox);
+        lowerClimb = new LowerClimb(BotSubsystems.Climber);  
+        stopClimb = new StopClimb(BotSubsystems.Climber);
     }
 }
