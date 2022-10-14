@@ -4,13 +4,14 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 
 import frc.robot.consoles.Logger;
 import frc.robot.subsystems.Pickup;
+import java.util.Timer;
 
-public class FeedPickup extends CommandBase {
+public class LowerPickup extends CommandBase {
 
     private Pickup m_pickup;
 
-    public FeedPickup(Pickup pickup) {
-        Logger.setup("Constructing Command: FeedPickup...");
+    public LowerPickup(Pickup pickup) {
+        Logger.setup("Constructing Command: LowerPickup...");
 
         // Add given subsystem requirements
         m_pickup = pickup;
@@ -19,26 +20,27 @@ public class FeedPickup extends CommandBase {
 
     @Override
     public void initialize() {
-        Logger.action("Initializing Command: FeedPickup...");
+        Logger.action("Initializing Command: LowerPickup...");
+            m_pickup.lowerPickup();
+            m_pickup.startRoller();
     }
 
     @Override
     public void execute() {
-        
     }
 
     @Override
     public boolean isFinished() {
+        //need something to stop
         return false;
     }
 
     @Override
     public void end(boolean interrupted) {
         if (interrupted) {
-            Logger.ending("Interrupting Command: FeedPickup...");
+            Logger.ending("Interrupting Command: LowerPickup...");
         } else {
-            Logger.ending("Ending Command: FeedPickup...");
+            Logger.ending("Ending Command: LowerPickup...");
         }
     }
-
 }

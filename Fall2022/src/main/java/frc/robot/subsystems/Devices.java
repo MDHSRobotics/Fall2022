@@ -28,4 +28,8 @@ public class Devices {
     public static Solenoid pickupSolenoidOne = new Solenoid(PneumaticsModuleType.CTREPCM, 0);
     public static Solenoid pickupSolenoidTwo = new Solenoid(PneumaticsModuleType.CTREPCM, 1);
 
+    // Conveyor
+    public static CANSparkMax sparkMaxConveyor = new CANSparkMax(0, MotorType.kBrushless);
+    
+
 }

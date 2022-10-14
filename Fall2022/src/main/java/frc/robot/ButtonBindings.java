@@ -10,7 +10,7 @@ public class ButtonBindings {
         Logger.setup("Configure Buttons -> Xbox Controller...");
 
         //Pickup
-        
+        BotControllers.xbox.btnB.whenPressed(BotCommands.spinConveyor);
 
     }
 

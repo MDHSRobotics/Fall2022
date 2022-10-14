@@ -14,9 +14,11 @@ public class BotCommands {
 
 	// Pickup
     public static TogglePickup togglePickup;
-    public static FeedPickup feedPickup;
     // Example Command to be used as a placeholder until real commands implemented
     public static ExampleCommand exampleCommand;
+    public static SpinConveyor spinConveyor;
+    public static StopConveyor stopConveyor;
+    public static RaisePickup raisePickup;
 
     // Auto Command options
     public static AutoCommand1 autoCommand1;
@@ -34,8 +36,11 @@ public class BotCommands {
         Logger.setup("Initializing BotCommands...");
 
         // Pickup
+        togglePickup = new TogglePickup(BotSubsystems.pickup);
+        spinConveyor = new SpinConveyor(BotSubsystems.conveyor);
+        stopConveyor = new StopConveyor(BotSubsystems.conveyor);
+        raisePickup = new RaisePickup(BotSubsystems.pickup);
         togglePickup =  new TogglePickup(BotSubsystems.pickup);
-        feedPickup = new FeedPickup(BotSubsystems.pickup);
 
         // Re-usable Example Command
         exampleCommand = new ExampleCommand(BotSubsystems.exampleSubsystem, "Default", 10);
@@ -49,9 +54,5 @@ public class BotCommands {
         autoCommandChooser.setDefaultOption("Auto Command One", BotCommands.autoCommand1);
         autoCommandChooser.addOption("Auto Command Two", BotCommands.autoCommand2);
 
-        // SwerveDriver
-        // swerveDrive = new SwerveDrive(BotSubsystems.swerveDriver, BotControllers.xbox);
-        // toggleDriverOrientation = new ToggleDriverOrientation(BotSubsystems.swerveDriver);
-        // driveBox = new DriveBox();
     }
 }

@@ -8,6 +8,7 @@ public class BotSubsystems {
     public static ExampleSubsystem exampleSubsystem;
     //public static SwerveDriver swerveDriver;
     public static Pickup pickup;
+    public static Conveyor conveyor;
 
     public static void initializeSubsystems() {
         Logger.setup("Initializing BotSubsystems...");
@@ -15,14 +16,15 @@ public class BotSubsystems {
         exampleSubsystem = new ExampleSubsystem();
         //swerveDriver = new SwerveDriver();
         pickup = new Pickup();
-    
+        conveyor = new Conveyor();
     }
 
     public static void setTeleopDefaultCommands() {
 
         // Pickup
         Logger.setup("Pickup Teleop Default Command -> FeedPickup...");
-        pickup.setDefaultCommand(BotCommands.feedPickup); 
+        conveyor.setDefaultCommand(BotCommands.stopConveyor); 
+        pickup.setDefaultCommand(BotCommands.raisePickup);
     }
 
 }
