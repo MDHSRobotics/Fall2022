@@ -21,8 +21,8 @@ public class Pickup extends SubsystemBase{
         pickupSolenoidTwo.set(false);
     }
 
-    public void startRoller() {
-        sparkMaxPickup.set(0.5);
+    public void startRoller(double power) {
+        sparkMaxPickup.set(power);
 
     }
 

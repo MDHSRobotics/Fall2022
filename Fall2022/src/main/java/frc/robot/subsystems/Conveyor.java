@@ -5,7 +5,7 @@ import frc.robot.consoles.Logger;
 import static frc.robot.subsystems.Devices.sparkMaxConveyor;
 
 public class Conveyor extends SubsystemBase{
-    
+
     public Conveyor() {
         Logger.setup("Constructing Subsystem: Delivery...");
     }
@@ -14,8 +14,8 @@ public class Conveyor extends SubsystemBase{
         sparkMaxConveyor.stopMotor();
     }
 
-    public void spinConveyor() {
-        sparkMaxConveyor.set(0.5);
+    public void spinConveyor(double power) {
+        sparkMaxConveyor.set(power);
     }
 
 }

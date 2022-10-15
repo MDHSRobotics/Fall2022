@@ -19,6 +19,7 @@ public class BotCommands {
     public static SpinConveyor spinConveyor;
     public static StopConveyor stopConveyor;
     public static RaisePickup raisePickup;
+    public static LowerPickup lowerPickup;
 
     // Auto Command options
     public static AutoCommand1 autoCommand1;
@@ -40,7 +41,7 @@ public class BotCommands {
         spinConveyor = new SpinConveyor(BotSubsystems.conveyor);
         stopConveyor = new StopConveyor(BotSubsystems.conveyor);
         raisePickup = new RaisePickup(BotSubsystems.pickup);
-        togglePickup =  new TogglePickup(BotSubsystems.pickup);
+        lowerPickup =  new LowerPickup(BotSubsystems.pickup);
 
         // Re-usable Example Command
         exampleCommand = new ExampleCommand(BotSubsystems.exampleSubsystem, "Default", 10);

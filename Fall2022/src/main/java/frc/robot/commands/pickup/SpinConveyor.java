@@ -1,7 +1,7 @@
 package frc.robot.commands.pickup;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-
+import frc.robot.brains.DeliveryBrain;
 import frc.robot.consoles.Logger;
 import frc.robot.subsystems.Conveyor;
 
@@ -24,7 +24,7 @@ public class SpinConveyor extends CommandBase {
 
     @Override
     public void execute() {
-        m_conveyor.spinConveyor();
+        m_conveyor.spinConveyor(DeliveryBrain.getConveyorPower());
     }
 
     @Override
