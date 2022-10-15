@@ -84,13 +84,6 @@ public class Robot extends TimedRobot {
     public void disabledPeriodic() {
     }
 
-<<<<<<< master
-    public Command getAutonomousCommand() {
-        return BotCommands.autoCommandChooser.getSelected();
-    }
-
-=======
->>>>>>> Set Pathweaver trajectories to run on autonomous mode
     /**
      * This autonomous runs the autonomous command selected by your {@link BotCommands} class.
      */
