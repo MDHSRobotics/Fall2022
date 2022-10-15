@@ -22,13 +22,13 @@ public class Pickup extends SubsystemBase{
     }
 
     public void startRoller() {
-        sparkMaxPickupLeft.set(0.5);
-        sparkMaxPickupRight.set(-0.5);
+        sparkMaxPickup.set(0.5);
+
     }
 
     public void stopRoller() {
-        sparkMaxPickupLeft.stopMotor();
-        sparkMaxPickupRight.stopMotor();
+        sparkMaxPickup.stopMotor();
+      
     }
 }
 

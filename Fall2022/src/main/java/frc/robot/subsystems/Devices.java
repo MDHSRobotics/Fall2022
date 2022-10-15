@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.Solenoid;
 
+import frc.robot.subsystems.constants.MotorIdConstants;
 // This class contains singleton (static) instances of id mapped subsystem components.
 // If a device is not connected at initialization, it should be set to null.
 // IMPORTANT: Only ONE subsystem should control any given device.
@@ -20,8 +21,7 @@ public class Devices {
     //////////////////////
 
     // Pickup
-    public static CANSparkMax sparkMaxPickupLeft = new CANSparkMax(0, MotorType.kBrushless);
-    public static CANSparkMax sparkMaxPickupRight = new CANSparkMax(0, MotorType.kBrushless);
+    public static CANSparkMax sparkMaxPickup = new CANSparkMax(MotorIdConstants.motorIdPickup, MotorType.kBrushless);
 
     // Pneumatics
     public static Compressor pcmCompressor = new Compressor(0, PneumaticsModuleType.CTREPCM);
@@ -29,7 +29,6 @@ public class Devices {
     public static Solenoid pickupSolenoidTwo = new Solenoid(PneumaticsModuleType.CTREPCM, 1);
 
     // Conveyor
-    public static CANSparkMax sparkMaxConveyor = new CANSparkMax(0, MotorType.kBrushless);
-    
+    public static CANSparkMax sparkMaxConveyor = new CANSparkMax(MotorIdConstants.motorIdConveyor, MotorType.kBrushless);
 
 }

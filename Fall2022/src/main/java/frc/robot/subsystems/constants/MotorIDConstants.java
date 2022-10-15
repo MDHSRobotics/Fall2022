@@ -1,6 +1,6 @@
 package frc.robot.subsystems.constants;
 
-public class MotorIDConstants {
+public class MotorIdConstants {
     //SparkMax Controllers
     public static final int motorIdLowerShooter = 10;
     public static final int motorIdUpperShooter = 11;
@@ -19,5 +19,5 @@ public class MotorIDConstants {
     public static final int motorIdTurnRL = 27;
     public static final int motorIdTurnRR = 29;
 
-    
+
 }
