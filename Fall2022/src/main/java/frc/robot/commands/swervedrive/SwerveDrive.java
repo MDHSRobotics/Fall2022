@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 import frc.robot.consoles.Logger;
+import frc.robot.oi.controllers.JoystickPositionAccessible;
 import frc.robot.oi.controllers.XboxPositionAccessible;
 import frc.robot.oi.movements.SwerveMovement;
 import frc.robot.subsystems.SwerveDriver;
@@ -15,14 +16,33 @@ import frc.robot.subsystems.constants.SwerveConstants.OIConstants;
 public class SwerveDrive extends CommandBase {
 
     private final SwerveDriver m_swerveDriver;
-    private final XboxPositionAccessible m_controller;
+    private final JoystickPositionAccessible m_jstickController;
+    private final XboxPositionAccessible m_xboxController;
     private final SlewRateLimiter m_forwardBackwardLimiter, m_sideToSideLimiter, m_rotationForwardBackLimiter, m_rotationSideToSideLimiter;
+    private static String m_chosenController; //jstick or xbox
+
+    public SwerveDrive (SwerveDriver swerveDriver, JoystickPositionAccessible controller) {
+        Logger.setup("Constructing Command: SwerveDrive...");
+
+        m_chosenController = "jstick";
+        m_swerveDriver = swerveDriver;
+        m_jstickController = controller;
+        m_xboxController = null;
+        m_forwardBackwardLimiter = new SlewRateLimiter(SwerveConstants.kTeleDriveMaxAccelerationUnitsPerSecond);
+        m_sideToSideLimiter = new SlewRateLimiter(SwerveConstants.kTeleDriveMaxAccelerationUnitsPerSecond);
+        m_rotationForwardBackLimiter = new SlewRateLimiter(SwerveConstants.kTeleDriveMaxAccelerationUnitsPerSecond);
+        m_rotationSideToSideLimiter = new SlewRateLimiter(SwerveConstants.kTeleDriveMaxAngularAccelerationUnitsPerSecond);
+
+        addRequirements(m_swerveDriver);
+    }
 
     public SwerveDrive (SwerveDriver swerveDriver, XboxPositionAccessible controller) {
         Logger.setup("Constructing Command: SwerveDrive...");
 
+        m_chosenController = "xbox";
         m_swerveDriver = swerveDriver;
-        m_controller = controller;
+        m_jstickController = null;
+        m_xboxController = controller;
         m_forwardBackwardLimiter = new SlewRateLimiter(SwerveConstants.kTeleDriveMaxAccelerationUnitsPerSecond);
         m_sideToSideLimiter = new SlewRateLimiter(SwerveConstants.kTeleDriveMaxAccelerationUnitsPerSecond);
         m_rotationForwardBackLimiter = new SlewRateLimiter(SwerveConstants.kTeleDriveMaxAccelerationUnitsPerSecond);
@@ -39,7 +59,14 @@ public class SwerveDrive extends CommandBase {
     @Override
     public void execute() {
         // 1. Get real-time joystick inputs
-        SwerveMovement joystickMovement = SwerveMovement.getMovement(m_controller, false);
+        SwerveMovement joystickMovement;
+
+        if (m_chosenController.equals("jstick")) {
+            joystickMovement = SwerveMovement.getMovement(m_jstickController, false);
+        } else {
+            joystickMovement = SwerveMovement.getMovement(m_xboxController, false);
+        }
+
         double forwardBackwardSpeed = joystickMovement.forwardBackwardSpeed;
         double sideToSideSpeed = joystickMovement.sideToSideSpeed;
         double rotationForwardBackwardSpeed = joystickMovement.rotationForwardBackwardSpeed;
@@ -64,7 +91,7 @@ public class SwerveDrive extends CommandBase {
         SmartDashboard.putString("08: Chassis velocity", String.format("X = %.2f; Y = %.2f, Turn = %.2f", forwardBackwardSpeed3, sideToSideSpeed3, rotationSideToSideSpeed3));
 
         // 5. Output each module states to wheels
-        m_swerveDriver.setChassisSpeed(forwardBackwardSpeed3, -sideToSideSpeed3, rotationSideToSideSpeed3);
+        m_swerveDriver.setChassisSpeed(-forwardBackwardSpeed3, -sideToSideSpeed3, rotationSideToSideSpeed3);
     }
 
     @Override
@@ -75,7 +102,6 @@ public class SwerveDrive extends CommandBase {
     @Override
     public void end(boolean interrupted) {
         if (interrupted) {
-            System.out.println("--");
             Logger.ending("Interrupting Command: SwerveDrive...");
         } else {
             Logger.ending("Ending Command: SwerveDrive...");

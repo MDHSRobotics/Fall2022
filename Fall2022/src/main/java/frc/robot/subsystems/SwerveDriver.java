@@ -86,12 +86,13 @@ public class SwerveDriver extends SubsystemBase {
     }
 
     public double getHeading() {
-        return Math.IEEEremainder(BotSensors.gyro.getAngle(), 360);
+        return Math.IEEEremainder(-BotSensors.gyro.getAngle(), 360);
     }
 
     // Returns the current rotation2D
     public Rotation2d getRotation2d() {
         return Rotation2d.fromDegrees(getHeading());
+        //return.Rotation2d.fromDegrees(0);
     }
 
     public Pose2d getPose() {
@@ -163,7 +164,7 @@ public class SwerveDriver extends SubsystemBase {
                     xSpeed, ySpeed, turningSpeed, getRotation2d());
         } else {
             // Relative to robot
-            chassisSpeeds = new ChassisSpeeds(xSpeed, -ySpeed, turningSpeed);
+            chassisSpeeds = new ChassisSpeeds(-xSpeed, ySpeed, -turningSpeed);
         }
 
         SmartDashboard.putString("06: Chassis Speeeds", chassisSpeeds.toString());
