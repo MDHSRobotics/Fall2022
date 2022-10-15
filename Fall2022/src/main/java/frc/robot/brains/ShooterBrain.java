@@ -23,6 +23,10 @@ public class ShooterBrain {
     public static double shootTargetFPSDefault = 0.;
     public static double shootTargetTPHMSDefault = 0.;
 
+
+    public static double shootPowerDefault = 0.1;
+    public static double shootScaleFactorDefault = 1.5;
+
     //---------------------//
     // NetworkTableEntries //
     //---------------------//
@@ -45,8 +49,15 @@ public class ShooterBrain {
     // Setters //
     //---------//
 
-    public static double shootPowerDefault = 0.;
-    public static double shootScaleFactorDefault = 4.0;
+    public static void setShooterPower(double value){
+        shootPowerEntry.setDouble(value);
+    }
+
+    public static void setScaleFactor(double value){
+        shootScaleFactorEntry.setDouble(value);
+    }
+
+
 
     public static void setTopWheelCurrentVelocity(double value) {
         shootTopWheelCurrentVelocityEntry.setDouble(value);
@@ -83,6 +94,16 @@ public class ShooterBrain {
     // Getters //
     //---------//
 
+    public static double getShooterPower(){
+        return shootPowerEntry.getDouble(shootPowerDefault);
+    }
+
+    public static double getScaleFactor(){
+        return shootScaleFactorEntry.getDouble(shootScaleFactorDefault);
+    }
+
+
+    
     public static double getBottomWheelVelocity() {
         return shootBottomWheelCurrentVelocityEntry.getDouble(shootBottomWheelCurrentVelocityDefault);
     }

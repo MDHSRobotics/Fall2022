@@ -34,6 +34,8 @@ public class Shooter extends SubsystemBase {
     // Shuffleboard
 
 
+
+
     public Shooter() {
         Logger.setup("Constructing Subsystem: Shooter...");
         sparkMaxShooterTopWheel.restoreFactoryDefaults();
@@ -42,11 +44,11 @@ public class Shooter extends SubsystemBase {
     }
 
     public void shoot(){
-        double topWheelVelocity = 0.2;
-        double bottomWheelFactor = 1.5;
+        double shootPower = ShooterBrain.getShooterPower();
+        double scaleFactor = ShooterBrain.getScaleFactor();
 
-        sparkMaxShooterTopWheel.set(topWheelVelocity);
-        sparkMaxShooterBottomWheel.set(-topWheelVelocity * bottomWheelFactor);
+        sparkMaxShooterTopWheel.set(shootPower / scaleFactor);
+        sparkMaxShooterBottomWheel.set(-shootPower);
     }
 
     // Stop the shooter
