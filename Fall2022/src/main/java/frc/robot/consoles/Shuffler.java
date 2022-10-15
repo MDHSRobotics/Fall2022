@@ -15,6 +15,7 @@ public class Shuffler {
     private InputsTab m_inputsTab;
     private DriveTab m_driveTab;
     private ClimbTab m_climbTab;
+    private ShootTab m_shootTab;
     private DeliveryTab m_deliveryTab;
 
     public Shuffler() {
@@ -23,6 +24,7 @@ public class Shuffler {
         m_inputsTab = new InputsTab();
         m_driveTab = new DriveTab();
         m_climbTab = new ClimbTab();
+        m_shootTab = new ShootTab();
         m_deliveryTab = new DeliveryTab();
     }
 
@@ -32,6 +34,7 @@ public class Shuffler {
         m_inputsTab.preInitialize();
         m_driveTab.preInitialize();
         m_climbTab.preInitialize();
+        m_shootTab.preInitialize();
         m_deliveryTab.preInitialize();
     }
 
@@ -41,6 +44,7 @@ public class Shuffler {
         m_inputsTab.initialize();
         m_driveTab.initialize();
         m_climbTab.initialize();
+        m_shootTab.initialize();
         m_deliveryTab.initialize();
     }
 
@@ -50,6 +54,7 @@ public class Shuffler {
         m_inputsTab.configure();
         m_driveTab.configure();
         m_climbTab.configure();
+        m_shootTab.configure();
         m_deliveryTab.configure();
 
         setupSmartdashboard();
@@ -60,6 +65,7 @@ public class Shuffler {
         m_inputsTab.update();
         m_driveTab.update();
         m_climbTab.update();
+        m_shootTab.update();
         m_deliveryTab.update();
     }
 

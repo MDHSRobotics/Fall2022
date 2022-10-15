@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 
 //import frc.robot.commands.swervedriver.*;
 import frc.robot.commands.auto.*;
+import frc.robot.commands.shoot.*;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.pickup.*;
 
@@ -26,12 +27,11 @@ public class BotCommands {
     public static AutoCommand2 autoCommand2;
     public static SendableChooser<Command> autoCommandChooser;
 
+	// Shooter
+    public static Shoot shoot;
+    public static Stop stopShooter;
 
-	// SwerveDriver
-    // public static SwerveDrive swerveDrive;
-    // public static ToggleDriverOrientation toggleDriverOrientation;
-    // public static DriveBox driveBox;
-
+    // Initialize all robot commands
     public static void initializeCommands() {
         
         Logger.setup("Initializing BotCommands...");
@@ -55,5 +55,8 @@ public class BotCommands {
         autoCommandChooser.setDefaultOption("Auto Command One", BotCommands.autoCommand1);
         autoCommandChooser.addOption("Auto Command Two", BotCommands.autoCommand2);
 
+        // Shooter
+        shoot = new Shoot(BotSubsystems.shooter);
+        stopShooter = new Stop(BotSubsystems.shooter);
     }
 }

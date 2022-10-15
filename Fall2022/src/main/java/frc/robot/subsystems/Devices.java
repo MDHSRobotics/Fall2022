@@ -31,4 +31,6 @@ public class Devices {
     // Conveyor
     public static CANSparkMax sparkMaxConveyor = new CANSparkMax(MotorIDConstants.motorIdConveyor, MotorType.kBrushless);
 
-}
+    public static CANSparkMax sparkMaxShooterTopWheel = new CANSparkMax(MotorIDConstants.motorIdTopShooter, MotorType.kBrushless);
+    public static CANSparkMax sparkMaxShooterBottomWheel = new CANSparkMax(MotorIDConstants.motorIdBottomShooter, MotorType.kBrushless);
+} 
