@@ -15,7 +15,7 @@ public class ClimbTab {
 
     private ShuffleboardLayout m_commandLayout;
 
-    private ComplexWidget m_commandWidget1, m_commandWidget2, m_commandWidget3;
+    private ComplexWidget m_commandWidget1, m_commandWidget2;
 
     // Constructor
     public ClimbTab() {
@@ -29,20 +29,16 @@ public class ClimbTab {
         m_commandLayout.withProperties(Map.of("Number of columns", 2));
         m_commandLayout.withProperties(Map.of("Number of rows", 3));
         m_commandLayout.withProperties(Map.of("Label position", "LEFT"));
-
     }
 
     // Create Brain Widgets
     public void preInitialize() {
-
-
     }
 
     // Create all other Widgets
     public void initialize() {
-        m_commandWidget1 = m_commandLayout.add("Example", BotCommands.exampleCommand);
-        m_commandWidget2 = m_commandLayout.add("Auto 1", BotCommands.autoCommand1);
-        m_commandWidget3 = m_commandLayout.add("Auto 2", BotCommands.autoCommand2);
+        m_commandWidget1 = m_commandLayout.add("Move Left Climb", BotCommands.moveLeftClimb);
+        m_commandWidget2 = m_commandLayout.add("Move Right Climb", BotCommands.moveRightClimb);
     }
 
     // Configure all Widgets

@@ -3,6 +3,8 @@ package frc.robot.subsystems;
 import com.revrobotics.CANSparkMax; 
 import com.revrobotics.CANSparkMaxLowLevel.MotorType; 
 
+import frc.robot.subsystems.constants.MotorIDConstants;
+
 // This class contains singleton (static) instances of id mapped subsystem components.
 // If a device is not connected at initialization, it should be set to null.
 // IMPORTANT: Only ONE subsystem should control any given device.
@@ -14,6 +16,6 @@ public class Devices {
     //////////////////////
 
     //Climb
-    public static CANSparkMax ClimberLeft = new CANSparkMax(55, MotorType.kBrushless); 
-    public static CANSparkMax ClimberRight = new CANSparkMax(56, MotorType.kBrushless); 
+    public static CANSparkMax sparkMaxLeftClimber = new CANSparkMax(MotorIDConstants.motorIdLeftClimb, MotorType.kBrushless); 
+    public static CANSparkMax sparkMaxRightClimber = new CANSparkMax(MotorIDConstants.motorIdRightClimb, MotorType.kBrushless); 
 }

@@ -8,16 +8,7 @@ public class ButtonBindings {
     // Configure xbox buttons
     public static void configureXbox() {
         Logger.setup("Configure Buttons -> Xbox Controller...");
-
-        // SwerveDrive
-        //BotControllers.xbox.btnStart.whenPressed(BotCommands.toggleDriverOrientation);
-        // BotControllers.xbox.btnB.whenPressed(BotCommands.driveBox);
         
-        //Climb
-        BotControllers.xbox.btnA.whileHeld(BotCommands.lowerClimb);
-        BotControllers.xbox.btnY.whileHeld(BotCommands.raiseClimb);
-        BotControllers.xbox.btnA.whenReleased(BotCommands.stopClimb);
-        BotControllers.xbox.btnY.whenReleased(BotCommands.stopClimb);
     }
 
 }
