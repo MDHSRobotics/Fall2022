@@ -42,11 +42,11 @@ public class Shooter extends SubsystemBase {
     }
 
     public void shoot(){
-        double topWheelVelocity = 0.1;
-        double bottomWheelFactor = 4;
+        double topWheelVelocity = 0.2;
+        double bottomWheelFactor = 1.5;
 
         sparkMaxShooterTopWheel.set(topWheelVelocity);
-        sparkMaxShooterBottomWheel.set(topWheelVelocity * bottomWheelFactor);
+        sparkMaxShooterBottomWheel.set(-topWheelVelocity * bottomWheelFactor);
     }
 
     // Stop the shooter

@@ -38,10 +38,15 @@ public class ShooterBrain {
     public static NetworkTableEntry shootDistanceEntry;
     public static NetworkTableEntry shootTargetFPSEntry;
     public static NetworkTableEntry shootTargetTPHMSEntry;
+    public static NetworkTableEntry shootPowerEntry;
+    public static NetworkTableEntry shootScaleFactorEntry;
 
     //---------//
     // Setters //
     //---------//
+
+    public static double shootPowerDefault = 0.;
+    public static double shootScaleFactorDefault = 4.0;
 
     public static void setTopWheelCurrentVelocity(double value) {
         shootTopWheelCurrentVelocityEntry.setDouble(value);
