@@ -3,27 +3,28 @@ package frc.robot;
 import frc.robot.consoles.Logger;
 import frc.robot.subsystems.*;
 
-// Contains singleton instances of all the subsystems on the robot.
 public class BotSubsystems {
 
     public static ExampleSubsystem exampleSubsystem;
     //public static SwerveDriver swerveDriver;
+    public static Pickup pickup;
+    public static Conveyor conveyor;
 
-    // Initialize all robot subsystems
     public static void initializeSubsystems() {
         Logger.setup("Initializing BotSubsystems...");
 
         exampleSubsystem = new ExampleSubsystem();
         //swerveDriver = new SwerveDriver();
+        pickup = new Pickup();
+        conveyor = new Conveyor();
     }
 
-    // Set all the subsystem "teleop" default commands
     public static void setTeleopDefaultCommands() {
 
-        // SwerveDriver
-        //Logger.setup("SwerveDriver Teleop Default Command -> SwerveDrive...");
-        //swerveDriver.setDefaultCommand(BotCommands.swerveDrive);
-
+        // Pickup
+        Logger.setup("Pickup Teleop Default Command -> FeedPickup...");
+        conveyor.setDefaultCommand(BotCommands.stopConveyor); 
+        pickup.setDefaultCommand(BotCommands.raisePickup);
     }
 
 }
