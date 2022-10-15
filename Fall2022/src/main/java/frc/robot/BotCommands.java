@@ -3,12 +3,11 @@ package frc.robot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.Command;
 
-//import frc.robot.commands.swervedriver.*;
 import frc.robot.commands.auto.*;
+import frc.robot.commands.climber.*;
 import frc.robot.commands.ExampleCommand;
 
 import frc.robot.consoles.Logger;
-import frc.robot.commands.climber.*;
 
 // Contains singleton instances of all the commands on the robot.
 public class BotCommands {
@@ -21,17 +20,9 @@ public class BotCommands {
     public static AutoCommand2 autoCommand2;
     public static SendableChooser<Command> autoCommandChooser;
 
-
-	// SwerveDriver
-    // public static SwerveDrive swerveDrive;
-    // public static ToggleDriverOrientation toggleDriverOrientation;
-    // public static DriveBox driveBox;
-
     //Climber
-
-    public static RaiseClimb raiseClimb;
-    public static LowerClimb lowerClimb;
-    public static StopClimb stopClimb;
+    public static MoveLeftClimb moveLeftClimb;
+    public static MoveRightClimb moveRightClimb;
 
     // Initialize all robot commands
     public static void initializeCommands() {
@@ -49,15 +40,9 @@ public class BotCommands {
         autoCommandChooser = new SendableChooser<>();
         autoCommandChooser.setDefaultOption("Auto Command One", BotCommands.autoCommand1);
         autoCommandChooser.addOption("Auto Command Two", BotCommands.autoCommand2);
-
-        // SwerveDriver
-        // swerveDrive = new SwerveDrive(BotSubsystems.swerveDriver, BotControllers.xbox);
-        // toggleDriverOrientation = new ToggleDriverOrientation(BotSubsystems.swerveDriver);
-        // driveBox = new DriveBox();
-        // Climber
         
-        raiseClimb = new RaiseClimb(BotSubsystems.Climber, BotControllers.xbox);
-        lowerClimb = new LowerClimb(BotSubsystems.Climber);  
-        stopClimb = new StopClimb(BotSubsystems.Climber);
+        // Climber
+        moveLeftClimb = new MoveLeftClimb(BotSubsystems.leftClimber);
+        moveRightClimb = new MoveRightClimb(BotSubsystems.rightClimber);
     }
 }

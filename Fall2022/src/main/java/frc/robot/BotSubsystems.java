@@ -7,24 +7,27 @@ import frc.robot.subsystems.*;
 public class BotSubsystems {
 
     public static ExampleSubsystem exampleSubsystem;
-    public static Climber Climber;
+    public static LeftClimber leftClimber;
+    public static RightClimber rightClimber;
 
     // Initialize all robot subsystems
     public static void initializeSubsystems() {
         Logger.setup("Initializing BotSubsystems...");
 
         exampleSubsystem = new ExampleSubsystem();
-        Climber = new Climber();
+        leftClimber = new LeftClimber();
+        rightClimber = new RightClimber();
     }
 
     // Set all the subsystem "teleop" default commands
     public static void setTeleopDefaultCommands() {
 
         // Climber
-        Logger.setup("PickerUpper Teleop Default Command -> Climber...");
-        Climber.setDefaultCommand(BotCommands.raiseClimb);
+        Logger.setup("Left Climber Teleop Default Command -> Move Left Climb...");
+        leftClimber.setDefaultCommand(BotCommands.moveLeftClimb);
 
-
+        Logger.setup("Right Climber Teleop Default Command -> Move Right Climb...");
+        rightClimber.setDefaultCommand(BotCommands.moveRightClimb);
     }
-
 }
+ 
