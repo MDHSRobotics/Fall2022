@@ -13,6 +13,7 @@ public class Shuffler {
     // Tabs
     private MainTab m_mainTab;
     private InputsTab m_inputsTab;
+    private JoystickTab m_jstickTab;
     private ClimbTab m_climbTab;
     private DeliveryTab m_deliveryTab;
     private ShootTab m_shootTab;
@@ -22,6 +23,7 @@ public class Shuffler {
         ShuffleLogger.logTrivial("Constructing Shuffler...");
         m_mainTab = new MainTab();
         m_inputsTab = new InputsTab();
+        m_jstickTab = new JoystickTab();
         m_climbTab = new ClimbTab();
         m_deliveryTab = new DeliveryTab();
         m_shootTab = new ShootTab();
@@ -32,6 +34,7 @@ public class Shuffler {
         ShuffleLogger.logTrivial("Pre-Initializing Shuffler...");
         m_mainTab.preInitialize();
         m_inputsTab.preInitialize();
+        m_jstickTab.preInitialize();
         m_climbTab.preInitialize();
         m_deliveryTab.preInitialize();
         m_shootTab.preInitialize();
@@ -42,6 +45,7 @@ public class Shuffler {
         ShuffleLogger.logTrivial("Initializing Shuffler...");
         m_mainTab.initialize();
         m_inputsTab.initialize();
+        m_jstickTab.initialize();
         m_climbTab.initialize();
         m_deliveryTab.initialize();
         m_shootTab.initialize();
@@ -52,6 +56,7 @@ public class Shuffler {
         ShuffleLogger.logTrivial("Configuring Shuffler...");
         m_mainTab.configure();
         m_inputsTab.configure();
+        m_jstickTab.configure();
         m_climbTab.configure();
         m_deliveryTab.configure();
         m_shootTab.configure();
@@ -63,11 +68,11 @@ public class Shuffler {
     public void update() {
         m_mainTab.update();
         m_inputsTab.update();
+        m_inputsTab.update();
         m_climbTab.update();
         m_deliveryTab.update();
         m_shootTab.update();
         m_driveTab.update();
-
     }
 
     // This is for stuff that can't be displayed easily in custom Shuffleboard tabs.

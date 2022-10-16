@@ -23,7 +23,7 @@ public class StopShoot extends CommandBase {
 
     m_shooter = subsystem;
 
-    Logger.setup("Constructing Command: Stop Shoot...");
+    Logger.setup("Constructing Command: StopShoot...");
 
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(m_shooter);
@@ -31,7 +31,7 @@ public class StopShoot extends CommandBase {
 
   @Override
   public void initialize() {
-    Logger.action("Initializing Command: Stop Shoot...");
+    Logger.action("Initializing Command: StopShoot...");
   }
 
   @Override
@@ -48,9 +48,9 @@ public class StopShoot extends CommandBase {
   @Override
   public void end(boolean interrupted) {
     if (interrupted) {
-        Logger.ending("Interrupting Command: Stop Shoot...");
+        Logger.ending("Interrupting Command: StopShoot...");
     } else {
-        Logger.ending("Ending Command: Stop Shoot...");
+        Logger.ending("Ending Command: StopShoot...");
     }
   }
 

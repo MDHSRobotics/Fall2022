@@ -16,6 +16,7 @@
   "NTProvider": {
     "types": {
       "/FMSInfo": "FMSInfo",
+      "/LiveWindow/Climber": "Subsystem",
       "/LiveWindow/ExampleSubsystem": "Subsystem",
       "/LiveWindow/Module Front Left/Drive Motor": "Motor Controller",
       "/LiveWindow/Module Front Left/Turning Motor": "Motor Controller",
@@ -34,7 +35,6 @@
       "/LiveWindow/Ungrouped/PIDController[5]": "PIDController",
       "/LiveWindow/Ungrouped/PIDController[6]": "PIDController",
       "/LiveWindow/Ungrouped/PIDController[7]": "PIDController",
-      "/LiveWindow/Climber": "Subsystem",
       "/LiveWindow/Ungrouped/Scheduler": "Scheduler",
       "/LiveWindow/Ungrouped/navX-Sensor[4]": "Gyro",
       "/Shuffleboard/Climb/Commands/Auto 1": "Command",

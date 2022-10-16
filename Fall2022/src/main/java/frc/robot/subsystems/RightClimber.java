@@ -3,15 +3,16 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import frc.robot.BotControllers;
-import static frc.robot.subsystems.Devices.sparkMaxRightClimber;
-
 import frc.robot.consoles.Logger;
+import static frc.robot.subsystems.Devices.sparkMaxRightClimber;
 
 public class RightClimber extends SubsystemBase {
 
     private double m_rightThumbstickPosition;
 
     public RightClimber() {
+        Logger.setup("Constructing Subsystem: RightClimber...");
+
         sparkMaxRightClimber.restoreFactoryDefaults();
     } 
 

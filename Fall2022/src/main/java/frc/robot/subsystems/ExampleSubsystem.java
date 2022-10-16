@@ -6,9 +6,13 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
+import frc.robot.consoles.Logger;
+
 public class ExampleSubsystem extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
-  public ExampleSubsystem() {}
+  public ExampleSubsystem() {
+    Logger.setup("Constructing Subsystem: ExampleSubsystem...");
+  }
 
   @Override
   public void periodic() {

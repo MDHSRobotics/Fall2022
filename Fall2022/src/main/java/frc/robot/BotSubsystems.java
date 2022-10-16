@@ -11,6 +11,7 @@ public class BotSubsystems {
     public static Conveyor conveyor;
     public static Pickup pickup;
     public static Shooter shooter; 
+    public static SwerveDriver swerveDriver;
 
     public static void initializeSubsystems() {
         Logger.setup("Initializing BotSubsystems...");
@@ -21,6 +22,7 @@ public class BotSubsystems {
         conveyor = new Conveyor();
         pickup = new Pickup();
         shooter = new Shooter();
+        swerveDriver = new SwerveDriver();
     }
 
     public static void setTeleopDefaultCommands() {
@@ -42,6 +44,10 @@ public class BotSubsystems {
         // Shooter
         Logger.setup("Shooter Teleop Default Command -> StopShoot...");
         shooter.setDefaultCommand(BotCommands.stopShooter);
+
+        // SwerveDriver
+        Logger.setup("SwerveDriver Teleop Default Command -> SwerveDrive...");
+        swerveDriver.setDefaultCommand(BotCommands.swerveDrive);
 
     }
 }
