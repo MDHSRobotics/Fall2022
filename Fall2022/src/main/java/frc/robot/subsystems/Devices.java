@@ -41,7 +41,7 @@ public class Devices {
     public static CANSparkMax sparkMaxShooterTopWheel = new CANSparkMax(MotorIDConstants.motorIdTopShooter, MotorType.kBrushless);
     public static CANSparkMax sparkMaxShooterBottomWheel = new CANSparkMax(MotorIDConstants.motorIdBottomShooter, MotorType.kBrushless);  
 
-    // Swerve Drive
+    // SwerveDrive
     public static DevTalonFX talonFxSwerveDriveFL = new DevTalonFX("talonFxSwerveDriveWheelFrontLeft", MotorIDConstants.motorIdDriveFL);
     public static DevTalonFX talonFxSwerveDriveFR = new DevTalonFX("talonFxSwerveDriveWheelFrontRight", MotorIDConstants.motorIdDriveFR);
     public static DevTalonFX talonFxSwerveDriveRL = new DevTalonFX("talonFxSwerveDriveWheelRearLeft", MotorIDConstants.motorIdDriveRL);
@@ -55,5 +55,8 @@ public class Devices {
     public static CANCoder canCoderRR = new CANCoder(3);
     public static CANCoder canCoderFL = new CANCoder(2);
     public static CANCoder canCoderRL = new CANCoder(1);
+
+    // SparkMax Test
+    public static CANSparkMax sparkMaxTestMotor = new CANSparkMax(1, MotorType.kBrushless);
 
 } 

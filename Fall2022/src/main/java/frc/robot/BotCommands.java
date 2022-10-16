@@ -9,7 +9,7 @@ import frc.robot.commands.climber.*;
 import frc.robot.commands.pickup.*;
 import frc.robot.commands.shoot.*;
 import frc.robot.commands.swervedrive.*;
-
+import frc.robot.commands.test.*;
 import frc.robot.consoles.Logger;
 
 public class BotCommands {
@@ -37,12 +37,16 @@ public class BotCommands {
 
     // Shooter
     public static Shoot shoot;
-    public static StopShoot stopShooter;
+    public static StopShoot stopShoot;
 
     // SwerveDriver
     public static SwerveDrive swerveDrive;
     public static ToggleDriverOrientation toggleDriverOrientation;
     public static DriveBox driveBox;
+
+    // SparkMax Test
+    public static SpinTestMotor spinTestMotor;
+    public static StopTestMotor stopTestMotor;
 
     // Initialize all robot commands
     public static void initializeCommands() {
@@ -76,12 +80,16 @@ public class BotCommands {
 
         // Shooter
         shoot = new Shoot(BotSubsystems.shooter);
-        stopShooter = new StopShoot(BotSubsystems.shooter);
+        stopShoot = new StopShoot(BotSubsystems.shooter);
 
         // SwerveDriver
         swerveDrive = new SwerveDrive(BotSubsystems.swerveDriver, BotControllers.jstick); 
         toggleDriverOrientation = new ToggleDriverOrientation(BotSubsystems.swerveDriver);
         driveBox = new DriveBox();
+
+        // SparkMax Test
+        spinTestMotor = new SpinTestMotor(BotSubsystems.sparkMaxTester);
+        stopTestMotor = new StopTestMotor(BotSubsystems.sparkMaxTester);
 
     }
 }

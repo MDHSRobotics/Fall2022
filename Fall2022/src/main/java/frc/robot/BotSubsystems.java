@@ -12,10 +12,11 @@ public class BotSubsystems {
     public static Pickup pickup;
     public static Shooter shooter; 
     public static SwerveDriver swerveDriver;
+    public static SparkMaxTester sparkMaxTester;
 
     public static void initializeSubsystems() {
         Logger.setup("Initializing BotSubsystems...");
-
+    
         exampleSubsystem = new ExampleSubsystem();
         leftClimber = new LeftClimber();
         rightClimber = new RightClimber();
@@ -23,6 +24,7 @@ public class BotSubsystems {
         pickup = new Pickup();
         shooter = new Shooter();
         swerveDriver = new SwerveDriver();
+        sparkMaxTester = new SparkMaxTester();
     }
 
     public static void setTeleopDefaultCommands() {
@@ -43,11 +45,15 @@ public class BotSubsystems {
 
         // Shooter
         Logger.setup("Shooter Teleop Default Command -> StopShoot...");
-        shooter.setDefaultCommand(BotCommands.stopShooter);
+        shooter.setDefaultCommand(BotCommands.stopShoot);
 
         // SwerveDriver
         Logger.setup("SwerveDriver Teleop Default Command -> SwerveDrive...");
         swerveDriver.setDefaultCommand(BotCommands.swerveDrive);
+        
+        //SparkMax Test
+        Logger.setup("SparkMaxTester Teleop Default Command -> StopTestMotor...");
+        sparkMaxTester.setDefaultCommand(BotCommands.stopTestMotor);
 
     }
 }

@@ -54,7 +54,7 @@ public class ShootTab {
         m_shoot = m_commandLayout.add("Shoot", BotCommands.shoot);
 
         // Stop Shooter Command
-        m_stopShoot = m_commandLayout.add("Stop Shooter", BotCommands.stopShooter);
+        m_stopShoot = m_commandLayout.add("Stop Shooter", BotCommands.stopShoot);
     }
 
     // Configure all Widgets

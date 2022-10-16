@@ -9,7 +9,6 @@ public class ButtonBindings {
         
         // SwerveDrive
         BotControllers.jstick.jstickBtn7.whenPressed(BotCommands.toggleDriverOrientation);
-        BotControllers.jstick.jstickBtn8.whenPressed(BotCommands.driveBox);
 
     }
 
@@ -25,7 +24,9 @@ public class ButtonBindings {
 
         // SwerveDrive
         BotControllers.xbox.btnStart.whenPressed(BotCommands.toggleDriverOrientation);
-        BotControllers.xbox.btnB.whenPressed(BotCommands.driveBox);
+
+        //SparkMax Test
+        BotControllers.xbox.btnStart.whileHeld(BotCommands.spinTestMotor);
 
     }
 
