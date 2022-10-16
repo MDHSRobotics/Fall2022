@@ -37,7 +37,6 @@ public class ToggleDriverOrientation extends CommandBase {
     @Override
     public void end(boolean interrupted) {
         if (interrupted) {
-            System.out.println("--");
             Logger.ending("Interrupting Command: ToggleDriverOrientation...");
         } else {
             Logger.ending("Ending Command: ToggleDriverOrientation...");

@@ -62,7 +62,6 @@ public class TimedSwerve extends CommandBase {
     public void end(boolean interrupted) {
         double currentTime = m_timer.get();
         if (interrupted) {
-            System.out.println("--");
             Logger.ending(String.format("Interrupting Command: TimedSwerve... Current Time: %.2f", currentTime));
         } else {
             Logger.ending(String.format("Ending Command: TimedSwerve... Current Time: %.2f", currentTime));
