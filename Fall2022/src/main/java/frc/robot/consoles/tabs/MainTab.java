@@ -1,12 +1,12 @@
 
 package frc.robot.consoles.tabs;
 
-import java.util.Map;
-
 import edu.wpi.first.wpilibj.shuffleboard.*;
 
 import frc.robot.consoles.ShuffleLogger;
 import frc.robot.BotCommands;
+
+import java.util.Map;
 
 // The Shuffleboard Main tab.
 public class MainTab {

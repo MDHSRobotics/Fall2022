@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 
 import frc.robot.consoles.Logger;
 import frc.robot.subsystems.Pickup;
+
 import java.util.Timer;
 
 public class RaisePickup extends CommandBase {
@@ -43,4 +44,5 @@ public class RaisePickup extends CommandBase {
             Logger.ending("Ending Command: RaisePickup...");
         }
     }
+    
 }

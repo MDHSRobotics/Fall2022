@@ -11,23 +11,25 @@ public class DeliveryBrain {
     //----------------//
     // Default Values //
     //----------------//
+
     public static double spinPowerDefault = 0.1;
     public static double conveyorPowerDefault = 0.1;
-
-
 
     //---------------------//
     // NetworkTableEntries //
     //---------------------//
+
     public static NetworkTableEntry spinPowerEntry;
     public static NetworkTableEntry conveyorPowerEntry;
 
     //---------//
     // Setters //
     //---------//
+
     public static void setSpinPower(double value){
         spinPowerEntry.setDouble(value);
     }
+
     public static void setConveyorPower(double value){
         conveyorPowerEntry.setDouble(value);
     }
@@ -35,12 +37,13 @@ public class DeliveryBrain {
     //---------//
     // Getters //
     //---------//
+
     public static double getSpinPower(){
         return spinPowerEntry.getDouble(spinPowerDefault);
     }
+
     public static double getConveyorPower(){
         return conveyorPowerEntry.getDouble(conveyorPowerDefault);
     }
-   
 
 }

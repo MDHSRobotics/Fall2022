@@ -1,7 +1,8 @@
 
 package frc.robot;
-import frc.robot.oi.controllers.XboxControllerContainer;
+
 import frc.robot.consoles.Logger;
+import frc.robot.oi.controllers.XboxControllerContainer;
 
 // This class contains the robot controllers and defined ports.
 public class BotControllers {

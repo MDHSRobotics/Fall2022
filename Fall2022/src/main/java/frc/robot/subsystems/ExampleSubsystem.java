@@ -23,4 +23,5 @@ public class ExampleSubsystem extends SubsystemBase {
   public void doSomething() {
     // Not much to do since this is an example
   }
+  
 }

@@ -4,17 +4,20 @@ import java.util.*;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.DemandType;
+
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import frc.robot.brains.RobotBrain;
 import frc.robot.brains.ShooterBrain;
-import frc.robot.consoles.Logger;
+
+import static frc.robot.subsystems.constants.EncoderConstants.*;
 import frc.robot.subsystems.utils.EncoderUtils;
 import frc.robot.subsystems.utils.PIDValues;
 
-import static frc.robot.subsystems.constants.EncoderConstants.*;
 import static frc.robot.subsystems.Devices.sparkMaxShooterBottomWheel;
 import static frc.robot.subsystems.Devices.sparkMaxShooterTopWheel;
+
+import frc.robot.consoles.Logger;
 import static frc.robot.RobotManager.isReal;
 
 // Shooter subsystem, for shooting balls with two flywheels.
@@ -32,9 +35,6 @@ public class Shooter extends SubsystemBase {
     private static final boolean MOTOR_INVERT_TOP = false;
 
     // Shuffleboard
-
-
-
 
     public Shooter() {
         Logger.setup("Constructing Subsystem: Shooter...");
@@ -112,4 +112,5 @@ public class Shooter extends SubsystemBase {
 
         return targetTPHMS;
     }
+
 }

@@ -57,8 +57,6 @@ public class ShooterBrain {
         shootScaleFactorEntry.setDouble(value);
     }
 
-
-
     public static void setTopWheelCurrentVelocity(double value) {
         shootTopWheelCurrentVelocityEntry.setDouble(value);
     }
@@ -90,6 +88,7 @@ public class ShooterBrain {
     public static void setTargetTPHMS(double value) {
         shootTargetTPHMSEntry.setDouble(value);
     }
+
     //---------//
     // Getters //
     //---------//
@@ -101,8 +100,6 @@ public class ShooterBrain {
     public static double getScaleFactor(){
         return shootScaleFactorEntry.getDouble(shootScaleFactorDefault);
     }
-
-
     
     public static double getBottomWheelVelocity() {
         return shootBottomWheelCurrentVelocityEntry.getDouble(shootBottomWheelCurrentVelocityDefault);

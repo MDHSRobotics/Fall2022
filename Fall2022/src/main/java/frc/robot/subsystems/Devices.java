@@ -20,6 +20,10 @@ public class Devices {
     // Device Instances //
     //////////////////////
 
+    //Climb
+    public static CANSparkMax sparkMaxLeftClimber = new CANSparkMax(MotorIDConstants.motorIdLeftClimb, MotorType.kBrushless);  
+    public static CANSparkMax sparkMaxRightClimber = new CANSparkMax(MotorIDConstants.motorIdRightClimb, MotorType.kBrushless);
+
     // Pickup
     public static CANSparkMax sparkMaxPickup = new CANSparkMax(MotorIDConstants.motorIdPickup, MotorType.kBrushless);
 
@@ -31,6 +35,9 @@ public class Devices {
     // Conveyor
     public static CANSparkMax sparkMaxConveyor = new CANSparkMax(MotorIDConstants.motorIdConveyor, MotorType.kBrushless);
 
+    // Shoot
     public static CANSparkMax sparkMaxShooterTopWheel = new CANSparkMax(MotorIDConstants.motorIdTopShooter, MotorType.kBrushless);
-    public static CANSparkMax sparkMaxShooterBottomWheel = new CANSparkMax(MotorIDConstants.motorIdBottomShooter, MotorType.kBrushless);
+    public static CANSparkMax sparkMaxShooterBottomWheel = new CANSparkMax(MotorIDConstants.motorIdBottomShooter, MotorType.kBrushless);  
+
 } 
+    

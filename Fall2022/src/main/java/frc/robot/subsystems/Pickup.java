@@ -30,5 +30,6 @@ public class Pickup extends SubsystemBase{
         sparkMaxPickup.stopMotor();
       
     }
+    
 }
 

@@ -2,13 +2,12 @@
 package frc.robot.consoles.tabs;
 
 import edu.wpi.first.wpilibj.shuffleboard.*;
-import java.util.Map;
 
-/*
-import frc.robot.BotSubsystems;
-import frc.robot.brains.SwerveDriverBrain;
-*/
+//import frc.robot.BotSubsystems;
+//import frc.robot.brains.SwerveDriverBrain;
 import frc.robot.consoles.ShuffleLogger;
+
+import java.util.Map;
 
 // The Shuffleboard Drive tab.
 public class DriveTab {

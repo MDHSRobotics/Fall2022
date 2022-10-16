@@ -4,9 +4,10 @@
 
 package frc.robot.commands;
 
-import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.CommandBase;
+
 import frc.robot.consoles.Logger;
+import frc.robot.subsystems.ExampleSubsystem;
 
 /** An example command that uses an example subsystem. */
 public class ExampleCommand extends CommandBase {
@@ -56,7 +57,6 @@ public class ExampleCommand extends CommandBase {
   @Override
   public void end(boolean interrupted) {
     if (interrupted) {
-        System.out.println("--");
         Logger.ending("Interrupting Command: Example (" + m_commandName + ") ...");
     } else {
         Logger.ending("Ending Command: Example (" + m_commandName + ") ...");

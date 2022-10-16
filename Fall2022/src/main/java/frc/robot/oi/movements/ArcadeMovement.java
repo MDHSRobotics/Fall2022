@@ -24,4 +24,5 @@ public class ArcadeMovement {
         ArcadeMovement move = new ArcadeMovement(pos.leftForwardBackPosition, pos.leftSideToSidePosition);
         return move;
     }
+    
 }

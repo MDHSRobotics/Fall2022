@@ -2,6 +2,7 @@ package frc.robot.commands.auto;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.PrintCommand;
+
 import frc.robot.BotSubsystems;
 import frc.robot.commands.ExampleCommand;
 
@@ -24,6 +25,7 @@ public class AutoCommand2 extends SequentialCommandGroup {
 
             new PrintCommand("Ending Command Group for AutoCommand2 ...")
         );
+
     }
 
 }

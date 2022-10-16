@@ -9,10 +9,11 @@ public class ButtonBindings {
     public static void configureXbox() {
         Logger.setup("Configure Buttons -> Xbox Controller...");
 
+        // Pickup
+        BotControllers.xbox.btnB.whenPressed(BotCommands.spinConveyor);
+
         // Shooter
         BotControllers.xbox.btnBumperLeft.whenHeld(BotCommands.shoot);
-        //Pickup
-        BotControllers.xbox.btnB.whenPressed(BotCommands.spinConveyor);
 
     }
 

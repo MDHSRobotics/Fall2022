@@ -2,11 +2,11 @@
 package frc.robot.consoles.tabs;
 
 import edu.wpi.first.wpilibj.shuffleboard.*;
-import java.util.Map;
 
 import frc.robot.brains.XboxBrain;
-
 import frc.robot.consoles.ShuffleLogger;
+
+import java.util.Map;
 
 // The Shuffleboard Inputs tab.
 public class InputsTab {

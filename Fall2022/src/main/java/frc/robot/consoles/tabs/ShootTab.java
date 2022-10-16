@@ -1,11 +1,12 @@
 package frc.robot.consoles.tabs;
 
 import edu.wpi.first.wpilibj.shuffleboard.*;
-import java.util.Map;
 
-import frc.robot.consoles.ShuffleLogger;
 import frc.robot.BotCommands;
 import frc.robot.brains.*;
+import frc.robot.consoles.ShuffleLogger;
+
+import java.util.Map;
 
 // The Shuffleboard Aim tab.
 public class ShootTab {

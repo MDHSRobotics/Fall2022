@@ -4,9 +4,10 @@
 
 package frc.robot.commands.shoot;
 
-import frc.robot.subsystems.Shooter;
 import edu.wpi.first.wpilibj2.command.CommandBase;
+
 import frc.robot.consoles.Logger;
+import frc.robot.subsystems.Shooter;
 
 /** An example command that uses an example subsystem. */
 public class Shoot extends CommandBase {
@@ -22,7 +23,7 @@ public class Shoot extends CommandBase {
 
     m_shooter = subsystem;
 
-    Logger.setup("Constructing Command: Shoot Command...");
+    Logger.setup("Constructing Command: Shoot...");
 
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(m_shooter);
@@ -30,7 +31,7 @@ public class Shoot extends CommandBase {
 
   @Override
   public void initialize() {
-    Logger.action("Initializing Command: Shoot Command...");
+    Logger.action("Initializing Command: Shoot...");
   }
 
   @Override
@@ -47,9 +48,9 @@ public class Shoot extends CommandBase {
   @Override
   public void end(boolean interrupted) {
     if (interrupted) {
-        Logger.ending("Interrupting Command: Shoot Command...");
+        Logger.ending("Interrupting Command: Shoot...");
     } else {
-        Logger.ending("Ending Command: Shoot Command...");
+        Logger.ending("Ending Command: Shoot...");
     }
   }
 
