@@ -5,25 +5,25 @@
 package frc.robot.commands.shoot;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.BotSubsystems;
+
 import frc.robot.consoles.Logger;
 import frc.robot.subsystems.Shooter;
 
 /** An example command that uses an example subsystem. */
-public class StopShoot extends CommandBase {
+public class ShootVelocity extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final Shooter m_shooter;
 
   /**
-   * Creates a new Stop.
+   * Creates a new Shoot Velocity.
    *
    * @param subsystem The subsystem used by this command.
    */
-  public StopShoot(Shooter subsystem) {
+  public ShootVelocity(Shooter subsystem) {
 
     m_shooter = subsystem;
 
-    Logger.setup("Constructing Command: StopShoot...");
+    Logger.setup("Constructing Command: Shoot Velocity...");
 
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(m_shooter);
@@ -31,12 +31,12 @@ public class StopShoot extends CommandBase {
 
   @Override
   public void initialize() {
-    Logger.action("Initializing Command: StopShoot...");
+    Logger.action("Initializing Command: Shoot Velocity...");
   }
 
   @Override
   public void execute() {
-    m_shooter.stop();
+    m_shooter.shootVel();
   }
 
   // This command continues until interrupted
@@ -48,9 +48,9 @@ public class StopShoot extends CommandBase {
   @Override
   public void end(boolean interrupted) {
     if (interrupted) {
-        Logger.ending("Interrupting Command: StopShoot...");
+        Logger.ending("Interrupting Command: Shoot Velocity...");
     } else {
-        Logger.ending("Ending Command: StopShoot...");
+        Logger.ending("Ending Command: Shoot Velocity...");
     }
   }
 

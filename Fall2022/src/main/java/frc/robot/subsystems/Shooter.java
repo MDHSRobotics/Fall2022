@@ -14,6 +14,10 @@ import static frc.robot.subsystems.constants.EncoderConstants.*;
 import frc.robot.subsystems.utils.EncoderUtils;
 import frc.robot.subsystems.utils.PIDValues;
 
+import com.revrobotics.RelativeEncoder;
+import com.revrobotics.SparkMaxPIDController;
+import com.revrobotics.CANSparkMax;
+
 import static frc.robot.subsystems.Devices.sparkMaxShooterBottomWheel;
 import static frc.robot.subsystems.Devices.sparkMaxShooterTopWheel;
 
@@ -22,6 +26,9 @@ import static frc.robot.RobotManager.isReal;
 
 // Shooter subsystem, for shooting balls with two flywheels.
 public class Shooter extends SubsystemBase {
+
+    private SparkMaxPIDController m_topPidController, m_bottomPidController;
+    private RelativeEncoder m_topEncoder, m_bottomEncoder;
 
     // Mechanical constants
     private final double GEAR_RATIO = 4.0; // (MS : GS)
@@ -41,6 +48,12 @@ public class Shooter extends SubsystemBase {
 
         sparkMaxShooterTopWheel.restoreFactoryDefaults();
         sparkMaxShooterBottomWheel.restoreFactoryDefaults();
+        
+        m_topPidController = sparkMaxShooterTopWheel.getPIDController();
+        m_bottomPidController = sparkMaxShooterBottomWheel.getPIDController();
+
+        m_topEncoder = sparkMaxShooterTopWheel.getEncoder();
+        m_bottomEncoder = sparkMaxShooterBottomWheel.getEncoder();
     }
 
     public void shoot(){
@@ -49,6 +62,28 @@ public class Shooter extends SubsystemBase {
 
         sparkMaxShooterTopWheel.set(shootPower / scaleFactor);
         sparkMaxShooterBottomWheel.set(-shootPower);
+    }
+
+    public void shootMin(){
+        sparkMaxShooterTopWheel.set(0.0);
+        sparkMaxShooterBottomWheel.set(0.0);
+    }
+
+    public void shootMid(){
+        sparkMaxShooterTopWheel.set(0.0);
+        sparkMaxShooterBottomWheel.set(0.0);
+    }
+
+    public void shootMax(){
+        sparkMaxShooterTopWheel.set(0.0);
+        sparkMaxShooterBottomWheel.set(0.0);
+    }
+
+    public void shootVel(){
+        double shootVelocity = ShooterBrain.getShootVel();
+        double shootVelSF = ShooterBrain.getShootVelSF();
+        m_topPidController.setReference((shootVelocity/shootVelSF),CANSparkMax.ControlType.kVelocity);
+        m_bottomPidController.setReference(shootVelocity,CANSparkMax.ControlType.kVelocity);
     }
 
     // Stop the shooter
@@ -60,6 +95,31 @@ public class Shooter extends SubsystemBase {
     @Override
     public void periodic() {
         // This method will be called once per scheduler run
+
+        double kP = ShooterBrain.getkP();
+        double kI = ShooterBrain.getkI();
+        double kD = ShooterBrain.getkD();
+        double kIz = ShooterBrain.getkIz();
+        double kFF = ShooterBrain.getkFF();
+        double kMaxOutput = ShooterBrain.getkMaxOutput();
+        double kMinOutput = ShooterBrain.getkMinOutput();
+
+        m_bottomPidController.setP(kP);
+        m_bottomPidController.setI(kI);
+        m_bottomPidController.setD(kD);
+        m_bottomPidController.setIZone(kIz);
+        m_bottomPidController.setFF(kFF);
+        m_bottomPidController.setOutputRange(kMinOutput, kMaxOutput);
+
+        m_topPidController.setP(kP);
+        m_topPidController.setI(kI);
+        m_topPidController.setD(kD);
+        m_topPidController.setIZone(kIz);
+        m_topPidController.setFF(kFF);
+        m_topPidController.setOutputRange(kMinOutput, kMaxOutput);
+
+        ShooterBrain.topEncoderVelocityDefault = m_topEncoder.getVelocity();
+        ShooterBrain.bottomEncoderVelocityDefault = m_bottomEncoder.getVelocity();     
     }
 
     // Translate a desired target velocity in feet per second to a motor speed in Ticks per 100 ms.
