@@ -19,11 +19,12 @@ public class DeliveryTab {
 
     private ShuffleboardLayout m_commandLayout, m_deliveryLayout;
 
-    private ComplexWidget m_commandWidget1, m_commandWidget2, m_commandWidget3, m_commandWidget4, m_commandWidget5;
+    private ComplexWidget m_commandWidget1, m_commandWidget2, m_commandWidget3, m_commandWidget4, m_commandWidget5, m_commandWidget6, m_commandWidget7, m_commandWidget8;
 
     // Constructor
     public DeliveryTab() {
         ShuffleLogger.logTrivial("Constructing DeliveryTab...");
+        
 
         m_tab = Shuffleboard.getTab("Delivery");
 
@@ -31,7 +32,7 @@ public class DeliveryTab {
         m_commandLayout.withPosition(0, 0);
         m_commandLayout.withSize(2, 2);
         m_commandLayout.withProperties(Map.of("Number of columns", 2));
-        m_commandLayout.withProperties(Map.of("Number of rows", 3));
+        m_commandLayout.withProperties(Map.of("Number of rows", 5));
         m_commandLayout.withProperties(Map.of("Label position", "LEFT"));
 
         m_deliveryLayout = m_tab.getLayout("Delivery Constants", BuiltInLayouts.kList);
@@ -57,9 +58,12 @@ public class DeliveryTab {
     public void initialize() {
         m_commandWidget1 = m_commandLayout.add("Lower Pickup", BotCommands.lowerPickup);
         m_commandWidget2 = m_commandLayout.add("Raise Pickup", BotCommands.raisePickup);
-        m_commandWidget3 = m_commandLayout.add("Spin Conveyor", BotCommands.spinConveyor);
-        m_commandWidget4 = m_commandLayout.add("Stop Conveyor", BotCommands.stopConveyor);
-        m_commandWidget5 = m_commandLayout.add("Toggle Pickup", BotCommands.togglePickup);
+        m_commandWidget3 = m_commandLayout.add("Spin Roller", BotCommands.spinRoller);
+        m_commandWidget4 = m_commandLayout.add("Stop Roller", BotCommands.stopRoller);
+        m_commandWidget5 = m_commandLayout.add("Spin Conveyor", BotCommands.spinConveyor);
+        m_commandWidget6 = m_commandLayout.add("Stop Conveyor", BotCommands.stopConveyor);
+        m_commandWidget7 = m_commandLayout.add("Toggle Pickup", BotCommands.togglePickup);
+        m_commandWidget8 = m_commandLayout.add("Toggle Intake", BotCommands.toggleIntake);
 
     }
 

@@ -27,7 +27,7 @@ public class TogglePickup extends CommandBase {
         
         if (!m_isPickupLowered) {
             m_pickup.lowerPickup();
-            m_pickup.startRoller(DeliveryBrain.getSpinPower());
+            m_pickup.spinRoller(DeliveryBrain.getSpinPower());
         } else {
             m_pickup.raisePickup();
             m_pickup.stopRoller();

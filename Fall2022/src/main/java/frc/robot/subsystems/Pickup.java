@@ -16,16 +16,16 @@ public class Pickup extends SubsystemBase{
     }
 
     public void lowerPickup() {
-        pickupSolenoidOne.set(true);
-        pickupSolenoidTwo.set(true);
-    }
-
-    public void raisePickup() {
         pickupSolenoidOne.set(false);
         pickupSolenoidTwo.set(false);
     }
 
-    public void startRoller(double power) {
+    public void raisePickup() {
+        pickupSolenoidOne.set(true);
+        pickupSolenoidTwo.set(true);
+    }
+
+    public void spinRoller(double power) {
         sparkMaxPickup.set(power);
 
     }

@@ -29,10 +29,12 @@ public class BotCommands {
     // Conveyor
     public static SpinConveyor spinConveyor;
     public static StopConveyor stopConveyor;
-
+    public static ToggleIntake toggleIntake; 
     // Pickup
     public static RaisePickup raisePickup;
     public static LowerPickup lowerPickup;
+    public static SpinRoller spinRoller;
+    public static StopRoller stopRoller;
     public static TogglePickup togglePickup;
 
     // Shooter
@@ -76,10 +78,13 @@ public class BotCommands {
         // Conveyor
         spinConveyor = new SpinConveyor(BotSubsystems.conveyor);
         stopConveyor = new StopConveyor(BotSubsystems.conveyor);
+        toggleIntake = new ToggleIntake(BotSubsystems.conveyor, BotSubsystems.pickup);
 
         // Pickup
         raisePickup = new RaisePickup(BotSubsystems.pickup);
         lowerPickup = new LowerPickup(BotSubsystems.pickup);
+        spinRoller = new SpinRoller(BotSubsystems.pickup);
+        stopRoller = new StopRoller(BotSubsystems.pickup);
         togglePickup = new TogglePickup(BotSubsystems.pickup);
 
         // Shooter
