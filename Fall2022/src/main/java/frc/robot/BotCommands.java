@@ -39,6 +39,9 @@ public class BotCommands {
     public static Shoot shoot;
     public static StopShoot stopShoot;
     public static ShootVelocity shootVel;
+    public static ShootMid shootMid;
+    public static ShootMax shootMax;
+    public static ShootMin shootMin;
 
     // SwerveDriver
     public static SwerveDrive swerveDrive;
@@ -83,6 +86,9 @@ public class BotCommands {
         shoot = new Shoot(BotSubsystems.shooter);
         stopShoot = new StopShoot(BotSubsystems.shooter);
         shootVel = new ShootVelocity(BotSubsystems.shooter);
+        shootMin = new ShootMin(BotSubsystems.shooter);
+        shootMid = new ShootMid(BotSubsystems.shooter);
+        shootMax = new ShootMax(BotSubsystems.shooter);
 
         // SwerveDriver
         swerveDrive = new SwerveDrive(BotSubsystems.swerveDriver, BotControllers.jstick); 

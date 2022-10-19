@@ -69,14 +69,16 @@ public class Shooter extends SubsystemBase {
         sparkMaxShooterBottomWheel.set(0.0);
     }
 
+    // 5ft away
     public void shootMid(){
-        sparkMaxShooterTopWheel.set(0.0);
-        sparkMaxShooterBottomWheel.set(0.0);
+        sparkMaxShooterTopWheel.set(0.32/0.99);
+        sparkMaxShooterBottomWheel.set(0.32);
     }
 
+    // 12ft away (safezone)
     public void shootMax(){
-        sparkMaxShooterTopWheel.set(0.0);
-        sparkMaxShooterBottomWheel.set(0.0);
+        sparkMaxShooterTopWheel.set(0.41/0.99);
+        sparkMaxShooterBottomWheel.set(0.41);
     }
 
     public void shootVel(){

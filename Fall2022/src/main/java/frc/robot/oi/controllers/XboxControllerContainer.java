@@ -8,6 +8,8 @@ import frc.robot.oi.controllers.DPadButton.Direction;
 import frc.robot.oi.positions.ThumbstickPosition;
 import frc.robot.oi.positions.TriggerAxisPosition;
 
+import edu.wpi.first.wpilibj2.command.button.Trigger;
+
 // This class contains an xbox controller and properties for all its buttons.
 public class XboxControllerContainer extends ControllerContainer implements XboxPositionAccessible {
 
@@ -31,6 +33,8 @@ public class XboxControllerContainer extends ControllerContainer implements Xbox
     public DPadButton btnDpadUpRight;
     public DPadButton btnDpadDownLeft;
     public DPadButton btnDpadDownRight;
+    public Trigger btnBumperBoth;
+
 
     public XboxControllerContainer(int port) {
         super(port);
@@ -54,6 +58,7 @@ public class XboxControllerContainer extends ControllerContainer implements Xbox
         btnDpadUpRight = new DPadButton(xbox, Direction.UP_RIGHT);
         btnDpadDownLeft = new DPadButton(xbox, Direction.DOWN_LEFT);
         btnDpadDownRight = new DPadButton(xbox, Direction.DOWN_RIGHT);
+        btnBumperBoth = btnBumperRight.and(btnBumperLeft);
     }
 
     // Gets the raw xbox thumbstick positions
