@@ -3,12 +3,15 @@ package frc.robot.commands.climber;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
+import frc.robot.BotControllers;
+import frc.robot.brains.*;
 import frc.robot.consoles.Logger;
 import frc.robot.subsystems.LeftClimber;
 
 public class MoveLeftClimb extends CommandBase {
 
-    private LeftClimber m_climber; 
+    private LeftClimber m_climber;
+
 
     public MoveLeftClimb(LeftClimber climber) {
         Logger.setup("Constructing Command: MoveLeftClimb...");
@@ -25,8 +28,9 @@ public class MoveLeftClimb extends CommandBase {
 
     @Override
     public void execute() {
-        m_climber.setLeftThumbstickPosition();
-        m_climber.moveLeftClimb();
+        double leftThumbstickPositionY = BotControllers.xbox.xbox.getLeftY();
+        double power = leftThumbstickPositionY * ClimbBrain.getClimbPower();
+        m_climber.moveLeftClimb(power);
     }
 
     // This command continues until interrupted

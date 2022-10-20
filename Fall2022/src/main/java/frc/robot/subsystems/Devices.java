@@ -57,6 +57,6 @@ public class Devices {
     public static CANCoder canCoderRL = new CANCoder(1);
 
     // SparkMax Test
-    public static CANSparkMax sparkMaxTestMotor = new CANSparkMax(1, MotorType.kBrushless);
+    public static CANSparkMax sparkMaxTestMotor = new CANSparkMax(5, MotorType.kBrushless);
 
 } 
