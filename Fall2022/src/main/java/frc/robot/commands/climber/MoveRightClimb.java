@@ -3,6 +3,8 @@ package frc.robot.commands.climber;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
+import frc.robot.BotControllers;
+import frc.robot.brains.*;
 import frc.robot.consoles.Logger;
 import frc.robot.subsystems.RightClimber;
 
@@ -25,8 +27,9 @@ public class MoveRightClimb extends CommandBase {
 
     @Override
     public void execute() {
-        m_climber.setRightThumbstickPosition();
-        m_climber.moveRightClimb();
+        double rightThumbstickPositionY = BotControllers.xbox.xbox.getRightY();
+        double power = rightThumbstickPositionY * ClimbBrain.getClimbPower();
+        m_climber.moveRightClimb(power);
     }
 
     // This command continues until interrupted
