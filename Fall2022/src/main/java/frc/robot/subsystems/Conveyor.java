@@ -7,6 +7,8 @@ import static frc.robot.subsystems.Devices.sparkMaxConveyor;
 
 public class Conveyor extends SubsystemBase{
 
+    private static boolean m_isConveyorToggled = false;
+
     public Conveyor() {
         Logger.setup("Constructing Subsystem: Delivery...");
     }
@@ -17,6 +19,14 @@ public class Conveyor extends SubsystemBase{
 
     public void spinConveyor(double power) {
         sparkMaxConveyor.set(power);
+    }
+
+    public boolean getConveyorToggleState() {
+        return m_isConveyorToggled;
+    }
+
+    public void invertConveyorToggleState() {
+        m_isConveyorToggled = !m_isConveyorToggled;
     }
 
 }

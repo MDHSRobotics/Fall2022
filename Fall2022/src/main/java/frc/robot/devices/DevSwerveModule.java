@@ -144,8 +144,7 @@ public class DevSwerveModule {
 
         // Convert angle to raw units (ticks)
         double initialAbsoluteEncoderPositionTicks = m_turningEncoderTranslate.radians_to_ticks(initialAbsoluteEncoderPositionRad);
-        // TODO remove the following line once absolute encoder is working
-        // initialAbsoluteEncoderPositionTicks = 0.0;
+        
         // Set the current position of the turning motor based on absolute encoder 
         m_turningMotor.setSelectedSensorPosition(initialAbsoluteEncoderPositionTicks);
 

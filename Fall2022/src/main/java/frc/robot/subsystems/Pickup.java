@@ -7,6 +7,8 @@ import static frc.robot.subsystems.Devices.*;
 
 public class Pickup extends SubsystemBase{
 
+    private static boolean m_isRollerToggled = false;
+
     public Pickup() {
         Logger.setup("Constructing Subsystem: Pickup...");
 
@@ -16,13 +18,13 @@ public class Pickup extends SubsystemBase{
     }
 
     public void lowerPickup() {
-        pickupSolenoidOne.set(false);
-        pickupSolenoidTwo.set(false);
+        pickupSolenoidOne.set(true);
+        pickupSolenoidTwo.set(true);
     }
 
     public void raisePickup() {
-        pickupSolenoidOne.set(true);
-        pickupSolenoidTwo.set(true);
+        pickupSolenoidOne.set(false);
+        pickupSolenoidTwo.set(false);
     }
 
     public void spinRoller(double power) {
@@ -33,6 +35,14 @@ public class Pickup extends SubsystemBase{
     public void stopRoller() {
         sparkMaxPickup.stopMotor();
       
+    }
+
+    public boolean getRollerToggleState() {
+        return m_isRollerToggled;
+    }
+
+    public void invertRollerToggleState() {
+        m_isRollerToggled = !m_isRollerToggled;
     }
     
 }

@@ -1,4 +1,4 @@
-package frc.robot.commands.pickup;
+package frc.robot.commands.intake;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
@@ -6,12 +6,12 @@ import frc.robot.brains.DeliveryBrain;
 import frc.robot.consoles.Logger;
 import frc.robot.subsystems.Pickup;
 
-public class StopRoller extends CommandBase {
+public class SpinRoller extends CommandBase {
 
     private Pickup m_pickup;
 
-    public StopRoller(Pickup pickup) {
-        Logger.setup("Constructing Command: StopRoller...");
+    public SpinRoller(Pickup pickup) {
+        Logger.setup("Constructing Command: SpinRoller...");
 
         // Add given subsystem requirements
         m_pickup = pickup;
@@ -20,12 +20,12 @@ public class StopRoller extends CommandBase {
 
     @Override
     public void initialize() {
-        Logger.action("Initializing Command: StopRoller...");
+        Logger.action("Initializing Command: SpinRoller...");
     }
 
     @Override
     public void execute() {
-        m_pickup.stopRoller();
+        m_pickup.spinRoller(DeliveryBrain.getSpinPower());
     }
 
     @Override
@@ -36,9 +36,9 @@ public class StopRoller extends CommandBase {
     @Override
     public void end(boolean interrupted) {
         if (interrupted) {
-            Logger.ending("Interrupting Command: StopRoller...");
+            Logger.ending("Interrupting Command: SpinRoller...");
         } else {
-            Logger.ending("Ending Command: StopRoller...");
+            Logger.ending("Ending Command: SpinRoller...");
         }
     }
 

@@ -31,7 +31,7 @@ public class JoystickPosition {
 
         // Forward/backward and rotation directions are both reversed from what is intuitive, so flip them
         y = -y;
-        z = -z; // TODO: Low priority, but check to see if this should be deleted, like we did for thumbsticks
+        z = -z; 
 
         // User-determined flipping of forward/backward orientation
         if (isYflipped) {

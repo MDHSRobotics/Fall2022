@@ -21,6 +21,5 @@ public class LeftClimber extends SubsystemBase {
     // Move left climb based on thumbstick position
     public void moveLeftClimb(double power) {
         sparkMaxLeftClimber.set(power);
-        Logger.info("Left Climb Motor Power: " + power);
     }
 }

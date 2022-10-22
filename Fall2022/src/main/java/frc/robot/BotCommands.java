@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.auto.*;
 import frc.robot.commands.climber.*;
-import frc.robot.commands.pickup.*;
+import frc.robot.commands.intake.*;
 import frc.robot.commands.shoot.*;
 import frc.robot.commands.swervedrive.*;
 import frc.robot.commands.test.*;
@@ -29,13 +29,18 @@ public class BotCommands {
     // Conveyor
     public static SpinConveyor spinConveyor;
     public static StopConveyor stopConveyor;
-    public static ToggleIntake toggleIntake; 
+    public static DefaultConveyor defaultConveyor;
+    
     // Pickup
     public static RaisePickup raisePickup;
     public static LowerPickup lowerPickup;
     public static SpinRoller spinRoller;
     public static StopRoller stopRoller;
     public static TogglePickup togglePickup;
+    public static DefaultPickup defaultPickup;
+
+    // Intake Toggle 
+    public static ToggleIntake toggleIntake; 
 
     // Shooter
     public static Shoot shoot;
@@ -78,7 +83,7 @@ public class BotCommands {
         // Conveyor
         spinConveyor = new SpinConveyor(BotSubsystems.conveyor);
         stopConveyor = new StopConveyor(BotSubsystems.conveyor);
-        toggleIntake = new ToggleIntake(BotSubsystems.conveyor, BotSubsystems.pickup);
+        defaultConveyor =  new DefaultConveyor(BotSubsystems.conveyor);
 
         // Pickup
         raisePickup = new RaisePickup(BotSubsystems.pickup);
@@ -86,6 +91,10 @@ public class BotCommands {
         spinRoller = new SpinRoller(BotSubsystems.pickup);
         stopRoller = new StopRoller(BotSubsystems.pickup);
         togglePickup = new TogglePickup(BotSubsystems.pickup);
+        defaultPickup = new DefaultPickup(BotSubsystems.pickup);
+
+        // Intake Toggle
+        toggleIntake = new ToggleIntake(BotSubsystems.conveyor, BotSubsystems.pickup);
 
         // Shooter
         shoot = new Shoot(BotSubsystems.shooter);

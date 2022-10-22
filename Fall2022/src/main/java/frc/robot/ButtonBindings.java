@@ -21,12 +21,12 @@ public class ButtonBindings {
     public static void configureXbox() {
         Logger.setup("Configure Buttons -> Xbox Controller...");
 
-        // Conveyor
-        BotControllers.xbox.btnB.whenPressed(BotCommands.toggleIntake);
-
         // Pickup
         BotControllers.xbox.btnDpadDown.whenPressed(BotCommands.lowerPickup);
         BotControllers.xbox.btnDpadUp.whenPressed(BotCommands.raisePickup);
+
+        // Intake Toggle
+        BotControllers.xbox.btnB.whenPressed(BotCommands.toggleIntake);
         
         // Shooter
         BotControllers.xbox.btnBumperLeft.whenHeld(BotCommands.shootMin);
