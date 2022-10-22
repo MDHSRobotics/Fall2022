@@ -25,9 +25,11 @@ public class DefaultPickup extends CommandBase {
 
     @Override
     public void execute() {
-        if (m_pickup.getRollerToggleState()) {
+        if (m_pickup.getPickupToggleState()) {
+            m_pickup.lowerPickup();
             m_pickup.spinRoller(DeliveryBrain.getSpinPower());
         } else {
+            m_pickup.raisePickup();
             m_pickup.stopRoller();
         }
     }

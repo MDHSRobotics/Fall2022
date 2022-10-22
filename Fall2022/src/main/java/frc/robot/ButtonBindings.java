@@ -21,12 +21,12 @@ public class ButtonBindings {
     public static void configureXbox() {
         Logger.setup("Configure Buttons -> Xbox Controller...");
 
-        // Pickup
-        BotControllers.xbox.btnDpadDown.whenPressed(BotCommands.lowerPickup);
-        BotControllers.xbox.btnDpadUp.whenPressed(BotCommands.raisePickup);
+        // Conveyor
+        BotControllers.xbox.btnDpadUp.whileHeld(BotCommands.spinConveyor);
+        BotControllers.xbox.btnDpadDown.whileHeld(BotCommands.reverseConveyor);
 
-        // Intake Toggle
-        BotControllers.xbox.btnB.whenPressed(BotCommands.toggleIntake);
+        // Pickup
+        BotControllers.xbox.btnA.whenPressed(BotCommands.togglePickup);
         
         // Shooter
         BotControllers.xbox.btnBumperLeft.whenHeld(BotCommands.shootMin);
@@ -37,7 +37,7 @@ public class ButtonBindings {
         BotControllers.xbox.btnStart.whenPressed(BotCommands.toggleDriverOrientation);
 
         //SparkMax Test
-        BotControllers.xbox.btnA.whileHeld(BotCommands.spinTestMotor);
+        BotControllers.xbox.btnB.whileHeld(BotCommands.spinTestMotor);
 
     }
 

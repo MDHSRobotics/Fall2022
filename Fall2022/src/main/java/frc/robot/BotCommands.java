@@ -28,6 +28,7 @@ public class BotCommands {
 
     // Conveyor
     public static SpinConveyor spinConveyor;
+    public static ReverseConveyor reverseConveyor;
     public static StopConveyor stopConveyor;
     public static DefaultConveyor defaultConveyor;
     
@@ -82,6 +83,7 @@ public class BotCommands {
 
         // Conveyor
         spinConveyor = new SpinConveyor(BotSubsystems.conveyor);
+        reverseConveyor = new ReverseConveyor(BotSubsystems.conveyor);
         stopConveyor = new StopConveyor(BotSubsystems.conveyor);
         defaultConveyor =  new DefaultConveyor(BotSubsystems.conveyor);
 

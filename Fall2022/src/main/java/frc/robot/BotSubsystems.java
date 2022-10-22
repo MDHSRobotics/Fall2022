@@ -37,7 +37,7 @@ public class BotSubsystems {
 
         // Conveyor
         Logger.setup("Pickup Teleop Default Command -> StopConveyor...");
-        conveyor.setDefaultCommand(BotCommands.defaultConveyor);
+        conveyor.setDefaultCommand(BotCommands.stopConveyor);
 
         // Pickup
         Logger.setup("Pickup Teleop Default Command -> FeedPickup...");
