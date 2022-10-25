@@ -1,14 +1,13 @@
 package frc.robot;
 
 import edu.wpi.first.math.geometry.Pose2d;
-import edu.wpi.first.math.trajectory.Trajectory;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 
 import frc.robot.consoles.Logger;
-import frc.robot.subsystems.Pathweaver;
+import frc.robot.subsystems.Pathweaver; 
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -17,9 +16,6 @@ import frc.robot.subsystems.Pathweaver;
  * project.
  */
 public class Robot extends TimedRobot {
-
-    int m_chosenPath = 1;
-    Trajectory m_chosenTrajectory = new Trajectory();
 
     // When connected to the RoboRio, use this constructor because it will use the
     // proper period duration
@@ -48,7 +44,6 @@ public class Robot extends TimedRobot {
         RobotManager.initialize();
 
         Pathweaver.intializeTrajectory();
-        m_chosenTrajectory = Pathweaver.getChosenTrajectory(m_chosenPath);
     }
 
     /**
@@ -84,6 +79,10 @@ public class Robot extends TimedRobot {
     public void disabledPeriodic() {
     }
 
+    public Command getAutonomousCommand() {
+        return RobotManager.autoCommandChooser.getSelected();
+    }
+
     /**
      * This autonomous runs the autonomous command selected by your {@link BotCommands} class.
      */
@@ -94,7 +93,7 @@ public class Robot extends TimedRobot {
         CommandScheduler.getInstance().cancelAll();
 
         // Schedule the autonomous command
-        Command autonomousCommand = Pathweaver.getPathweaverCommand(m_chosenTrajectory);
+        Command autonomousCommand = getAutonomousCommand();
         if (autonomousCommand != null) {
             autonomousCommand.schedule();
         }
@@ -124,7 +123,6 @@ public class Robot extends TimedRobot {
     public void teleopPeriodic() {
         // Configure all controllers
         BotControllers.configure();
-        
     }
 
     @Override
@@ -132,9 +130,9 @@ public class Robot extends TimedRobot {
         Logger.setup("Initializing Test Mode...");
 
         CommandScheduler.getInstance().cancelAll();
+
         // Re-enable the scheduler
         CommandScheduler.getInstance().enable();
-
     }
 
     /**

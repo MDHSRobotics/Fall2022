@@ -78,9 +78,9 @@ public class Pathweaver {
     }
 
     // Return the command to run in autonomous mode (AutoNav)
-    public static Trajectory getChosenTrajectory(int chosenPath) {
+    public static Command getChosenTrajectory(int chosenPath) {
         Trajectory chosenTrajectory = m_trajectoryArray.get(chosenPath-1);
-        return chosenTrajectory;
+        return getPathweaverCommand(chosenTrajectory);
     }
     
 }

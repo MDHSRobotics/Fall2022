@@ -45,7 +45,7 @@ public class MainTab {
         m_commandWidget3 = m_commandLayout.add("Auto 2", BotCommands.autoCommand2);
 
         // Autonomous Command
-        m_autoCmdWidget = m_tab.add("Active Auto Command", BotCommands.autoCommandChooser);
+        //m_autoCmdWidget = m_tab.add("Active Auto Command", BotCommands.autoCommandChooser);
     }
 
     // Configure all Widgets

@@ -13,15 +13,17 @@ import frc.robot.commands.shoot.*;
 import frc.robot.commands.swervedrive.*;
 import frc.robot.commands.test.*;
 
+import frc.robot.subsystems.Pathweaver;
+
 public class BotCommands {
 
     // Example Command to be used as a placeholder until real commands implemented
     public static ExampleCommand exampleCommand;
 
     // Auto Command options
-    public static AutoCommand1 autoCommand1;
-    public static AutoCommand2 autoCommand2;
-    public static SendableChooser<Command> autoCommandChooser;
+    public static Command pathweaverTrajectoryOne; 
+    public static Command pathweaverTrajectoryTwo; 
+    public static Command pathweaverTrajectoryThree;
 
     // Climber
     public static MoveLeftClimb moveLeftClimb;
@@ -64,15 +66,11 @@ public class BotCommands {
 
         // Re-usable Example Command
         exampleCommand = new ExampleCommand(BotSubsystems.exampleSubsystem, "Default", 10);
-
+        
         // Auto Commands
-        autoCommand1 = new AutoCommand1();
-        autoCommand2 = new AutoCommand2();
-
-        // Add commands to the autonomous command chooser
-        autoCommandChooser = new SendableChooser<>();
-        autoCommandChooser.setDefaultOption("Auto Command One", BotCommands.autoCommand1);
-        autoCommandChooser.addOption("Auto Command Two", BotCommands.autoCommand2);
+        pathweaverTrajectoryOne = Pathweaver.getChosenTrajectory(1);
+        pathweaverTrajectoryTwo = Pathweaver.getChosenTrajectory(2);
+        pathweaverTrajectoryThree = Pathweaver.getChosenTrajectory(3);
 
         // Climber
         moveLeftClimb = new MoveLeftClimb(BotSubsystems.leftClimber);

@@ -2,8 +2,11 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.RobotBase;
-import frc.robot.consoles.Shuffler;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj2.command.Command;
 
+import frc.robot.consoles.Shuffler;
 import frc.robot.consoles.Logger;
 
 // This is where the robot state is initialized and persisted.
@@ -32,6 +35,8 @@ public class RobotManager {
     // The robot Shuffler instance
     public static Shuffler botShuffler;
 
+    // The auto command chooser to add to SmartDashboard
+    public static SendableChooser<Command> autoCommandChooser;
 
     //----------------//
     // Initialization //
@@ -54,6 +59,21 @@ public class RobotManager {
         botShuffler.initialize();
         botShuffler.configure();    
 
+        // Setup SmartDashboard
+        setupSmartDashboard();
+    }
+
+    // Add the desired commands to the SmartDashboard
+    private static void setupSmartDashboard() {
+        Logger.setup("Adding AutoModes to SmartDashboard...");
+        autoCommandChooser = new SendableChooser<>();
+        // Add commands to the autonomous command chooser
+        autoCommandChooser.setDefaultOption("Auto Command One", BotCommands.pathweaverTrajectoryOne);
+        autoCommandChooser.addOption("Auto Command Two", BotCommands.pathweaverTrajectoryTwo);
+        autoCommandChooser.addOption("Auto Command Three", BotCommands.pathweaverTrajectoryThree);
+        
+        // Put the chooser on the dashboard
+        SmartDashboard.putData("AutoMode", autoCommandChooser);
     }
 
 }
