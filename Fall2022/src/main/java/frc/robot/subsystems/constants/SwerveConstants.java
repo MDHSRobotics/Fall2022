@@ -66,10 +66,10 @@ public final class SwerveConstants {
           current absolute position in degrees. That number is the offset
           for this module.  Convert that value from degrees to radians below.
     */
-    public static final double kFrontLeftDriveAbsoluteEncoderOffsetRad = Units.degreesToRadians(-68.818);
-    public static final double kRearLeftDriveAbsoluteEncoderOffsetRad = Units.degreesToRadians(-161.807);
-    public static final double kFrontRightDriveAbsoluteEncoderOffsetRad = Units.degreesToRadians(-200.127);
-    public static final double kRearRightDriveAbsoluteEncoderOffsetRad = Units.degreesToRadians(-45.000);
+    public static final double kFrontLeftDriveAbsoluteEncoderOffsetRad = Units.degreesToRadians(106.963);
+    public static final double kRearLeftDriveAbsoluteEncoderOffsetRad = Units.degreesToRadians(6.504);
+    public static final double kFrontRightDriveAbsoluteEncoderOffsetRad = Units.degreesToRadians(-9.053);
+    public static final double kRearRightDriveAbsoluteEncoderOffsetRad = Units.degreesToRadians(132.891);
 
     public static final double kTeleDriveMaxSpeedMetersPerSecond = kPhysicalMaxSpeedMetersPerSecond / 4;
     public static final double kTeleDriveMaxAngularSpeedRadiansPerSecond = kPhysicalMaxAngularSpeedRadiansPerSecond / 9;
