@@ -2,7 +2,7 @@ package frc.robot.subsystems.constants;
 
 public class MotorIDConstants {
     
-    //SparkMax Controllers
+    // SparkMax Controllers
     public static final int motorIdBottomShooter = 10;
     public static final int motorIdTopShooter = 11;
     public static final int motorIdPickup = 12;
@@ -10,7 +10,7 @@ public class MotorIDConstants {
     public static final int motorIdLeftClimb = 14;
     public static final int motorIdRightClimb = 15;
 
-    //Talon Controllers
+    // Talon Controllers
     public static final int motorIdDriveFL = 31;
     public static final int motorIdDriveFR = 25;
     public static final int motorIdDriveRL = 26;
