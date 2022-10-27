@@ -1,10 +1,11 @@
 package frc.robot.commands.auto;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
-import edu.wpi.first.wpilibj2.command.PrintCommand;
 
 import frc.robot.BotSubsystems;
-import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.pickup.SpinConveyor;
+import frc.robot.commands.pickup.TogglePickup;
+import frc.robot.commands.shoot.ShootMax;
 
 public class AutoCommand1 extends SequentialCommandGroup {
 
@@ -12,15 +13,24 @@ public class AutoCommand1 extends SequentialCommandGroup {
     
         addCommands(
 
-            new PrintCommand("Starting Command Group for AutoCommand1 ..."),
+            // lower the pickup and spin the roller
+            new TogglePickup(BotSubsystems.pickup),
 
-            // First sub-command
-            new ExampleCommand(BotSubsystems.exampleSubsystem, "Auto-1a", 10),
+            // move forward until ball is collected
+            new MoveForward(0.3),
 
-            // Second sub-command
-            new ExampleCommand(BotSubsystems.exampleSubsystem, "Auto-1b", 10),
+            // turn around 180 degrees
+            new TurnAngle(Math.PI),
 
-            new PrintCommand("Ending Command Group for AutoCommand1 ...")
+            // start ramping up shooter
+            new ShootMax(BotSubsystems.shooter),
+            
+            // give time for shooter to ramp up
+            new Wait(0.5),
+
+            // spin conveyor to deliver ball to shooter
+            new SpinConveyor(BotSubsystems.conveyor)
+
         );
 
     }

@@ -66,11 +66,14 @@ public class RobotManager {
     // Add the desired commands to the SmartDashboard
     private static void setupSmartDashboard() {
         Logger.setup("Adding AutoModes to SmartDashboard...");
+
         autoCommandChooser = new SendableChooser<>();
+
         // Add commands to the autonomous command chooser
-        autoCommandChooser.setDefaultOption("Auto Command One", BotCommands.pathweaverTrajectoryOne);
-        autoCommandChooser.addOption("Auto Command Two", BotCommands.pathweaverTrajectoryTwo);
-        autoCommandChooser.addOption("Auto Command Three", BotCommands.pathweaverTrajectoryThree);
+        autoCommandChooser.setDefaultOption("Move Forward", BotCommands.moveForward);
+        autoCommandChooser.addOption("Auto Command One", BotCommands.autoCommand1);
+        autoCommandChooser.addOption("Auto Command Two", BotCommands.autoCommand2);
+        autoCommandChooser.addOption("Auto Command Three", BotCommands.autoCommand3);
         
         // Put the chooser on the dashboard
         SmartDashboard.putData("AutoMode", autoCommandChooser);

@@ -53,10 +53,10 @@ public class Devices {
     public static DevTalonFX talonFxSwerveTurnRL = new DevTalonFX("talonFxSwerveTurnWheelRearLeft", MotorIDConstants.motorIdTurnRL);
     public static DevTalonFX talonFxSwerveTurnRR = new DevTalonFX("talonFxSwerveTurnWheelRearRight", MotorIDConstants.motorIdTurnRR);
 
-    public static CANCoder canCoderFR = new CANCoder(4);
-    public static CANCoder canCoderRR = new CANCoder(3);
-    public static CANCoder canCoderFL = new CANCoder(2);
+    public static CANCoder canCoderFL = new CANCoder(4);
+    public static CANCoder canCoderFR = new CANCoder(3);
     public static CANCoder canCoderRL = new CANCoder(1);
+    public static CANCoder canCoderRR = new CANCoder(2);
 
     // SparkMax Test
     public static CANSparkMax sparkMaxTestMotor = new CANSparkMax(5, MotorType.kBrushless);

@@ -7,12 +7,12 @@ import frc.robot.commands.pickup.SpinConveyor;
 import frc.robot.commands.pickup.TogglePickup;
 import frc.robot.commands.shoot.ShootMax;
 
-public class AutoCommand2 extends SequentialCommandGroup {
+public class AutoCommand3 extends SequentialCommandGroup {
 
-    public AutoCommand2() {
+    public AutoCommand3() {
     
         addCommands(
-
+            
             // lower the pickup and spin the roller
             new TogglePickup(BotSubsystems.pickup),
 
