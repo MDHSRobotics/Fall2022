@@ -5,6 +5,7 @@ import java.util.*;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.DemandType;
 
+import edu.wpi.first.util.sendable.Sendable;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import frc.robot.brains.RobotBrain;
@@ -51,9 +52,13 @@ public class Shooter extends SubsystemBase {
         
         m_topPidController = sparkMaxShooterTopWheel.getPIDController();
         m_topPidController.setP(0.0002);
+        sparkMaxShooterTopWheel.setInverted(MOTOR_INVERT_TOP);
+        m_topEncoder.setInverted(SENSOR_PHASE_TOP);
         
         m_bottomPidController = sparkMaxShooterBottomWheel.getPIDController();
         m_bottomPidController.setP(0.0002);
+        sparkMaxShooterBottomWheel.setInverted(MOTOR_INVERT_BOTTOM);
+        m_bottomEncoder.setInverted(SENSOR_PHASE_BOTTOM);
         
         m_topEncoder = sparkMaxShooterTopWheel.getEncoder();
         m_bottomEncoder = sparkMaxShooterBottomWheel.getEncoder();
