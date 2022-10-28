@@ -50,8 +50,11 @@ public class Shooter extends SubsystemBase {
         sparkMaxShooterBottomWheel.restoreFactoryDefaults();
         
         m_topPidController = sparkMaxShooterTopWheel.getPIDController();
+        m_topPidController.setP(0.0002);
+        
         m_bottomPidController = sparkMaxShooterBottomWheel.getPIDController();
-
+        m_bottomPidController.setP(0.0002);
+        
         m_topEncoder = sparkMaxShooterTopWheel.getEncoder();
         m_bottomEncoder = sparkMaxShooterBottomWheel.getEncoder();
     }
@@ -97,31 +100,11 @@ public class Shooter extends SubsystemBase {
     @Override
     public void periodic() {
         // This method will be called once per scheduler run
-
-        double kP = ShooterBrain.getkP();
-        double kI = ShooterBrain.getkI();
-        double kD = ShooterBrain.getkD();
-        double kIz = ShooterBrain.getkIz();
-        double kFF = ShooterBrain.getkFF();
-        double kMaxOutput = ShooterBrain.getkMaxOutput();
-        double kMinOutput = ShooterBrain.getkMinOutput();
-
-        m_bottomPidController.setP(kP);
-        m_bottomPidController.setI(kI);
-        m_bottomPidController.setD(kD);
-        m_bottomPidController.setIZone(kIz);
-        m_bottomPidController.setFF(kFF);
-        m_bottomPidController.setOutputRange(kMinOutput, kMaxOutput);
-
-        m_topPidController.setP(kP);
-        m_topPidController.setI(kI);
-        m_topPidController.setD(kD);
-        m_topPidController.setIZone(kIz);
-        m_topPidController.setFF(kFF);
-        m_topPidController.setOutputRange(kMinOutput, kMaxOutput);
-
-        ShooterBrain.topEncoderVelocityDefault = m_topEncoder.getVelocity();
-        ShooterBrain.bottomEncoderVelocityDefault = m_bottomEncoder.getVelocity();     
+        double topEncoderVelocity = m_topEncoder.getVelocity();
+        double bottomEncoderVelocity = m_bottomEncoder.getVelocity();
+        
+        ShooterBrain.setTopEncoderVelocity(topEncoderVelocity);
+        ShooterBrain.setBottomEncoderVelocity(bottomEncoderVelocity);
     }
 
     // Translate a desired target velocity in feet per second to a motor speed in Ticks per 100 ms.

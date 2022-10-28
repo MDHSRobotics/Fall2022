@@ -52,27 +52,6 @@ public class ShootTab {
         m_shootScaleFactor.withWidget(BuiltInWidgets.kNumberSlider);
         m_shootScaleFactor.withProperties(Map.of("min",0,"max",10.0));
 
-        // PID Values
-        m_pidValues = m_pidLayout.add("kP", ShooterBrain.kPDefault);
-        ShooterBrain.kPEntry = m_pidValues.getEntry();
-        m_pidValues.withWidget(BuiltInWidgets.kTextView);
-
-        m_pidValues = m_pidLayout.add("kI", ShooterBrain.kIDefault);
-        ShooterBrain.kIEntry = m_pidValues.getEntry();
-        m_pidValues.withWidget(BuiltInWidgets.kTextView);
-
-        m_pidValues = m_pidLayout.add("kD", ShooterBrain.kDDefault);
-        ShooterBrain.kDEntry = m_pidValues.getEntry();
-        m_pidValues.withWidget(BuiltInWidgets.kTextView);
-
-        m_pidValues = m_pidLayout.add("kIz", ShooterBrain.kIzDefault);
-        ShooterBrain.kIzEntry = m_pidValues.getEntry();
-        m_pidValues.withWidget(BuiltInWidgets.kTextView);
-
-        m_pidValues = m_pidLayout.add("kFF", ShooterBrain.kFFDefault);
-        ShooterBrain.kFFEntry = m_pidValues.getEntry();
-        m_pidValues.withWidget(BuiltInWidgets.kTextView);
-
         // Shoot with rpm
         m_shootVelSF = m_shootVelLayout.add("Scale Factor (divides the shoot rpm)", ShooterBrain.shootVelSFDefault);
         ShooterBrain.shootVelSFEntry = m_shootVelSF.getEntry();
@@ -85,11 +64,12 @@ public class ShootTab {
         m_shootVelRPM.withProperties(Map.of("min",0,"max",5676));
 
         m_shootBottomRPM = m_shootVelEncoderLayout.add("Bottom Wheel RPM", ShooterBrain.bottomEncoderVelocityDefault);
+        ShooterBrain.bottomEncoderVelocityEntry = m_shootBottomRPM.getEntry();
         m_shootBottomRPM.withWidget(BuiltInWidgets.kTextView);
 
         m_shootTopRPM = m_shootVelEncoderLayout.add("Top Wheel RPM", ShooterBrain.topEncoderVelocityDefault);
+        ShooterBrain.topEncoderVelocityEntry = m_shootTopRPM.getEntry();
         m_shootTopRPM.withWidget(BuiltInWidgets.kTextView);
-
     }
 
     // Create all other Widgets
