@@ -34,7 +34,7 @@ public class ShooterBrain {
 
     // shoot velocity
     public static double shootVelDefault = 100;
-    public static double shootVelSFDefault = 2;
+    public static double shootVelocityScaleFactorDefault = 2;
 
     // encoder velocity
     public static double bottomEncoderVelocityDefault = 0;
@@ -57,7 +57,7 @@ public class ShooterBrain {
     public static NetworkTableEntry kIEntry;
     public static NetworkTableEntry kDEntry;
     public static NetworkTableEntry kIzEntry;
-    public static NetworkTableEntry kFFEntry;
+    public static NetworkTableEntry kFEntry;
     public static NetworkTableEntry kMaxOutputEntry;
     public static NetworkTableEntry kMinOutputEntry;
 
@@ -82,10 +82,10 @@ public class ShooterBrain {
     public static void setShootVel (double value){
         shootVelEntry.setDouble(value);
     }
+
     public static void setShootVelSF (double value){
         shootVelSFEntry.setDouble(value);
     }
-
 
     public static void setTopEncoderVelocity (double value){
         topEncoderVelocityEntry.setDouble(value);
@@ -141,12 +141,12 @@ public class ShooterBrain {
     // Getters //
     //---------//
 
-    public static double getShootVel (){
+    public static double getShootVelocity (){
         return shootVelEntry.getDouble(shootVelDefault);
     }
 
-    public static double getShootVelSF (){
-        return shootVelSFEntry.getDouble(shootVelSFDefault);
+    public static double getShootVelocityScaleFactor (){
+        return shootVelSFEntry.getDouble(shootVelocityScaleFactorDefault);
     }
 
     public static double getBottomEncoderVelocity(){

@@ -5,7 +5,6 @@ import edu.wpi.first.wpilibj.shuffleboard.*;
 import frc.robot.BotCommands;
 import frc.robot.brains.*;
 import frc.robot.consoles.ShuffleLogger;
-import frc.robot.subsystems.Shooter;
 
 import java.util.Map;
 
@@ -35,7 +34,6 @@ public class ShootTab {
         m_pidLayout = m_tab.getLayout("PID Constants", BuiltInLayouts.kList);
         m_shootVelLayout = m_tab.getLayout("Velocity Shooting",BuiltInLayouts.kList);
         m_shootVelEncoderLayout = m_tab.getLayout("Encoder Velocity Values",BuiltInLayouts.kList);
-
     }
 
     // Create Brain Widgets
@@ -53,7 +51,7 @@ public class ShootTab {
         m_shootScaleFactor.withProperties(Map.of("min",0,"max",10.0));
 
         // Shoot with rpm
-        m_shootVelSF = m_shootVelLayout.add("Scale Factor (divides the shoot rpm)", ShooterBrain.shootVelSFDefault);
+        m_shootVelSF = m_shootVelLayout.add("Scale Factor (divides the shoot rpm)", ShooterBrain.shootVelocityScaleFactorDefault);
         ShooterBrain.shootVelSFEntry = m_shootVelSF.getEntry();
         m_shootVelSF.withWidget(BuiltInWidgets.kNumberSlider);
         m_shootVelSF.withProperties(Map.of("min",0,"max",10.0));
@@ -119,7 +117,6 @@ public class ShootTab {
 
     // This will be called in the robotPeriodic
     public void update() {
-        
     }
 
 }

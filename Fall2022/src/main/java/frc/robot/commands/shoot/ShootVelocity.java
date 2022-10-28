@@ -36,7 +36,7 @@ public class ShootVelocity extends CommandBase {
 
   @Override
   public void execute() {
-    m_shooter.shootVel();
+    m_shooter.shootVelocity();
   }
 
   // This command continues until interrupted
