@@ -4,7 +4,6 @@ package frc.robot.oi.positions;
 import frc.robot.brains.JoystickBrain;
 import frc.robot.oi.controllers.JoystickPositionAccessible;
 
-
 // The position values obtained from a Joystick
 public class JoystickPosition {
 

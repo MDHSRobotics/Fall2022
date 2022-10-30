@@ -1,17 +1,17 @@
-package frc.robot.commands.intake;
+package frc.robot.commands.conveyor;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-import frc.robot.brains.DeliveryBrain;
+import frc.robot.brains.IntakeBrain;
 import frc.robot.consoles.Logger;
 import frc.robot.subsystems.Conveyor;
 
-public class ReverseConveyor extends CommandBase {
+public class SpinConveyor extends CommandBase {
 
     private Conveyor m_conveyor;
 
-    public ReverseConveyor(Conveyor conveyor) {
-        Logger.setup("Constructing Command: ReverseConveyor...");
+    public SpinConveyor(Conveyor conveyor) {
+        Logger.setup("Constructing Command: SpinConveyor...");
 
         // Add given subsystem requirements
         m_conveyor = conveyor;
@@ -20,12 +20,12 @@ public class ReverseConveyor extends CommandBase {
 
     @Override
     public void initialize() {
-        Logger.action("Initializing Command: ReverseConveyor...");
+        Logger.action("Initializing Command: SpinConveyor...");
     }
 
     @Override
     public void execute() {
-        m_conveyor.spinConveyor(-DeliveryBrain.getConveyorPower());
+        m_conveyor.spinConveyor(IntakeBrain.getConveyorPower());
     }
 
     @Override
@@ -36,9 +36,9 @@ public class ReverseConveyor extends CommandBase {
     @Override
     public void end(boolean interrupted) {
         if (interrupted) {
-            Logger.ending("Interrupting Command: ReverseConveyor...");
+            Logger.ending("Interrupting Command: SpinConveyor...");
         } else {
-            Logger.ending("Ending Command: ReverseConveyor...");
+            Logger.ending("Ending Command: SpinConveyor...");
         }
     }
 

@@ -13,7 +13,6 @@ public class RightClimber extends SubsystemBase {
         sparkMaxRightClimber.restoreFactoryDefaults();
     } 
 
-    // Stop the climber
     public void stopRightClimb() {
         sparkMaxRightClimber.stopMotor();
     }

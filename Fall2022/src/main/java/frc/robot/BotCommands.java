@@ -3,14 +3,15 @@ package frc.robot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.Command;
 
+import frc.robot.consoles.Logger;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.auto.*;
 import frc.robot.commands.climber.*;
-import frc.robot.commands.intake.*;
+import frc.robot.commands.conveyor.*;
+import frc.robot.commands.pickup.*;
 import frc.robot.commands.shoot.*;
 import frc.robot.commands.swervedrive.*;
 import frc.robot.commands.test.*;
-import frc.robot.consoles.Logger;
 
 public class BotCommands {
 
@@ -40,9 +41,6 @@ public class BotCommands {
     public static TogglePickup togglePickup;
     public static DefaultPickup defaultPickup;
 
-    // Intake Toggle 
-    public static ToggleIntake toggleIntake; 
-
     // Shooter
     public static Shoot shoot;
     public static StopShoot stopShoot;
@@ -54,7 +52,6 @@ public class BotCommands {
     // SwerveDriver
     public static SwerveDrive swerveDrive;
     public static ToggleDriverOrientation toggleDriverOrientation;
-    public static DriveBox driveBox;
 
     // SparkMax Test
     public static SpinTestMotor spinTestMotor;
@@ -95,9 +92,6 @@ public class BotCommands {
         togglePickup = new TogglePickup(BotSubsystems.pickup);
         defaultPickup = new DefaultPickup(BotSubsystems.pickup);
 
-        // Intake Toggle
-        toggleIntake = new ToggleIntake(BotSubsystems.conveyor, BotSubsystems.pickup);
-
         // Shooter
         shoot = new Shoot(BotSubsystems.shooter);
         stopShoot = new StopShoot(BotSubsystems.shooter);
@@ -109,7 +103,6 @@ public class BotCommands {
         // SwerveDriver
         swerveDrive = new SwerveDrive(BotSubsystems.swerveDriver, BotControllers.jstick); 
         toggleDriverOrientation = new ToggleDriverOrientation(BotSubsystems.swerveDriver);
-        driveBox = new DriveBox();
 
         // SparkMax Test
         spinTestMotor = new SpinTestMotor(BotSubsystems.sparkMaxTester);

@@ -22,7 +22,7 @@ public class ClimbBrain {
     // Setters //
     //---------//
 
-    public static void setClimberPower(double value){
+    public static void setClimbPower(double value) {
         climbPowerEntry.setDouble(value);
     }
 
@@ -30,7 +30,8 @@ public class ClimbBrain {
     // Getters //
     //---------//
 
-    public static double getClimbPower(){
+    public static double getClimbPower() {
         return climbPowerEntry.getDouble(climbPowerDefault);
     }
+
 }

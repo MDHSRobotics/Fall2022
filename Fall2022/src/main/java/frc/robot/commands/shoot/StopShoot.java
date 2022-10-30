@@ -1,57 +1,45 @@
-// Copyright (c) FIRST and other WPILib contributors.
-// Open Source Software; you can modify and/or share it under the terms of
-// the WPILib BSD license file in the root directory of this project.
-
 package frc.robot.commands.shoot;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.BotSubsystems;
+
 import frc.robot.consoles.Logger;
 import frc.robot.subsystems.Shooter;
 
-/** An example command that uses an example subsystem. */
 public class StopShoot extends CommandBase {
-  @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-  private final Shooter m_shooter;
 
-  /**
-   * Creates a new Stop.
-   *
-   * @param subsystem The subsystem used by this command.
-   */
-  public StopShoot(Shooter subsystem) {
+    private final Shooter m_shooter; 
 
-    m_shooter = subsystem;
+    public StopShoot(Shooter shooter) {
+        Logger.setup("Constructing Command: StopShoot...");
 
-    Logger.setup("Constructing Command: StopShoot...");
-
-    // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(m_shooter);
-  }
-
-  @Override
-  public void initialize() {
-    Logger.action("Initializing Command: StopShoot...");
-  }
-
-  @Override
-  public void execute() {
-    m_shooter.stop();
-  }
-
-  // This command continues until interrupted
-  @Override
-  public boolean isFinished() {
-    return false;
-  }
-
-  @Override
-  public void end(boolean interrupted) {
-    if (interrupted) {
-        Logger.ending("Interrupting Command: StopShoot...");
-    } else {
-        Logger.ending("Ending Command: StopShoot...");
+        // Add given subsystem requirements
+        m_shooter = shooter;
+        addRequirements(m_shooter);
     }
-  }
+
+    @Override
+    public void initialize() {
+        Logger.action("Initializing Command: StopShoot...");
+    }
+
+    @Override
+    public void execute() {
+        m_shooter.stopShooter();
+    }
+
+    @Override
+    public boolean isFinished() {
+        return false;
+    }
+
+    @Override
+    public void end(boolean interrupted) {
+        if (interrupted) {
+            Logger.ending("Interrupting Command: StopShoot...");
+        } else {
+            Logger.ending("Ending Command: StopShoot...");
+        }
+        m_shooter.setShooterEnableState(false);
+    }
 
 }

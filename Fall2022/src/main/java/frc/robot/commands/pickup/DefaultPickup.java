@@ -1,8 +1,8 @@
-package frc.robot.commands.intake;
+package frc.robot.commands.pickup;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-import frc.robot.brains.DeliveryBrain;
+import frc.robot.brains.IntakeBrain;
 import frc.robot.consoles.Logger;
 import frc.robot.subsystems.Pickup;
 
@@ -25,9 +25,9 @@ public class DefaultPickup extends CommandBase {
 
     @Override
     public void execute() {
-        if (m_pickup.getPickupToggleState()) {
+        if (Pickup.getPickupToggleState()) {
             m_pickup.lowerPickup();
-            m_pickup.spinRoller(DeliveryBrain.getSpinPower());
+            m_pickup.spinRoller(IntakeBrain.getSpinPower());
         } else {
             m_pickup.raisePickup();
             m_pickup.stopRoller();

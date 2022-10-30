@@ -1,16 +1,16 @@
-package frc.robot.commands.intake;
+package frc.robot.commands.pickup;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 import frc.robot.consoles.Logger;
 import frc.robot.subsystems.Pickup;
 
-public class TogglePickup extends CommandBase {
+public class LowerPickup extends CommandBase {
 
     private Pickup m_pickup;
 
-    public TogglePickup(Pickup pickup) {
-        Logger.setup("Constructing Command: TogglePickup...");
+    public LowerPickup(Pickup pickup) {
+        Logger.setup("Constructing Command: LowerPickup...");
 
         // Add given subsystem requirements
         m_pickup = pickup;
@@ -19,9 +19,8 @@ public class TogglePickup extends CommandBase {
 
     @Override
     public void initialize() {
-        Logger.action("Initializing Command: TogglePickups...");
-
-        m_pickup.invertPickiupToggleState();
+        Logger.action("Initializing Command: LowerPickup...");
+        m_pickup.lowerPickup();
     }
 
     @Override
@@ -30,17 +29,16 @@ public class TogglePickup extends CommandBase {
 
     @Override
     public boolean isFinished() {
-        return true;
-
+        return false;
     }
 
     @Override
     public void end(boolean interrupted) {
         if (interrupted) {
-            Logger.ending("Interrupting Command: TogglePickup...");
+            Logger.ending("Interrupting Command: LowerPickup...");
         } else {
-            Logger.ending("Ending Command: TogglePickup...");
+            Logger.ending("Ending Command: LowerPickup...");
         }
     }
-    
+
 }

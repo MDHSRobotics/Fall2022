@@ -123,8 +123,8 @@ public class DevSwerveModule {
     // [1] - drive motor position (meters)
     // [2] - turning motor (ticks)
     // [3] - turning motor angle (degrees)
-    public double [] getEncoderReadings() {
-        double [] readings = new double[4];
+    public double[] getEncoderReadings() {
+        double[] readings = new double[4];
 
         readings[0] = m_driveMotor.getSelectedSensorPosition();
         readings[1] = getDrivePositionMeters();
@@ -135,7 +135,6 @@ public class DevSwerveModule {
     }
 
     public void resetEncoders() {
-
         // Set drive motor encoder to Zero
         m_driveMotor.setSelectedSensorPosition(0.0);
 
@@ -170,8 +169,7 @@ public class DevSwerveModule {
             SmartDashboard.delete("01: Swerve Power: " + m_name);
 
             return;
-        }
-        else {
+        } else {
             SmartDashboard.delete("03: Swerve State: " + m_name);
             SmartDashboard.delete("03: Swerve Power: " + m_name);
         }
@@ -202,4 +200,5 @@ public class DevSwerveModule {
     public void setShuffleboardBrain() {
         SwerveDriverBrain.setModuleEncoderReadings(m_name, getEncoderReadings());
     }
+
 }

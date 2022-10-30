@@ -9,7 +9,7 @@ import frc.robot.consoles.ShuffleLogger;
 
 import java.util.Map;
 
-// The Shuffleboard Aim tab.
+// The Shuffleboard Climb tab.
 public class ClimbTab {
 
     // Tab & Layouts

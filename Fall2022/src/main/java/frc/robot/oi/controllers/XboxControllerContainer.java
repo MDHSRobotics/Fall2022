@@ -3,12 +3,11 @@ package frc.robot.oi.controllers;
 
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 import frc.robot.oi.controllers.DPadButton.Direction;
 import frc.robot.oi.positions.ThumbstickPosition;
 import frc.robot.oi.positions.TriggerAxisPosition;
-
-import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 // This class contains an xbox controller and properties for all its buttons.
 public class XboxControllerContainer extends ControllerContainer implements XboxPositionAccessible {
@@ -34,7 +33,6 @@ public class XboxControllerContainer extends ControllerContainer implements Xbox
     public DPadButton btnDpadDownLeft;
     public DPadButton btnDpadDownRight;
     public Trigger btnBumperBoth;
-
 
     public XboxControllerContainer(int port) {
         super(port);

@@ -1,15 +1,21 @@
-package frc.robot.commands.intake;
+package frc.robot.commands.conveyor;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-import frc.robot.brains.DeliveryBrain;
+import frc.robot.brains.IntakeBrain;
 import frc.robot.consoles.Logger;
+
 import frc.robot.subsystems.Conveyor;
+import frc.robot.subsystems.Pickup;
+import frc.robot.subsystems.Shooter;
 
 public class DefaultConveyor extends CommandBase {
 
     private Conveyor m_conveyor;
-    private static boolean m_isConveyorToggled = false;
+
+    private boolean m_shooterEnableState;
+    private boolean m_conveyorLimitSwitchEnableState;
+    private boolean m_pickupToggleState;
 
     public DefaultConveyor(Conveyor conveyor) {
         Logger.setup("Constructing Command: DefaultConveyor...");
@@ -26,8 +32,12 @@ public class DefaultConveyor extends CommandBase {
 
     @Override
     public void execute() {
-        if (m_conveyor.getConveyorToggleState()) {
-            m_conveyor.spinConveyor(DeliveryBrain.getConveyorPower());
+        m_shooterEnableState = Shooter.getShooterEnableState();
+        m_conveyorLimitSwitchEnableState = m_conveyor.getLimitSwitchEnableState();
+        m_pickupToggleState = Pickup.getPickupToggleState();
+
+        if ((m_shooterEnableState) || ((!m_conveyorLimitSwitchEnableState) && (m_pickupToggleState))) {
+            m_conveyor.spinConveyor(IntakeBrain.getConveyorPower());
         } else {
             m_conveyor.stopConveyor();
         } 
@@ -36,7 +46,6 @@ public class DefaultConveyor extends CommandBase {
     @Override
     public boolean isFinished() {
         return false;
-
     }
 
     @Override

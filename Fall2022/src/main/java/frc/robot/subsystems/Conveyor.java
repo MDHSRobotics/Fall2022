@@ -4,10 +4,9 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import frc.robot.consoles.Logger;
 import static frc.robot.subsystems.Devices.sparkMaxConveyor;
+import static frc.robot.subsystems.Devices.conveyorLimitSwitch;
 
 public class Conveyor extends SubsystemBase{
-
-    private static boolean m_isConveyorToggled = false;
 
     public Conveyor() {
         Logger.setup("Constructing Subsystem: Delivery...");
@@ -21,12 +20,8 @@ public class Conveyor extends SubsystemBase{
         sparkMaxConveyor.set(power);
     }
 
-    public boolean getConveyorToggleState() {
-        return m_isConveyorToggled;
-    }
-
-    public void invertConveyorToggleState() {
-        m_isConveyorToggled = !m_isConveyorToggled;
+    public boolean getLimitSwitchEnableState() {
+        return conveyorLimitSwitch.get(); 
     }
 
 }

@@ -1,17 +1,16 @@
-package frc.robot.commands.intake;
+package frc.robot.commands.pickup;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-import frc.robot.brains.DeliveryBrain;
 import frc.robot.consoles.Logger;
 import frc.robot.subsystems.Pickup;
 
-public class SpinRoller extends CommandBase {
+public class RaisePickup extends CommandBase {
 
     private Pickup m_pickup;
 
-    public SpinRoller(Pickup pickup) {
-        Logger.setup("Constructing Command: SpinRoller...");
+    public RaisePickup(Pickup pickup) {
+        Logger.setup("Constructing Command: RaisePickup...");
 
         // Add given subsystem requirements
         m_pickup = pickup;
@@ -20,12 +19,12 @@ public class SpinRoller extends CommandBase {
 
     @Override
     public void initialize() {
-        Logger.action("Initializing Command: SpinRoller...");
+        Logger.action("Initializing Command: RaisePickup...");
+        m_pickup.raisePickup();
     }
 
     @Override
     public void execute() {
-        m_pickup.spinRoller(DeliveryBrain.getSpinPower());
     }
 
     @Override
@@ -36,10 +35,10 @@ public class SpinRoller extends CommandBase {
     @Override
     public void end(boolean interrupted) {
         if (interrupted) {
-            Logger.ending("Interrupting Command: SpinRoller...");
+            Logger.ending("Interrupting Command: RaisePickup...");
         } else {
-            Logger.ending("Ending Command: SpinRoller...");
+            Logger.ending("Ending Command: RaisePickup...");
         }
     }
-
+    
 }

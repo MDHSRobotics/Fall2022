@@ -77,5 +77,4 @@ public class ThumbstickPosition {
 
     // TODO: Also consider adding a "debouncer" for the buttons
     // https://frc-pdr.readthedocs.io/en/latest/user_input/joystick.html
-
 }

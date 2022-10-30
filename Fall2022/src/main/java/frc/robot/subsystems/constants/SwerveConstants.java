@@ -79,7 +79,6 @@ public final class SwerveConstants {
     public static final double kDriveRampTime = 0.25; // units are seconds
 
     public static final class OIConstants {
-
         public static final double kDeadband = 0.05;
     }
 }

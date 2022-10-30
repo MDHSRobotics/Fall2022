@@ -2,13 +2,17 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
+
 import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
 import edu.wpi.first.math.kinematics.SwerveDriveOdometry;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
+
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+
 import frc.robot.BotSensors;
+import frc.robot.consoles.Logger;
 import frc.robot.devices.DevSwerveModule;
 import frc.robot.subsystems.constants.SwerveConstants;
 
@@ -92,7 +96,6 @@ public class SwerveDriver extends SubsystemBase {
     // Returns the current rotation2D
     public Rotation2d getRotation2d() {
         return Rotation2d.fromDegrees(getHeading());
-        //return.Rotation2d.fromDegrees(0);
     }
 
     public Pose2d getPose() {
@@ -179,25 +182,23 @@ public class SwerveDriver extends SubsystemBase {
     // preferably make a method to convert rotation speeds to angle
     // create new method taking in angle as a parameter instead of speeds
 
-    // // Drive to align the Robot to a detected line at the given yaw
-    // public void driveAlign(double targetYaw) {
-    //     Logger.setup("##");
+    // Drive to align the Robot to a detected line at the given yaw
+    public void driveAlign(double targetYaw) {
+        // Get the correction yaw needed to align the Robot with the target yaw
+        double yaw = BotSensors.gyro.getYaw();
+        double correction = targetYaw - yaw;
+        if (correction > 180) correction = correction - 360;
+        if (correction < -180) correction = correction + 360;
+        Logger.info("SwerveDriver -> Gyro -> Target Yaw: " + targetYaw + "; Current Yaw: " + yaw + "; Correction: " + correction);
 
-    //     // Get the correction yaw needed to align the Robot with the target yaw
-    //     double yaw = BotSensors.gyro.getYaw();
-    //     double correction = targetYaw - yaw;
-    //     if (correction > 180) correction = correction - 360;
-    //     if (correction < -180) correction = correction + 360;
-    //     Logger.info("SwerveDriver -> Gyro -> Target Yaw: " + targetYaw + "; Current Yaw: " + yaw + "; Correction: " + correction);
+        // Get the rotation speed to align the Robot with the target gyro yaw
+        double zRotation = (correction / 180) * 1.4;
+        boolean isCloseEnough = Math.abs(correction) < 10;
+        if (!isCloseEnough) {
+            if (0 < zRotation && zRotation < 0.25) zRotation = 0.25;
+            if (0 > zRotation && zRotation > -0.25) zRotation = -0.25;
+        }
+        setChassisSpeed(0, 0, zRotation);
+    }
 
-    //     // Get the rotation speed to align the Robot with the target gyro yaw
-    //     double zRotation = (correction / 180) * 1.4;
-    //     boolean isCloseEnough = Math.abs(correction) < 10;
-    //     if (!isCloseEnough) {
-    //         if (0 < zRotation && zRotation < 0.25) zRotation = 0.25;
-    //         if (0 > zRotation && zRotation > -0.25) zRotation = -0.25;
-    //     }
-    //     setChassisSpeed(0, 0, zRotation);
-    //     Logger.ending("^^");
-    // }
 }   

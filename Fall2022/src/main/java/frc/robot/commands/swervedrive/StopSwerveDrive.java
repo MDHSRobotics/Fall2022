@@ -5,7 +5,6 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.consoles.Logger;
 import frc.robot.subsystems.SwerveDriver;
 
-// This command stops the SwerveDriver.
 public class StopSwerveDrive extends CommandBase {
 
     private SwerveDriver m_swerveDriver;
@@ -28,7 +27,6 @@ public class StopSwerveDrive extends CommandBase {
         m_swerveDriver.stopModules();;
     }
 
-    // This command continues until interrupted
     @Override
     public boolean isFinished() {
         return false;

@@ -2,15 +2,12 @@ package frc.robot;
 
 import frc.robot.consoles.Logger;
 
-import edu.wpi.first.wpilibj2.command.button.Trigger;
-
 // Configures all the button->command bindings for the robot.
 public class ButtonBindings {
 
-    Trigger btnBumperBoth = BotControllers.xbox.btnBumperRight.and(BotControllers.xbox.btnBumperLeft);
-
-
+    // Configure jstick buttons
     public static void configureJoystick() {
+        Logger.setup("Configure Buttons -> Jstick Controller...");
         
         // SwerveDrive
         BotControllers.jstick.jstickBtn7.whenPressed(BotCommands.toggleDriverOrientation);
@@ -36,7 +33,7 @@ public class ButtonBindings {
         // SwerveDrive
         BotControllers.xbox.btnStart.whenPressed(BotCommands.toggleDriverOrientation);
 
-        //SparkMax Test
+        // SparkMax Test
         BotControllers.xbox.btnB.whileHeld(BotCommands.spinTestMotor);
 
     }

@@ -28,7 +28,6 @@ public class ToggleDriverOrientation extends CommandBase {
         m_swerveDriver.ToggleOrientation();
     }
 
-    // This command continues until interrupted
     @Override
     public boolean isFinished() {
         return true;

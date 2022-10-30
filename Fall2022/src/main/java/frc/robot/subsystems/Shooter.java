@@ -25,7 +25,9 @@ public class Shooter extends SubsystemBase {
     private static final boolean MOTOR_INVERT_TOP = false;
     private static final boolean MOTOR_INVERT_BOTTOM = false;
 
-    public Shooter() {
+    private static boolean m_isShooterEnabled = false;
+
+    public Shooter() { 
         Logger.setup("Constructing Subsystem: Shooter...");
 
         sparkMaxShooterTopWheel.restoreFactoryDefaults();
@@ -43,7 +45,7 @@ public class Shooter extends SubsystemBase {
         m_bottomEncoder = sparkMaxShooterBottomWheel.getEncoder();
     }
 
-    public void shoot(){
+    public void shootInput(){
         double shootPower = ShooterBrain.getShooterPower();
         double scaleFactor = ShooterBrain.getScaleFactor();
 
@@ -51,6 +53,7 @@ public class Shooter extends SubsystemBase {
         sparkMaxShooterBottomWheel.set(-shootPower);
     }
 
+    // against goal port
     public void shootMin() {
         sparkMaxShooterTopWheel.set(0.1);
         sparkMaxShooterBottomWheel.set(-0.3);
@@ -76,7 +79,15 @@ public class Shooter extends SubsystemBase {
         m_bottomPidController.setReference(shootVelocity, CANSparkMax.ControlType.kVelocity);
     }
 
-    public void stop() {
+    public void setShooterEnableState(boolean shooterEnableState) {
+        m_isShooterEnabled = shooterEnableState;
+    }
+
+    public static boolean getShooterEnableState() {
+        return m_isShooterEnabled;
+    }
+
+    public void stopShooter() {
         sparkMaxShooterTopWheel.stopMotor();
         sparkMaxShooterBottomWheel.stopMotor();
     }

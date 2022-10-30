@@ -8,7 +8,7 @@ import frc.robot.consoles.ShuffleLogger;
 
 import java.util.Map;
 
-// The Shuffleboard Aim tab.
+// The Shuffleboard Shoot tab.
 public class ShootTab {
 
     // Tab & Layouts
@@ -23,7 +23,6 @@ public class ShootTab {
 
     private ComplexWidget m_shoot, m_stopShoot, m_shootVel;
 
-    // Constructor
     public ShootTab() {
         ShuffleLogger.logTrivial("Constructing ShootTab...");
 
@@ -52,12 +51,12 @@ public class ShootTab {
 
         // Shoot with rpm
         m_shootVelSF = m_shootVelLayout.add("Scale Factor (divides the shoot rpm)", ShooterBrain.shootVelocityScaleFactorDefault);
-        ShooterBrain.shootVelSFEntry = m_shootVelSF.getEntry();
+        ShooterBrain.shootVelocityScaleFactorEntry = m_shootVelSF.getEntry();
         m_shootVelSF.withWidget(BuiltInWidgets.kNumberSlider);
         m_shootVelSF.withProperties(Map.of("min",0,"max",10.0));
 
-        m_shootVelRPM = m_shootVelLayout.add("Shoot Rpm", ShooterBrain.shootVelDefault);
-        ShooterBrain.shootVelEntry = m_shootVelRPM.getEntry();
+        m_shootVelRPM = m_shootVelLayout.add("Shoot Rpm", ShooterBrain.shootVelocityDefault);
+        ShooterBrain.shootVelocityEntry = m_shootVelRPM.getEntry();
         m_shootVelRPM.withWidget(BuiltInWidgets.kNumberSlider);
         m_shootVelRPM.withProperties(Map.of("min",0,"max",5676));
 

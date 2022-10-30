@@ -1,16 +1,17 @@
-package frc.robot.commands.intake;
+package frc.robot.commands.pickup;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
+import frc.robot.brains.IntakeBrain;
 import frc.robot.consoles.Logger;
 import frc.robot.subsystems.Pickup;
 
-public class LowerPickup extends CommandBase {
+public class SpinRoller extends CommandBase {
 
     private Pickup m_pickup;
 
-    public LowerPickup(Pickup pickup) {
-        Logger.setup("Constructing Command: LowerPickup...");
+    public SpinRoller(Pickup pickup) {
+        Logger.setup("Constructing Command: SpinRoller...");
 
         // Add given subsystem requirements
         m_pickup = pickup;
@@ -19,12 +20,12 @@ public class LowerPickup extends CommandBase {
 
     @Override
     public void initialize() {
-        Logger.action("Initializing Command: LowerPickup...");
-            m_pickup.lowerPickup();
+        Logger.action("Initializing Command: SpinRoller...");
     }
 
     @Override
     public void execute() {
+        m_pickup.spinRoller(IntakeBrain.getSpinPower());
     }
 
     @Override
@@ -35,9 +36,9 @@ public class LowerPickup extends CommandBase {
     @Override
     public void end(boolean interrupted) {
         if (interrupted) {
-            Logger.ending("Interrupting Command: LowerPickup...");
+            Logger.ending("Interrupting Command: SpinRoller...");
         } else {
-            Logger.ending("Ending Command: LowerPickup...");
+            Logger.ending("Ending Command: SpinRoller...");
         }
     }
 

@@ -21,7 +21,6 @@ public class MainTab {
     private ComplexWidget m_autoCmdWidget;
     private ComplexWidget m_commandWidget1, m_commandWidget2, m_commandWidget3;
 
-
     // Constructor
     public MainTab() {
         ShuffleLogger.logTrivial("Constructing MainTab...");
@@ -42,7 +41,6 @@ public class MainTab {
 
     // Create all other Widgets
     public void initialize() {
-
         m_commandWidget2 = m_commandLayout.add("Auto 1", BotCommands.autoCommand1);
         m_commandWidget3 = m_commandLayout.add("Auto 2", BotCommands.autoCommand2);
 
@@ -54,7 +52,6 @@ public class MainTab {
     public void configure() {
         m_autoCmdWidget.withPosition(0, 2);
         m_autoCmdWidget.withSize(2, 1);
-
     }
 
     // This will be called in the robotPeriodic

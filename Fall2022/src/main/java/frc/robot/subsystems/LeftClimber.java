@@ -9,11 +9,9 @@ public class LeftClimber extends SubsystemBase {
 
     public LeftClimber() {
         Logger.setup("Constructing Subsystem: LeftClimber...");
-
         sparkMaxLeftClimber.restoreFactoryDefaults();
     } 
 
-    // Stop the climber
     public void stopLeftClimb() {
         sparkMaxLeftClimber.stopMotor();
     }

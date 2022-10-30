@@ -6,7 +6,6 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.consoles.Logger;
 import frc.robot.subsystems.SwerveDriver;
 
-// This command stops the SwerveDriver.
 public class TimedSwerve extends CommandBase {
 
     private SwerveDriver m_swerveDriver;
@@ -39,13 +38,10 @@ public class TimedSwerve extends CommandBase {
 
     @Override
     public void execute() {
-
-        //Moves relative to the current state of the field orientation toggle
         m_swerveDriver.setChassisSpeed(m_xSpeed, m_ySpeed, m_turningSpeed);
 
     }
 
-    // This command continues until interrupted
     @Override
     public boolean isFinished() {
         double currentTime = m_timer.get();
