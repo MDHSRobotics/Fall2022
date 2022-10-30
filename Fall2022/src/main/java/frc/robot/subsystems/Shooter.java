@@ -56,19 +56,19 @@ public class Shooter extends SubsystemBase {
     // against goal port
     public void shootMin() {
         sparkMaxShooterTopWheel.set(0.1);
-        sparkMaxShooterBottomWheel.set(-0.3);
+        sparkMaxShooterBottomWheel.set(-0.5);
     }
 
     // 5ft away
     public void shootMid() {
-        sparkMaxShooterTopWheel.set(0.475);
-        sparkMaxShooterBottomWheel.set(-0.575);
+        sparkMaxShooterTopWheel.set(0.25);
+        sparkMaxShooterBottomWheel.set(-0.35);
     }
 
     // 12ft away (safezone)
     public void shootMax() {
-        sparkMaxShooterTopWheel.set(0.5);
-        sparkMaxShooterBottomWheel.set(-0.7);
+        sparkMaxShooterTopWheel.set(0.32);
+        sparkMaxShooterBottomWheel.set(-0.55);
     }
 
     public void shootVelocity() {
