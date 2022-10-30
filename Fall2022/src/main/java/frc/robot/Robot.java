@@ -43,7 +43,7 @@ public class Robot extends TimedRobot {
         // and puts our autonomous chooser on the dashboard.
         RobotManager.initialize();
 
-        Pathweaver.intializeTrajectory();
+        Pathweaver.intializeTrajectories();
     }
 
     /**

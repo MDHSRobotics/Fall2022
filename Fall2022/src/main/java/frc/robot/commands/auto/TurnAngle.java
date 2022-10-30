@@ -12,8 +12,9 @@ public class TurnAngle extends SequentialCommandGroup {
     public TurnAngle(double angle) {
 
         addCommands(
-                new TimedSwerve(BotSubsystems.swerveDriver, 0.0, 0.0, (angle) / (AutoConstants.timePerCommand - SwerveConstants.kDriveRampTime), AutoConstants.timePerCommand)
+            new TimedSwerve(BotSubsystems.swerveDriver, 0.0, 0.0, (angle) / (AutoConstants.kTurnTimeSeconds - SwerveConstants.kDriveRampTime), AutoConstants.kTurnTimeSeconds)
         );
+        
     }
 
 }

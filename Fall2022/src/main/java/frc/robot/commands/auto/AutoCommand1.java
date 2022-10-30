@@ -1,36 +1,37 @@
 package frc.robot.commands.auto;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
-
 import frc.robot.BotSubsystems;
-import frc.robot.commands.pickup.SpinConveyor;
 import frc.robot.commands.pickup.TogglePickup;
-import frc.robot.commands.shoot.ShootMax;
+import frc.robot.subsystems.constants.AutoConstants;
 
+// Autonomous pathing for ball on the left
 public class AutoCommand1 extends SequentialCommandGroup {
 
     public AutoCommand1() {
     
         addCommands(
 
-            // lower the pickup and spin the roller
+            // Roll conveyor to shoot pre-loaded ball into high port 
+            new ShootSequence(AutoConstants.kInitialTopShooterWheelPower, AutoConstants.kInitialBottomShooterWheelPower),
+
+            // Back up to give space for robot to turn towards second ball
+            new MoveBackward(AutoConstants.kMoveBackwardTimeSeconds),
+
+            // Lower pickup to get ready for picking up second ball
             new TogglePickup(BotSubsystems.pickup),
-
-            // move forward until ball is collected
-            new MoveForward(0.3),
-
-            // turn around 180 degrees
-            new TurnAngle(Math.PI),
-
-            // start ramping up shooter
-            new ShootMax(BotSubsystems.shooter),
             
-            // give time for shooter to ramp up
-            new Wait(0.5),
+            // Turn towards second ball
+            new TurnAngle(AutoConstants.kAngleToBallPathOne),
 
-            // spin conveyor to deliver ball to shooter
-            new SpinConveyor(BotSubsystems.conveyor)
+            // Move towards and pick up second ball
+            new MoveForward(AutoConstants.kMoveToBallTimeSecondsPathOne),
 
+            // Turn towards goal
+            new TurnAngle(AutoConstants.kAngleToPortPathOne),
+
+            // Shoot second ball into high port
+            new ShootSequence(AutoConstants.kSecondBallTopShooterWheelPowerPathOne, AutoConstants.kSecondBallBottomShooterWheelPowerPathOne)
         );
 
     }

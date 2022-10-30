@@ -41,7 +41,7 @@ public class Pathweaver {
         }
     };
 
-    public static void intializeTrajectory(){
+    public static void intializeTrajectories(){
         for (int i = 0; i < 3; i++) {
             try {
                 Path trajectoryPath = Filesystem.getDeployDirectory().toPath().resolve(m_trajectoryJsonArray[i]);

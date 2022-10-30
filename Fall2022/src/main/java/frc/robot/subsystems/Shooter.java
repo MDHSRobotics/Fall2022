@@ -32,6 +32,9 @@ public class Shooter extends SubsystemBase {
 
         sparkMaxShooterTopWheel.restoreFactoryDefaults();
         sparkMaxShooterBottomWheel.restoreFactoryDefaults();
+
+        sparkMaxShooterTopWheel.setClosedLoopRampRate(0.25);
+        sparkMaxShooterBottomWheel.setClosedLoopRampRate(0.25);
         
         m_topPidController = sparkMaxShooterTopWheel.getPIDController();
         sparkMaxShooterTopWheel.setInverted(MOTOR_INVERT_TOP);
@@ -45,12 +48,17 @@ public class Shooter extends SubsystemBase {
         m_bottomEncoder = sparkMaxShooterBottomWheel.getEncoder();
     }
 
-    public void shootInput(){
+    public void shootInput() {
         double shootPower = ShooterBrain.getShooterPower();
         double scaleFactor = ShooterBrain.getScaleFactor();
 
         sparkMaxShooterTopWheel.set(shootPower / scaleFactor);
         sparkMaxShooterBottomWheel.set(-shootPower);
+    }
+
+    public void shootInput(double topPower, double bottomPower) {
+        sparkMaxShooterTopWheel.set(topPower);
+        sparkMaxShooterBottomWheel.set(-bottomPower);
     }
 
     // against goal port

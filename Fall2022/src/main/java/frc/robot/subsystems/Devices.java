@@ -32,8 +32,8 @@ public class Devices {
 
     // Pneumatics
     public static Compressor pcmCompressor = new Compressor(0, PneumaticsModuleType.CTREPCM);
-    public static Solenoid pickupSolenoidOne = new Solenoid(PneumaticsModuleType.CTREPCM, 0);
-    public static Solenoid pickupSolenoidTwo = new Solenoid(PneumaticsModuleType.CTREPCM, 1);
+    public static Solenoid pickupSolenoidOne = new Solenoid(PneumaticsModuleType.CTREPCM, 1);
+    public static Solenoid pickupSolenoidTwo = new Solenoid(PneumaticsModuleType.CTREPCM, 7);
 
     // Conveyor
     public static CANSparkMax sparkMaxConveyor = new CANSparkMax(MotorIDConstants.motorIdConveyor, MotorType.kBrushless);

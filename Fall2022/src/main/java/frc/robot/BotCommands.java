@@ -1,7 +1,5 @@
 package frc.robot;
 
-import edu.wpi.first.wpilibj2.command.Command;
-
 import frc.robot.consoles.Logger;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.auto.*;
@@ -12,21 +10,16 @@ import frc.robot.commands.shoot.*;
 import frc.robot.commands.swervedrive.*;
 import frc.robot.commands.test.*;
 
-import frc.robot.subsystems.Pathweaver;
-
 public class BotCommands {
 
     // Example Command to be used as a placeholder until real commands implemented
     public static ExampleCommand exampleCommand;
 
     // Auto Command options
-    public static MoveForward moveForward;
     public static AutoCommand1 autoCommand1;
     public static AutoCommand2 autoCommand2;
     public static AutoCommand3 autoCommand3;
-    public static Command pathweaverTrajectoryOne; 
-    public static Command pathweaverTrajectoryTwo; 
-    public static Command pathweaverTrajectoryThree;
+    public static MoveBackward moveBackward;
 
     // Climber
     public static MoveLeftClimb moveLeftClimb;
@@ -47,7 +40,7 @@ public class BotCommands {
     public static DefaultPickup defaultPickup;
 
     // Shooter
-    public static Shoot shoot;
+    public static ShootInput shootInput;
     public static StopShoot stopShoot;
     public static ShootVelocity shootVel;
     public static ShootMid shootMid;
@@ -70,14 +63,11 @@ public class BotCommands {
         // Re-usable Example Command
         exampleCommand = new ExampleCommand(BotSubsystems.exampleSubsystem, "Default", 10);
         
-        // Auto Commands
-        moveForward = new MoveForward(0.3);
+        // Auto Commands 
         autoCommand1 = new AutoCommand1();
         autoCommand2 = new AutoCommand2();
         autoCommand3 = new AutoCommand3();
-        pathweaverTrajectoryOne = Pathweaver.getChosenTrajectory(1);
-        pathweaverTrajectoryTwo = Pathweaver.getChosenTrajectory(2);
-        pathweaverTrajectoryThree = Pathweaver.getChosenTrajectory(3);
+        moveBackward = new MoveBackward(2);
 
         // Climber
         moveLeftClimb = new MoveLeftClimb(BotSubsystems.leftClimber);
@@ -98,7 +88,7 @@ public class BotCommands {
         defaultPickup = new DefaultPickup(BotSubsystems.pickup);
 
         // Shooter
-        shoot = new Shoot(BotSubsystems.shooter);
+        shootInput = new ShootInput(BotSubsystems.shooter);
         stopShoot = new StopShoot(BotSubsystems.shooter);
         shootVel = new ShootVelocity(BotSubsystems.shooter);
         shootMin = new ShootMin(BotSubsystems.shooter);

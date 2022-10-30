@@ -225,6 +225,9 @@ public class DriveTab {
 
         m_widgetSwerveDrive.withPosition(3, 3);
         m_widgetSwerveDrive.withSize(3, 1);
+        m_widgetSwerveDrive.withProperties(Map.of("Number of columns", 2));
+        m_widgetSwerveDrive.withProperties(Map.of("Number of rows", 2));
+        m_widgetSwerveDrive.withProperties(Map.of("Label position", "TOP"));
     }
 
     // This will be called in the robotPeriodic

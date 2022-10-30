@@ -3,33 +3,36 @@ package frc.robot.commands.auto;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 
 import frc.robot.BotSubsystems;
-import frc.robot.commands.pickup.SpinConveyor;
 import frc.robot.commands.pickup.TogglePickup;
-import frc.robot.commands.shoot.ShootMax;
+import frc.robot.subsystems.constants.AutoConstants;
 
+// Autonomous pathing for ball on the right
 public class AutoCommand3 extends SequentialCommandGroup {
 
     public AutoCommand3() {
     
         addCommands(
             
-            // lower the pickup and spin the roller
+            // Roll conveyor to shoot pre-loaded ball into high port 
+            new ShootSequence(AutoConstants.kInitialTopShooterWheelPower, AutoConstants.kInitialBottomShooterWheelPower),
+
+            // Back up to give space for robot to turn towards second ball
+            new MoveBackward(AutoConstants.kMoveBackwardTimeSeconds),
+
+            // Lower pickup to get ready for picking up second ball
             new TogglePickup(BotSubsystems.pickup),
+            
+            // Turn towards second ball
+            new TurnAngle(AutoConstants.kAngleToBallPathThree),
 
-            // move forward until ball is collected
-            new MoveForward(0.3),
+            // Move towards and pick up second ball
+            new MoveForward(AutoConstants.kMoveToBallTimeSecondsPathThree),
 
-            // turn around 180 degrees
-            new TurnAngle(Math.PI),
+            // Turn towards goal
+            new TurnAngle(AutoConstants.kAngleToPortPathThree),
 
-            // start ramping up shooter
-            new ShootMax(BotSubsystems.shooter),
-
-            // give time for shooter to ramp up
-            new Wait(0.5),
-
-            // spin conveyor to deliver ball to shooter
-            new SpinConveyor(BotSubsystems.conveyor)
+            // Shoot second ball into high port
+            new ShootSequence(AutoConstants.kSecondBallTopShooterWheelPowerPathThree, AutoConstants.kSecondBallBottomShooterWheelPowerPathThree)
             
         );
 

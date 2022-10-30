@@ -7,10 +7,10 @@ import frc.robot.commands.swervedrive.TimedSwerve;
 
 public class Wait extends SequentialCommandGroup {
 
-    public Wait(double waitSeconds) {
+    public Wait(double seconds) {
 
         addCommands(
-                new TimedSwerve(BotSubsystems.swerveDriver, 0.0, 0.0, 0.0, waitSeconds)
+            new TimedSwerve(BotSubsystems.swerveDriver, 0.0, 0.0, 0.0, seconds)
         );
     }
 

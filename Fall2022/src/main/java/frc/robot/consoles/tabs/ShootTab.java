@@ -72,7 +72,7 @@ public class ShootTab {
     // Create all other Widgets
     public void initialize() {
         // Shoot Command
-        m_shoot = m_commandLayout.add("Shoot", BotCommands.shoot);
+        m_shoot = m_commandLayout.add("Shoot Input", BotCommands.shootInput);
 
         // Stop Shooter Command
         m_stopShoot = m_commandLayout.add("Stop Shooter", BotCommands.stopShoot);
