@@ -17,7 +17,8 @@ public final class AutoConstants {
     
     // General pathing constants
     public static final double kTurnTimeSeconds = 1;
-    public static final double kShootTimeSeconds = 1;
+    public static final double kShootTimeSeconds = 3;
+    public static final double kConveyorDelayTimeSeconds = 1;
     public static final double kMoveBackwardTimeSeconds = 1;
     public static final double kDefaultDriveTimeSeconds = 2;
 
@@ -36,23 +37,23 @@ public final class AutoConstants {
     */
 
     // Path 1 (left)
-    public static final double kAngleToBallPathOne = 0;
+    public static final double kAngleToBallRadiansPathOne = 2.71;
     public static final double kMoveToBallTimeSecondsPathOne = 3;
-    public static final double kAngleToPortPathOne = 0;
+    public static final double kAngleToPortRadiansPathOne = -2.94;
     public static final double kSecondBallTopShooterWheelPowerPathOne = 0.1;
     public static final double kSecondBallBottomShooterWheelPowerPathOne = 0.5;
 
     // Path 2 (center)
-    public static final double kAngleToBallPathTwo = 0;
+    public static final double kAngleToBallRadiansPathTwo = 2.20;
     public static final double kMoveToBallTimeSecondsPathTwo = 3;
-    public static final double kAngleToPortPathTwo = 0;
+    public static final double kAngleToPortRadiansPathTwo = -2.82;
     public static final double kSecondBallTopShooterWheelPowerPathTwo = 0.1;
     public static final double kSecondBallBottomShooterWheelPowerPathTwo = 0.5;
 
     // Path 3 (right)
-    public static final double kAngleToBallPathThree = 0;
+    public static final double kAngleToBallRadiansPathThree = -2.84;
     public static final double kMoveToBallTimeSecondsPathThree = 3;
-    public static final double kAngleToPortPathThree = 0;
+    public static final double kAngleToPortRadiansPathThree = 3.02;
     public static final double kSecondBallTopShooterWheelPowerPathThree = 0.1;
     public static final double kSecondBallBottomShooterWheelPowerPathThree = 0.5;
 

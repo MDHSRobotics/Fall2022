@@ -10,14 +10,16 @@ public class TimedConveyor extends CommandBase {
 
     private Conveyor m_conveyor;
     private double m_targetTime;
+    private double m_delayTime;
     private Timer m_timer;
 
-    public TimedConveyor(Conveyor conveyor, double timeInSeconds) {
+    public TimedConveyor(Conveyor conveyor, double timeInSeconds, double delayInSecods) {
         Logger.setup("Constructing Command: TimedShoot...");
 
         // Add given subsystem requirements
         m_conveyor = conveyor;
         m_targetTime = timeInSeconds;
+        m_delayTime = delayInSecods;
         m_timer = new Timer();
         addRequirements(m_conveyor);
     }
@@ -31,7 +33,11 @@ public class TimedConveyor extends CommandBase {
 
     @Override
     public void execute() {
-        m_conveyor.spinConveyor(IntakeBrain.getConveyorPower());
+        double currentTime = m_timer.get();
+         
+        if (currentTime > m_delayTime) {
+            m_conveyor.spinConveyor(IntakeBrain.getConveyorPower());
+        }
     }
 
     @Override

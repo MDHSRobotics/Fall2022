@@ -13,7 +13,7 @@ public class ShootSequence extends ParallelCommandGroup {
 
         addCommands(
             new TimedShoot(BotSubsystems.shooter, topPower, bottomPower, AutoConstants.kShootTimeSeconds),
-            new TimedConveyor(BotSubsystems.conveyor, AutoConstants.kShootTimeSeconds)
+            new TimedConveyor(BotSubsystems.conveyor, AutoConstants.kShootTimeSeconds, AutoConstants.kConveyorDelayTimeSeconds)
         );
         
     }

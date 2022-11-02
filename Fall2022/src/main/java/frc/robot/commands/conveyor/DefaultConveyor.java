@@ -1,5 +1,6 @@
 package frc.robot.commands.conveyor;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 import frc.robot.brains.IntakeBrain;
@@ -12,6 +13,7 @@ import frc.robot.subsystems.Shooter;
 public class DefaultConveyor extends CommandBase {
 
     private Conveyor m_conveyor;
+    private Timer m_timer;
 
     private boolean m_shooterEnableState;
     private boolean m_conveyorLimitSwitchEnableState;
@@ -22,6 +24,7 @@ public class DefaultConveyor extends CommandBase {
 
         // Add given subsystem requirements
         m_conveyor = conveyor;
+        m_timer = new Timer();
         addRequirements(m_conveyor);
     }
 
@@ -32,15 +35,26 @@ public class DefaultConveyor extends CommandBase {
 
     @Override
     public void execute() {
+        double currentTime = m_timer.get();
+
         m_shooterEnableState = Shooter.getShooterEnableState();
         m_conveyorLimitSwitchEnableState = m_conveyor.getLimitSwitchEnableState();
         m_pickupToggleState = Pickup.getPickupToggleState();
 
-        if ((m_shooterEnableState) || ((!m_conveyorLimitSwitchEnableState) && (m_pickupToggleState))) {
-            m_conveyor.spinConveyor(IntakeBrain.getConveyorPower());
+        if (m_shooterEnableState) {
+            m_timer.start();
+            if (currentTime >= 1) {
+                m_conveyor.spinConveyor(IntakeBrain.getConveyorPower());
+            }
         } else {
-            m_conveyor.stopConveyor();
-        } 
+            m_timer.reset();
+            if ((!m_conveyorLimitSwitchEnableState) && (m_pickupToggleState)) {
+                m_conveyor.spinConveyor(IntakeBrain.getConveyorPower());
+            } else {
+                m_conveyor.stopConveyor();
+            } 
+        }
+
     }
 
     @Override

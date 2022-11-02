@@ -22,13 +22,13 @@ public class AutoCommand1 extends SequentialCommandGroup {
             new TogglePickup(BotSubsystems.pickup),
             
             // Turn towards second ball
-            new TurnAngle(AutoConstants.kAngleToBallPathOne),
+            new TurnAngle(AutoConstants.kAngleToBallRadiansPathOne),
 
             // Move towards and pick up second ball
             new MoveForward(AutoConstants.kMoveToBallTimeSecondsPathOne),
 
             // Turn towards goal
-            new TurnAngle(AutoConstants.kAngleToPortPathOne),
+            new TurnAngle(AutoConstants.kAngleToPortRadiansPathOne),
 
             // Shoot second ball into high port
             new ShootSequence(AutoConstants.kSecondBallTopShooterWheelPowerPathOne, AutoConstants.kSecondBallBottomShooterWheelPowerPathOne)
