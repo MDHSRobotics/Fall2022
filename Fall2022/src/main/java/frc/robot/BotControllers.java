@@ -10,7 +10,7 @@ public class BotControllers {
 
     // Controllers
     public static final JoystickContainer jstick = new JoystickContainer(0);
-    public static final XboxControllerContainer xbox = new XboxControllerContainer(0);
+    public static final XboxControllerContainer xbox = new XboxControllerContainer(1);
 
     // Configure all the controllers
     public static void configure() {
