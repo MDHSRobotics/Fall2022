@@ -70,7 +70,7 @@ public class RobotManager {
         autoCommandChooser = new SendableChooser<>();
 
         // Add commands to the autonomous command chooser
-        autoCommandChooser.setDefaultOption("Move Backward", BotCommands.moveBackward);
+        autoCommandChooser.setDefaultOption("Default Auto Command", BotCommands.defaultAutoCommand);
         autoCommandChooser.addOption("Auto Command One", BotCommands.autoCommand1);
         autoCommandChooser.addOption("Auto Command Two", BotCommands.autoCommand2);
         autoCommandChooser.addOption("Auto Command Three", BotCommands.autoCommand3);

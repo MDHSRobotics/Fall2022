@@ -19,7 +19,7 @@ public class BotCommands {
     public static AutoCommand1 autoCommand1;
     public static AutoCommand2 autoCommand2;
     public static AutoCommand3 autoCommand3;
-    public static MoveBackward moveBackward;
+    public static DefaultAutoCommand defaultAutoCommand;
 
     // Climber
     public static MoveLeftClimb moveLeftClimb;
@@ -67,7 +67,7 @@ public class BotCommands {
         autoCommand1 = new AutoCommand1();
         autoCommand2 = new AutoCommand2();
         autoCommand3 = new AutoCommand3();
-        moveBackward = new MoveBackward(2);
+        defaultAutoCommand = new DefaultAutoCommand();
 
         // Climber
         moveLeftClimb = new MoveLeftClimb(BotSubsystems.leftClimber);
