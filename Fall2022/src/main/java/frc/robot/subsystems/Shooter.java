@@ -35,6 +35,9 @@ public class Shooter extends SubsystemBase {
 
         sparkMaxShooterTopWheel.setOpenLoopRampRate(0.25);
         sparkMaxShooterBottomWheel.setOpenLoopRampRate(0.25);
+
+        sparkMaxShooterTopWheel.enableVoltageCompensation(12);
+        sparkMaxShooterBottomWheel.enableVoltageCompensation(12);
         
         m_topPidController = sparkMaxShooterTopWheel.getPIDController();
         sparkMaxShooterTopWheel.setInverted(MOTOR_INVERT_TOP);
