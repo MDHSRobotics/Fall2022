@@ -54,7 +54,6 @@ public class DefaultConveyor extends CommandBase {
                 m_conveyor.stopConveyor();
             } 
         }
-
     }
 
     @Override

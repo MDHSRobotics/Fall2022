@@ -1,16 +1,15 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Compressor;
-import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.Solenoid;
-
 import frc.robot.devices.*;
 import frc.robot.subsystems.constants.MotorIDConstants;
 
 import com.ctre.phoenix.sensors.CANCoder;
 
 import com.revrobotics.CANSparkMax;
+import com.revrobotics.SparkMaxLimitSwitch;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 // This class contains singleton (static) instances of id mapped subsystem components.
@@ -37,7 +36,7 @@ public class Devices {
 
     // Conveyor
     public static CANSparkMax sparkMaxConveyor = new CANSparkMax(MotorIDConstants.motorIdConveyor, MotorType.kBrushless);
-    public static DigitalInput conveyorLimitSwitch = new DigitalInput(0);
+    public static SparkMaxLimitSwitch sparkMaxCownveyorLimitSwitch = sparkMaxConveyor.getReverseLimitSwitch(SparkMaxLimitSwitch.Type.kNormallyOpen);
 
     // Shoot
     public static CANSparkMax sparkMaxShooterTopWheel = new CANSparkMax(MotorIDConstants.motorIdTopShooter, MotorType.kBrushless);
