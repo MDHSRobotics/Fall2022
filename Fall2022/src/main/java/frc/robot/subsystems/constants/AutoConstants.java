@@ -19,10 +19,10 @@ public final class AutoConstants {
     public static final double kTurnTimeSeconds = 1;
     public static final double kShootTimeSeconds = 3;
     public static final double kConveyorDelayTimeSeconds = 1;
-    public static final double kMoveBackwardTimeSeconds = 1;
-    public static final double kDefaultDriveTimeSeconds = 2;
+    public static final double kMoveBackwardTimeSeconds = 2;
+    public static final double kDefaultDriveTimeSeconds = 3;
 
-    public static final double kInitialTopShooterWheelPower = 0.1;
+    public static final double kInitialTopShooterWheelPower = 0.125;
     public static final double kInitialBottomShooterWheelPower = 0.5;
     public static final double kDrivePower = 0.5;
 

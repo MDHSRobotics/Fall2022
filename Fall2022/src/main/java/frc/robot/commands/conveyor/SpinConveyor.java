@@ -25,8 +25,10 @@ public class SpinConveyor extends CommandBase {
 
     @Override
     public void execute() {
-        m_conveyor.spinConveyor(IntakeBrain.getConveyorPower());
-    }
+        if (!m_conveyor.getLimitSwitchEnableState()) { 
+            m_conveyor.spinConveyor(IntakeBrain.getConveyorPower());
+        }
+    }    
 
     @Override
     public boolean isFinished() {
