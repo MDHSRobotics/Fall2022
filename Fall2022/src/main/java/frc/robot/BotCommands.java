@@ -40,6 +40,7 @@ public class BotCommands {
     public static DefaultPickup defaultPickup;
 
     // Shooter
+    public static ShootSlider shootSlider;
     public static ShootInput shootInput;
     public static StopShoot stopShoot;
     public static ShootVelocity shootVel;
@@ -88,6 +89,7 @@ public class BotCommands {
         defaultPickup = new DefaultPickup(BotSubsystems.pickup);
 
         // Shooter
+        shootSlider = new ShootSlider(BotSubsystems.shooter);
         shootInput = new ShootInput(BotSubsystems.shooter);
         stopShoot = new StopShoot(BotSubsystems.shooter);
         shootVel = new ShootVelocity(BotSubsystems.shooter);

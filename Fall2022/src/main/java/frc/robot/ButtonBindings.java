@@ -8,6 +8,9 @@ public class ButtonBindings {
     // Configure jstick buttons
     public static void configureJoystick() {
         Logger.setup("Configure Buttons -> Jstick Controller...");
+
+        // Shooter
+        BotControllers.jstick.jstickBtn1.whileHeld(BotCommands.shootSlider);
         
         // SwerveDrive
         BotControllers.jstick.jstickBtn7.whenPressed(BotCommands.toggleDriverOrientation);
