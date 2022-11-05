@@ -73,8 +73,8 @@ public final class SwerveConstants {
 
     public static final double kTeleDriveMaxSpeedMetersPerSecond = kPhysicalMaxSpeedMetersPerSecond / 4;
     public static final double kTeleDriveMaxAngularSpeedRadiansPerSecond = kPhysicalMaxAngularSpeedRadiansPerSecond / 9;
-    public static final double kTeleDriveMaxAccelerationUnitsPerSecond = 3;
-    public static final double kTeleDriveMaxAngularAccelerationUnitsPerSecond = 3;
+    public static final double kTeleDriveMaxAccelerationUnitsPerSecond = 1;
+    public static final double kTeleDriveMaxAngularAccelerationUnitsPerSecond = 1.5;
 
     public static final double kDriveRampTime = 0.25; // units are seconds
 

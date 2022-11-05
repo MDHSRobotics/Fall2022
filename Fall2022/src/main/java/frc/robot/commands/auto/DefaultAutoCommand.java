@@ -13,7 +13,10 @@ public class DefaultAutoCommand extends SequentialCommandGroup {
             new ShootSequence(AutoConstants.kInitialTopShooterWheelPower, AutoConstants.kInitialBottomShooterWheelPower),
 
             // Back up to give space for robot to turn towards second ball
-            new MoveBackward(AutoConstants.kDefaultDriveTimeSeconds) 
+            new MoveBackward(AutoConstants.kDefaultDriveTimeSeconds),
+
+            // Do nothing
+            new Wait(9)
 
         );
 
