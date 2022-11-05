@@ -29,9 +29,9 @@ public class ButtonBindings {
         BotControllers.xbox.btnA.whenPressed(BotCommands.togglePickup);
         
         // Shooter
-        BotControllers.xbox.btnBumperLeft.whenHeld(BotCommands.shootMin);
-        BotControllers.xbox.btnBumperRight.whenHeld(BotCommands.shootMid);
-        BotControllers.xbox.btnBumperBoth.whileActiveOnce(BotCommands.shootMax, true);
+        BotControllers.xbox2.btnBumperLeft.whenHeld(BotCommands.shootMin);
+        BotControllers.xbox2.btnBumperRight.whenHeld(BotCommands.shootMid);
+        BotControllers.xbox2.btnBumperBoth.whileActiveOnce(BotCommands.shootMax, true);
 
         // SwerveDrive
         BotControllers.xbox.btnStart.whenPressed(BotCommands.toggleDriverOrientation);
