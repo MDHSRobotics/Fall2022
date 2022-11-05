@@ -51,6 +51,9 @@ public class DevSwerveModule {
         m_driveMotor.configSupplyCurrentLimit(new SupplyCurrentLimitConfiguration(true, 15, 15, 20));   
         m_turningMotor.configSupplyCurrentLimit(new SupplyCurrentLimitConfiguration(true, 15, 15, 20));   
 
+        m_driveMotor.setNeutralMode(NeutralMode.Brake);
+        m_turningMotor.setNeutralMode(NeutralMode.Brake);
+
         m_driveMotor.configOpenloopRamp(SwerveConstants.kDriveRampTime);
 
         m_turningPidController = new PIDController(SwerveConstants.kPTurning, 0, 0);
