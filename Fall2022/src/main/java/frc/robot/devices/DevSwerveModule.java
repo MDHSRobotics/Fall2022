@@ -3,6 +3,7 @@ package frc.robot.devices;
 import frc.robot.subsystems.utils.EncoderTranslator;
 
 import com.ctre.phoenix.motorcontrol.NeutralMode;
+import com.ctre.phoenix.motorcontrol.SupplyCurrentLimitConfiguration; 
 import com.ctre.phoenix.sensors.AbsoluteSensorRange;
 import com.ctre.phoenix.sensors.CANCoder;
 
@@ -46,6 +47,9 @@ public class DevSwerveModule {
         m_driveMotor.setInverted(driveMotorReversed);
         m_turningMotor.setInverted(turningMotorReversed);
         m_driveMotor.setNeutralMode(NeutralMode.Brake);
+
+        m_driveMotor.configSupplyCurrentLimit(new SupplyCurrentLimitConfiguration(true, 15, 15, 20));   
+        m_turningMotor.configSupplyCurrentLimit(new SupplyCurrentLimitConfiguration(true, 15, 15, 20));   
 
         m_driveMotor.configOpenloopRamp(SwerveConstants.kDriveRampTime);
 
