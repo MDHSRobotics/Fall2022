@@ -33,11 +33,11 @@ public class Shooter extends SubsystemBase {
         sparkMaxShooterTopWheel.restoreFactoryDefaults();
         sparkMaxShooterBottomWheel.restoreFactoryDefaults();
 
-        sparkMaxShooterTopWheel.setOpenLoopRampRate(0.25);
-        sparkMaxShooterBottomWheel.setOpenLoopRampRate(0.25);
-
         sparkMaxShooterTopWheel.enableVoltageCompensation(12);
         sparkMaxShooterBottomWheel.enableVoltageCompensation(12);
+
+        sparkMaxShooterTopWheel.setSmartCurrentLimit(40);   
+        sparkMaxShooterBottomWheel.setSmartCurrentLimit(40);    
         
         m_topPidController = sparkMaxShooterTopWheel.getPIDController();
         sparkMaxShooterTopWheel.setInverted(MOTOR_INVERT_TOP);
@@ -66,14 +66,14 @@ public class Shooter extends SubsystemBase {
 
     // against goal port
     public void shootMin() {
-        sparkMaxShooterTopWheel.set(0.125);
-        sparkMaxShooterBottomWheel.set(-0.5);
+        sparkMaxShooterTopWheel.set(0.3);
+        sparkMaxShooterBottomWheel.set(-0.3);
     }
 
     // 5ft away
     public void shootMid() {
-        sparkMaxShooterTopWheel.set(0.28);
-        sparkMaxShooterBottomWheel.set(-0.40);
+        sparkMaxShooterTopWheel.set(0.335);
+        sparkMaxShooterBottomWheel.set(-0.335);
     }
 
     // 12ft away (safezone)
@@ -108,8 +108,8 @@ public class Shooter extends SubsystemBase {
         double topEncoderVelocity = m_topEncoder.getVelocity();
         double bottomEncoderVelocity = m_bottomEncoder.getVelocity();
         
-        ShooterBrain.setTopEncoderVelocity(topEncoderVelocity);
-        ShooterBrain.setBottomEncoderVelocity(bottomEncoderVelocity);
+        //ShooterBrain.setTopEncoderVelocity(topEncoderVelocity);
+        //ShooterBrain.setBottomEncoderVelocity(bottomEncoderVelocity);
     }
 
     // Translate a desired target velocity in feet per second to a motor speed in Ticks per 100 ms.

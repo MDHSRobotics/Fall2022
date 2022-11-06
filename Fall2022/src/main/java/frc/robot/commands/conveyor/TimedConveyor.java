@@ -43,7 +43,6 @@ public class TimedConveyor extends CommandBase {
     @Override
     public boolean isFinished() {
         double currentTime = m_timer.get();
-        Logger.info(String.format("Current Time: %.2f, Target Time: %.2f",  currentTime, m_targetTime));
 
         if (currentTime > m_targetTime) {
             return true;

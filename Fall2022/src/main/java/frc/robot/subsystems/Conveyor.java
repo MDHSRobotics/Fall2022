@@ -10,6 +10,8 @@ public class Conveyor extends SubsystemBase{
 
     public Conveyor() {
         Logger.setup("Constructing Subsystem: Conveyor...");
+
+        sparkMaxConveyor.setSmartCurrentLimit(15);   
     }
 
     public void stopConveyor() {

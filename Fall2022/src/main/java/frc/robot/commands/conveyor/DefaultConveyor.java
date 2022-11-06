@@ -43,7 +43,7 @@ public class DefaultConveyor extends CommandBase {
 
         if (m_shooterEnableState) {
             m_timer.start();
-            if (currentTime >= 1) {
+            if (currentTime >= 1.5) {
                 m_conveyor.spinConveyor(IntakeBrain.getConveyorPower());
             }
         } else {

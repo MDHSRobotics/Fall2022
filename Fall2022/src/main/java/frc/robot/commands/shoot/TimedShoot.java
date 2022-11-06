@@ -2,7 +2,7 @@ package frc.robot.commands.shoot;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-
+import frc.robot.brains.ShooterBrain;
 import frc.robot.consoles.Logger;
 import frc.robot.subsystems.Shooter;
 
@@ -35,13 +35,14 @@ public class TimedShoot extends CommandBase {
 
     @Override
     public void execute() {
-        m_shooter.shootInput(m_topWheelPower, m_bottomWheelPower);
+        m_shooter.shootInput(ShooterBrain.getTopEncoderVelocity(), ShooterBrain.getBottomEncoderVelocity());
+        Logger.info("Top Power: " + ShooterBrain.getTopEncoderVelocity());
+        Logger.info("Bottom Power: " + ShooterBrain.getBottomEncoderVelocity());
     }
 
     @Override
     public boolean isFinished() {
         double currentTime = m_timer.get();
-        Logger.info(String.format("Current Time: %.2f, Target Time: %.2f",  currentTime, m_targetTime));
 
         if (currentTime > m_targetTime) {
             return true;

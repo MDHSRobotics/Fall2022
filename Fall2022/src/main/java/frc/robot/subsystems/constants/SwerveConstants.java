@@ -72,7 +72,7 @@ public final class SwerveConstants {
     public static final double kRearRightDriveAbsoluteEncoderOffsetRad = Units.degreesToRadians(-67.412);
 
     public static final double kTeleDriveMaxSpeedMetersPerSecond = kPhysicalMaxSpeedMetersPerSecond / 4;
-    public static final double kTeleDriveMaxAngularSpeedRadiansPerSecond = kPhysicalMaxAngularSpeedRadiansPerSecond / 9;
+    public static final double kTeleDriveMaxAngularSpeedRadiansPerSecond = 3;//kPhysicalMaxAngularSpeedRadiansPerSecond / 9;
     public static final double kTeleDriveMaxAccelerationUnitsPerSecond = 1;
     public static final double kTeleDriveMaxAngularAccelerationUnitsPerSecond = 1.5;
 

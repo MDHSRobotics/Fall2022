@@ -37,8 +37,8 @@ public class ShooterBrain {
     public static double shootVelocityScaleFactorDefault = 2;
 
     // encoder velocity
-    public static double bottomEncoderVelocityDefault = 0;
-    public static double topEncoderVelocityDefault = 0;
+    public static double bottomEncoderVelocityDefault = 0.315;
+    public static double topEncoderVelocityDefault = 0.315;
 
     //---------------------//
     // NetworkTableEntries //

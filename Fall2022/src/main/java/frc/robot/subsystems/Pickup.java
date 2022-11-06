@@ -11,10 +11,11 @@ public class Pickup extends SubsystemBase{
 
     public Pickup() {
         Logger.setup("Constructing Subsystem: Pickup...");
-
         pcmCompressor.enableDigital();
         pickupSolenoidOne.set(false);
         pickupSolenoidTwo.set(false);
+
+        sparkMaxPickup.setSmartCurrentLimit(15);  
     }
 
     public void lowerPickup() {

@@ -10,6 +10,8 @@ public class LeftClimber extends SubsystemBase {
     public LeftClimber() {
         Logger.setup("Constructing Subsystem: LeftClimber...");
         sparkMaxLeftClimber.restoreFactoryDefaults();
+        sparkMaxLeftClimber.setSmartCurrentLimit(15);   
+
     } 
 
     public void stopLeftClimb() {

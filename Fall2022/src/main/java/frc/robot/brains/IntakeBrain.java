@@ -11,8 +11,8 @@ public class IntakeBrain {
     // Default Values //
     //----------------//
 
-    public static double spinPowerDefault = 0.4;
-    public static double conveyorPowerDefault = 0.4;
+    public static double spinPowerDefault = 0.8;
+    public static double conveyorPowerDefault = 0.2;
 
     //---------------------//
     // NetworkTableEntries //

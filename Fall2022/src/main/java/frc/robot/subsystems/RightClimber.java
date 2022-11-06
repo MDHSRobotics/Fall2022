@@ -11,6 +11,8 @@ public class RightClimber extends SubsystemBase {
         Logger.setup("Constructing Subsystem: RightClimber...");
 
         sparkMaxRightClimber.restoreFactoryDefaults();
+        sparkMaxRightClimber.setSmartCurrentLimit(15);   
+
     } 
 
     public void stopRightClimb() {
