@@ -98,7 +98,7 @@ public class BotCommands {
         shootMax = new ShootMax(BotSubsystems.shooter);
 
         // SwerveDriver
-        swerveDrive = new SwerveDrive(BotSubsystems.swerveDriver, BotControllers.jstick); 
+        swerveDrive = new SwerveDrive(BotSubsystems.swerveDriver, BotControllers.xbox2); 
         toggleDriverOrientation = new ToggleDriverOrientation(BotSubsystems.swerveDriver);
 
         // SparkMax Test
