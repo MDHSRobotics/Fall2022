@@ -21,6 +21,8 @@ public class Limelight {
     private static NetworkTableEntry m_targetVisionCoverage = m_limelightNetworkTable.getEntry("ta"); // How many pixels of screen is target (target area)
     private static NetworkTableEntry m_ledMode = m_limelightNetworkTable.getEntry("ledMode"); // Set led state
 
+    private static boolean m_isAligning = false;
+
     public static double getXOffset() { 
         return m_horizontalOffset.getDouble(0.0); 
     } 
@@ -32,6 +34,14 @@ public class Limelight {
         m_ledMode.setNumber(mode); 
     } 
  
+    public static void setAlignmentState() {
+        m_isAligning = !m_isAligning;
+    }
+
+    public static boolean getAlignmentState() {
+        return m_isAligning;
+    }
+
     // Uses the limelight to find the distance in feet 
     public static double calculateDistanceToTarget() { 
         double yOffset = getYOffset(); 
@@ -39,21 +49,8 @@ public class Limelight {
  
         double distance = (TARGET_HEIGHT - CAMERA_HEIGHT) / Math.tan(angleInRadians); 
         distance /= 12.0; // converts inches to feet 
- 
-        // Calculate average velocities 
-        for (int i = sampleSize - 2; i > 0; i--) { 
-            averageDistanceSamples[i] = averageDistanceSamples[i - 1]; 
-        } 
- 
-        averageDistanceSamples[0] = distance; 
- 
-        for (double sample : averageDistanceSamples) { 
-            averageDistance += sample; 
-        } 
- 
-        averageDistance /= sampleSize; 
- 
-        return averageDistance; 
+
+        return distance; 
 
 
     } 

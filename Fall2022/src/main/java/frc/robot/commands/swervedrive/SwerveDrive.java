@@ -9,7 +9,7 @@ import frc.robot.consoles.Logger;
 import frc.robot.oi.controllers.JoystickPositionAccessible;
 import frc.robot.oi.controllers.XboxPositionAccessible;
 import frc.robot.oi.movements.SwerveMovement;
-
+import frc.robot.sensors.Limelight;
 import frc.robot.subsystems.SwerveDriver;
 import frc.robot.subsystems.constants.SwerveConstants;
 import frc.robot.subsystems.constants.SwerveConstants.OIConstants;
@@ -91,6 +91,16 @@ public class SwerveDrive extends CommandBase {
         double rotationSideToSideSpeed3 = m_rotationSideToSideLimiter.calculate(rotationSideToSideSpeed2) * SwerveConstants.kTeleDriveMaxAngularSpeedRadiansPerSecond;
 
         SmartDashboard.putString("08: Chassis velocity", String.format("X = %.2f; Y = %.2f, Turn = %.2f", forwardBackwardSpeed3, sideToSideSpeed3, rotationSideToSideSpeed3));
+
+        // 4. Check if robot is is aligning to target
+        if(Limelight.getAlignmentState()){
+            forwardBackwardSpeed3 = 0;
+            sideToSideSpeed3 = 0;
+            rotationForwardBackwardSpeed3 = 0;
+            if(Limelight.getXOffset() > 0){
+                rotationForwardBackwardSpeed3
+            }
+        }
 
         // 5. Output each module states to wheels
         m_swerveDriver.setChassisSpeed(forwardBackwardSpeed3, -sideToSideSpeed3, rotationSideToSideSpeed3);

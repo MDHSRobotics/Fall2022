@@ -27,6 +27,8 @@ public class Shooter extends SubsystemBase {
 
     private static boolean m_isShooterEnabled = false;
 
+    private final double ScaleFactor = 0.007;
+
     public Shooter() { 
         Logger.setup("Constructing Subsystem: Shooter...");
 
@@ -80,6 +82,13 @@ public class Shooter extends SubsystemBase {
     public void shootMax() {
         sparkMaxShooterTopWheel.set(0.32);
         sparkMaxShooterBottomWheel.set(-0.55);
+    }
+
+    //shoot using limelight
+    public void shootLimelight(double power) {
+        power *= ScaleFactor;
+        sparkMaxShooterTopWheel.set(power);
+        sparkMaxShooterBottomWheel.set(power);
     }
 
     public void shootVelocity() {
