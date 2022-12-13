@@ -1,39 +1,44 @@
 package frc.robot.commands.test;
 
-import frc.robot.subsystems.SparkMaxTester;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-/** An example command that uses an example subsystem. */
+import frc.robot.consoles.Logger;
+import frc.robot.subsystems.SparkMaxTester;
+
 public class SpinTestMotor extends CommandBase {
-  
-  private final SparkMaxTester m_sparkMaxTester;
-
-  public SpinTestMotor(SparkMaxTester sparkMaxTester) {
-    m_sparkMaxTester = sparkMaxTester;
     
-    addRequirements(m_sparkMaxTester);
-  }
+    private SparkMaxTester m_sparkMaxTester;
 
-  // Called when the command is initially scheduled.
-  @Override
-  public void initialize() {
-  }
+    public SpinTestMotor(SparkMaxTester sparkMaxTester) {
+        Logger.setup("Constructing Command: SpinTestMotor...");
 
-  // Called every time the scheduler runs while the command is scheduled.
-  @Override
-  public void execute() {
-    m_sparkMaxTester.spin();
-  }
-    
-  // Called once the command ends or is interrupted.
-  @Override
-  public void end(boolean interrupted) {
-  }
+        // Add given subsystem requirements
+        m_sparkMaxTester = sparkMaxTester;
+        addRequirements(m_sparkMaxTester);
+    }
 
-  // Returns true when the command should end.
-  @Override
-  public boolean isFinished() {
-    return false;
-  }
+    @Override
+    public void initialize() {
+        Logger.action("Initializing Command: SpinTestMotor...");
+    }
+
+    @Override
+    public void execute() {
+        m_sparkMaxTester.spin();
+    }
+
+    @Override
+    public boolean isFinished() {
+        return false;
+    }
+        
+    @Override
+    public void end(boolean interrupted) {
+        if (interrupted) {
+            Logger.ending("Interrupting Command: SpinTestMotor...");
+        } else {
+            Logger.ending("Ending Command: SpinTestMotor...");
+        }
+    }
 
 }

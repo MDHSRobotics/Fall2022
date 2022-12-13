@@ -12,7 +12,6 @@ public class MoveLeftClimb extends CommandBase {
 
     private LeftClimber m_climber;
 
-
     public MoveLeftClimb(LeftClimber climber) {
         Logger.setup("Constructing Command: MoveLeftClimb...");
 

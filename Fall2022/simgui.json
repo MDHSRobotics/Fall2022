@@ -10,6 +10,11 @@
         "header": {
           "open": true
         }
+      },
+      "Talon FX[25]": {
+        "header": {
+          "open": true
+        }
       }
     }
   },
@@ -53,14 +58,32 @@
       "/Shuffleboard/Delivery/Commands/Lower Pickup": "Command",
       "/Shuffleboard/Delivery/Commands/Raise Pickup": "Command",
       "/Shuffleboard/Delivery/Commands/Spin Conveyor": "Command",
+      "/Shuffleboard/Delivery/Commands/Spin Roller": "Command",
       "/Shuffleboard/Delivery/Commands/Stop Conveyor": "Command",
+      "/Shuffleboard/Delivery/Commands/Stop Roller": "Command",
+      "/Shuffleboard/Delivery/Commands/Toggle Conveyor": "Command",
+      "/Shuffleboard/Delivery/Commands/Toggle Intake": "Command",
       "/Shuffleboard/Delivery/Commands/Toggle Pickup": "Command",
+      "/Shuffleboard/Delivery/Commands/Toggle Roller": "Command",
       "/Shuffleboard/Drive/Swerve Drive": "Subsystem",
+      "/Shuffleboard/Intake/Commands/Lower Pickup": "Command",
+      "/Shuffleboard/Intake/Commands/Raise Pickup": "Command",
+      "/Shuffleboard/Intake/Commands/Spin Conveyor": "Command",
+      "/Shuffleboard/Intake/Commands/Spin Roller": "Command",
+      "/Shuffleboard/Intake/Commands/Stop Conveyor": "Command",
+      "/Shuffleboard/Intake/Commands/Stop Roller": "Command",
+      "/Shuffleboard/Intake/Commands/Toggle Conveyor": "Command",
+      "/Shuffleboard/Intake/Commands/Toggle Intake": "Command",
+      "/Shuffleboard/Intake/Commands/Toggle Pickup": "Command",
+      "/Shuffleboard/Intake/Commands/Toggle Roller": "Command",
       "/Shuffleboard/Main/Active Auto Command": "String Chooser",
       "/Shuffleboard/Main/Auto Command": "String Chooser",
       "/Shuffleboard/Main/Auto Commands/Auto 1": "Command",
       "/Shuffleboard/Main/Auto Commands/Auto 2": "Command",
+      "/Shuffleboard/Main/Auto Commands/Auto 3": "Command",
       "/Shuffleboard/Shoot/Commands/Shoot": "Command",
+      "/Shuffleboard/Shoot/Commands/Shoot Input": "Command",
+      "/Shuffleboard/Shoot/Commands/Shoot Velocity": "Command",
       "/Shuffleboard/Shoot/Commands/Stop Shooter": "Command",
       "/SmartDashboard/Auto Command": "String Chooser",
       "/SmartDashboard/Auto Command to Run": "String Chooser",

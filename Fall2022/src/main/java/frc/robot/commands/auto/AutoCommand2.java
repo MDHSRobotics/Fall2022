@@ -1,29 +1,39 @@
 package frc.robot.commands.auto;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
-import edu.wpi.first.wpilibj2.command.PrintCommand;
 
 import frc.robot.BotSubsystems;
-import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.pickup.TogglePickup;
+import frc.robot.subsystems.constants.AutoConstants;
 
+// Autonomous pathing for ball on the center
 public class AutoCommand2 extends SequentialCommandGroup {
 
     public AutoCommand2() {
-
+    
         addCommands(
+
+            // Roll conveyor to shoot pre-loaded ball into high port 
+            new ShootSequence(AutoConstants.kInitialTopShooterWheelPower, AutoConstants.kInitialBottomShooterWheelPower),
+
+            // Back up to give space for robot to turn towards second ball
+            new MoveBackward(AutoConstants.kMoveBackwardTimeSeconds),
+
+            // Lower pickup to get ready for picking up second ball
+            new TogglePickup(BotSubsystems.pickup),
             
-            new PrintCommand("Starting Command Group for AutoCommand2 ..."),
+            // Turn towards second ball
+            new TurnAngle(AutoConstants.kAngleToBallRadiansPathTwo),
 
-            // First sub-command
-            new ExampleCommand(BotSubsystems.exampleSubsystem, "Auto-2a", 5),
+            // Move towards and pick up second ball
+            new MoveForward(AutoConstants.kMoveToBallTimeSecondsPathTwo),
 
-            // Second sub-command
-            new ExampleCommand(BotSubsystems.exampleSubsystem, "Auto-2b", 5),
+            // Turn towards goal
+            new TurnAngle(AutoConstants.kAngleToPortRadiansPathTwo),
 
-            // Third sub-command
-            new ExampleCommand(BotSubsystems.exampleSubsystem, "Auto-2c", 5),
-
-            new PrintCommand("Ending Command Group for AutoCommand2 ...")
+            // Shoot second ball into high port
+            new ShootSequence(AutoConstants.kSecondBallTopShooterWheelPowerPathTwo, AutoConstants.kSecondBallBottomShooterWheelPowerPathTwo)
+            
         );
 
     }

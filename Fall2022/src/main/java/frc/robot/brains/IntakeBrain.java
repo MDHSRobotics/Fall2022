@@ -2,18 +2,17 @@
 package frc.robot.brains;
 
 import edu.wpi.first.networktables.NetworkTableEntry;
-import pabeles.concurrency.ConcurrencyOps.NewInstance;
 
-// This class contains all the shared NetworkTableEntries for the Shuffler,
+// This class contains all the shared NetworkTableEntries for the Intake,
 // their default values, and methods for retrieving their current values.
-public class DeliveryBrain {
+public class IntakeBrain {
 
     //----------------//
     // Default Values //
     //----------------//
 
-    public static double spinPowerDefault = 0.1;
-    public static double conveyorPowerDefault = 0.1;
+    public static double spinPowerDefault = 0.8;
+    public static double conveyorPowerDefault = 0.2;
 
     //---------------------//
     // NetworkTableEntries //
@@ -26,11 +25,11 @@ public class DeliveryBrain {
     // Setters //
     //---------//
 
-    public static void setSpinPower(double value){
+    public static void setSpinPower(double value) {
         spinPowerEntry.setDouble(value);
     }
 
-    public static void setConveyorPower(double value){
+    public static void setConveyorPower(double value) {
         conveyorPowerEntry.setDouble(value);
     }
 
@@ -38,11 +37,11 @@ public class DeliveryBrain {
     // Getters //
     //---------//
 
-    public static double getSpinPower(){
+    public static double getSpinPower() {
         return spinPowerEntry.getDouble(spinPowerDefault);
     }
 
-    public static double getConveyorPower(){
+    public static double getConveyorPower() {
         return conveyorPowerEntry.getDouble(conveyorPowerDefault);
     }
 

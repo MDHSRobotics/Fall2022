@@ -26,7 +26,7 @@ public class JoystickContainer extends ControllerContainer implements JoystickPo
     public JoystickContainer (int port) {
         super(port);
         jstick = new Joystick(port);
-        jstickBtn1 = new JoystickButton(jstick, 1); // Trigger
+        jstickBtn1 = new JoystickButton(jstick, 1); 
         jstickBtn2 = new JoystickButton(jstick, 2);
         jstickBtn3 = new JoystickButton(jstick, 3);
         jstickBtn4 = new JoystickButton(jstick, 4);
@@ -44,7 +44,7 @@ public class JoystickContainer extends ControllerContainer implements JoystickPo
     public JoystickPosition getJoystickPosition(boolean isYflipped) {
         double y = jstick.getY(); // Forward & backward, flipped
         double x = jstick.getX(); // Side to side
-        double z = jstick.getZ(); // Rotate, flipped?
+        double z = jstick.getZ(); // Rotate, flipped
 
         JoystickPosition pos = new JoystickPosition(y, x, z);
         return pos;

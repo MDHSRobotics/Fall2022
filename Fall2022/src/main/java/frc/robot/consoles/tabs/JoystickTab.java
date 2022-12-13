@@ -7,7 +7,7 @@ import java.util.Map;
 import frc.robot.brains.JoystickBrain;
 import frc.robot.consoles.ShuffleLogger;
 
-// The Shuffleboard Debug tab.
+// The Shuffleboard Joystick tab.
 public class JoystickTab {
 
     // Tab & Layouts
@@ -49,7 +49,6 @@ public class JoystickTab {
 
     // Create Brain Widgets
     public void preInitialize() {
-
         // Dead Zones
         m_yDeadZone = m_deadZoneLayout.add("yDeadZone", JoystickBrain.yDeadZoneDefault);
         JoystickBrain.yDeadZoneEntry = m_yDeadZone.getEntry();
@@ -75,21 +74,17 @@ public class JoystickTab {
         m_zSensitivity = m_sensitivitLayout.add("zSensitivity", JoystickBrain.zSensitivityDefault);
         JoystickBrain.zSensitivityEntry = m_zSensitivity.getEntry();
         m_zSensitivity.withWidget(BuiltInWidgets.kTextView);
-
     }
 
     // Create all other Widgets
     public void initialize() {
- 
     }
 
     // Configure all Widgets
     public void configure() {
-
     }
 
     // This will be called in the robotPeriodic
     public void update() {
-
     }
 }

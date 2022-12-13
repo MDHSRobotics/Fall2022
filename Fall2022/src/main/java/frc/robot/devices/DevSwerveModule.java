@@ -3,6 +3,7 @@ package frc.robot.devices;
 import frc.robot.subsystems.utils.EncoderTranslator;
 
 import com.ctre.phoenix.motorcontrol.NeutralMode;
+import com.ctre.phoenix.motorcontrol.SupplyCurrentLimitConfiguration; 
 import com.ctre.phoenix.sensors.AbsoluteSensorRange;
 import com.ctre.phoenix.sensors.CANCoder;
 
@@ -46,6 +47,12 @@ public class DevSwerveModule {
         m_driveMotor.setInverted(driveMotorReversed);
         m_turningMotor.setInverted(turningMotorReversed);
         m_driveMotor.setNeutralMode(NeutralMode.Brake);
+
+        m_driveMotor.configSupplyCurrentLimit(new SupplyCurrentLimitConfiguration(true, 15, 15, 20));   
+        m_turningMotor.configSupplyCurrentLimit(new SupplyCurrentLimitConfiguration(true, 15, 15, 20));   
+
+        m_driveMotor.setNeutralMode(NeutralMode.Brake);
+        m_turningMotor.setNeutralMode(NeutralMode.Brake);
 
         m_driveMotor.configOpenloopRamp(SwerveConstants.kDriveRampTime);
 
@@ -123,8 +130,8 @@ public class DevSwerveModule {
     // [1] - drive motor position (meters)
     // [2] - turning motor (ticks)
     // [3] - turning motor angle (degrees)
-    public double [] getEncoderReadings() {
-        double [] readings = new double[4];
+    public double[] getEncoderReadings() {
+        double[] readings = new double[4];
 
         readings[0] = m_driveMotor.getSelectedSensorPosition();
         readings[1] = getDrivePositionMeters();
@@ -135,7 +142,6 @@ public class DevSwerveModule {
     }
 
     public void resetEncoders() {
-
         // Set drive motor encoder to Zero
         m_driveMotor.setSelectedSensorPosition(0.0);
 
@@ -144,8 +150,7 @@ public class DevSwerveModule {
 
         // Convert angle to raw units (ticks)
         double initialAbsoluteEncoderPositionTicks = m_turningEncoderTranslate.radians_to_ticks(initialAbsoluteEncoderPositionRad);
-        // TODO remove the following line once absolute encoder is working
-        // initialAbsoluteEncoderPositionTicks = 0.0;
+        
         // Set the current position of the turning motor based on absolute encoder 
         m_turningMotor.setSelectedSensorPosition(initialAbsoluteEncoderPositionTicks);
 
@@ -171,8 +176,7 @@ public class DevSwerveModule {
             SmartDashboard.delete("01: Swerve Power: " + m_name);
 
             return;
-        }
-        else {
+        } else {
             SmartDashboard.delete("03: Swerve State: " + m_name);
             SmartDashboard.delete("03: Swerve Power: " + m_name);
         }
@@ -203,4 +207,5 @@ public class DevSwerveModule {
     public void setShuffleboardBrain() {
         SwerveDriverBrain.setModuleEncoderReadings(m_name, getEncoderReadings());
     }
+
 }

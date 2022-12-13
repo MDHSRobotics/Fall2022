@@ -1,30 +1,22 @@
 package frc.robot.subsystems;
 
-import frc.robot.BotSubsystems;
-import frc.robot.consoles.Logger;
-import frc.robot.subsystems.constants.*;
-
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.math.controller.ProfiledPIDController;
-import edu.wpi.first.math.trajectory.TrajectoryUtil;
 import edu.wpi.first.math.trajectory.Trajectory;
+import edu.wpi.first.math.trajectory.TrajectoryUtil;
 
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Filesystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SwerveControllerCommand;
 
+import frc.robot.BotSubsystems;
+import frc.robot.consoles.Logger;
+import frc.robot.subsystems.constants.*;
+
 import java.io.IOException; 
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.List;
-
-import edu.wpi.first.wpilibj.DriverStation;
-
-import edu.wpi.first.math.geometry.Pose2d;
-import edu.wpi.first.math.geometry.Rotation2d;
-import edu.wpi.first.math.geometry.Translation2d;
-import edu.wpi.first.math.trajectory.TrajectoryConfig;
-import edu.wpi.first.math.trajectory.TrajectoryGenerator;
 
 public class Pathweaver {
     
@@ -49,7 +41,7 @@ public class Pathweaver {
         }
     };
 
-    public static void intializeTrajectory(){
+    public static void intializeTrajectories(){
         for (int i = 0; i < 3; i++) {
             try {
                 Path trajectoryPath = Filesystem.getDeployDirectory().toPath().resolve(m_trajectoryJsonArray[i]);
@@ -64,33 +56,9 @@ public class Pathweaver {
     }
 
     public static Command getPathweaverCommand(Trajectory pathweaverTrajectory) {
-
-         // 1. Create trajectory settings
-         TrajectoryConfig trajectoryConfig = new TrajectoryConfig(
-            AutoConstants.kMaxSpeedMetersPerSecond,
-            AutoConstants.kMaxAccelerationMetersPerSecondSquared)
-                    .setKinematics(SwerveConstants.kDriveKinematics);
-
-        // 2. Generate trajectory
-        // Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
-        //         new Pose2d(0, 0, new Rotation2d(0)),
-        //         List.of(
-        //                 new Translation2d(2, 0)
-        //                 ),
-        //         new Pose2d(2, 0, Rotation2d.fromDegrees(0)),
-        //         trajectoryConfig);
-
-        Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
-            new Pose2d(0, 0, new Rotation2d(0)),
-            List.of(
-                    new Translation2d(1, 0)
-                    ),
-            new Pose2d(1, 0, Rotation2d.fromDegrees(90)),
-            trajectoryConfig);    
-
         SwerveControllerCommand swerveControllerCommand =
         new SwerveControllerCommand(
-            trajectory, //pathweaverTrajectory,
+            pathweaverTrajectory,
             BotSubsystems.swerveDriver::getPose,
             SwerveConstants.kDriveKinematics,
             xController,
@@ -103,16 +71,16 @@ public class Pathweaver {
         thetaController.enableContinuousInput(-Math.PI, Math.PI);
 
         // Reset odometry to the starting pose of the trajectory.
-        BotSubsystems.swerveDriver.resetOdometry(trajectory.getInitialPose());
+        BotSubsystems.swerveDriver.resetOdometry(pathweaverTrajectory.getInitialPose());
 
         // Run path following command, then stop at the end.
         return swerveControllerCommand.andThen(() -> BotSubsystems.swerveDriver.setChassisSpeed(0, 0, 0, false));
     }
 
     // Return the command to run in autonomous mode (AutoNav)
-    public static Trajectory getChosenTrajectory(int chosenPath) {
+    public static Command getChosenTrajectory(int chosenPath) {
         Trajectory chosenTrajectory = m_trajectoryArray.get(chosenPath-1);
-        return chosenTrajectory;
+        return getPathweaverCommand(chosenTrajectory);
     }
     
 }

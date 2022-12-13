@@ -34,12 +34,6 @@ public class XboxBrain {
     public static NetworkTableEntry xRightSensitivityEntry;
 
     //---------//
-    // Setters //
-    //---------//
-
-
-
-    //---------//
     // Getters //
     //---------//
 

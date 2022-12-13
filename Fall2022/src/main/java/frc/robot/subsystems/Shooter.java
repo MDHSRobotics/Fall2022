@@ -1,49 +1,59 @@
 package frc.robot.subsystems;
 
-import java.util.*;
-
-import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.DemandType;
-
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-import frc.robot.brains.RobotBrain;
-import frc.robot.brains.ShooterBrain;
+import com.revrobotics.RelativeEncoder;
+import com.revrobotics.SparkMaxPIDController;
+import com.revrobotics.CANSparkMax;
 
-import static frc.robot.subsystems.constants.EncoderConstants.*;
-import frc.robot.subsystems.utils.EncoderUtils;
-import frc.robot.subsystems.utils.PIDValues;
+import frc.robot.brains.ShooterBrain;
+import frc.robot.consoles.Logger;
 
 import static frc.robot.subsystems.Devices.sparkMaxShooterBottomWheel;
 import static frc.robot.subsystems.Devices.sparkMaxShooterTopWheel;
 
-import frc.robot.consoles.Logger;
-import static frc.robot.RobotManager.isReal;
+import java.util.Map;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
-// Shooter subsystem, for shooting balls with two flywheels.
 public class Shooter extends SubsystemBase {
 
-    // Mechanical constants
-    private final double GEAR_RATIO = 4.0; // (MS : GS)
-    private final double WHEEL_DIAMETER = 4.0; // In inches
+    private SparkMaxPIDController m_topPidController, m_bottomPidController;
+    private RelativeEncoder m_topEncoder, m_bottomEncoder;
 
     // Encoder constants
-    private static final boolean SENSOR_PHASE_BOTTOM = true;
+    private static final boolean MOTOR_INVERT_TOP = false;
     private static final boolean MOTOR_INVERT_BOTTOM = false;
 
-    private static final boolean SENSOR_PHASE_TOP = true;
-    private static final boolean MOTOR_INVERT_TOP = false;
+    private static boolean m_isShooterEnabled = false;
 
-    // Shuffleboard
+    private final double ScaleFactor = 0.007;
 
-    public Shooter() {
+    public Shooter() { 
         Logger.setup("Constructing Subsystem: Shooter...");
 
         sparkMaxShooterTopWheel.restoreFactoryDefaults();
         sparkMaxShooterBottomWheel.restoreFactoryDefaults();
+
+        sparkMaxShooterTopWheel.enableVoltageCompensation(12);
+        sparkMaxShooterBottomWheel.enableVoltageCompensation(12);
+
+        sparkMaxShooterTopWheel.setSmartCurrentLimit(40);   
+        sparkMaxShooterBottomWheel.setSmartCurrentLimit(40);    
+        
+        m_topPidController = sparkMaxShooterTopWheel.getPIDController();
+        sparkMaxShooterTopWheel.setInverted(MOTOR_INVERT_TOP);
+        m_topPidController.setP(0.0002);
+        
+        m_bottomPidController = sparkMaxShooterBottomWheel.getPIDController();
+        sparkMaxShooterBottomWheel.setInverted(MOTOR_INVERT_BOTTOM);
+        m_bottomPidController.setP(0.0002);  
+        
+        m_topEncoder = sparkMaxShooterTopWheel.getEncoder();
+        m_bottomEncoder = sparkMaxShooterBottomWheel.getEncoder();
     }
 
-    public void shoot(){
+    public void shootInput() {
         double shootPower = ShooterBrain.getShooterPower();
         double scaleFactor = ShooterBrain.getScaleFactor();
 
@@ -51,15 +61,64 @@ public class Shooter extends SubsystemBase {
         sparkMaxShooterBottomWheel.set(-shootPower);
     }
 
-    // Stop the shooter
-    public void stop() {
-        sparkMaxShooterBottomWheel.stopMotor();
+    public void shootInput(double topPower, double bottomPower) {
+        sparkMaxShooterTopWheel.set(topPower);
+        sparkMaxShooterBottomWheel.set(-bottomPower);
+    }
+
+    // against goal port
+    public void shootMin() {
+        sparkMaxShooterTopWheel.set(0.3);
+        sparkMaxShooterBottomWheel.set(-0.3);
+    }
+
+    // 5ft away
+    public void shootMid() {
+        sparkMaxShooterTopWheel.set(0.335);
+        sparkMaxShooterBottomWheel.set(-0.335);
+    }
+
+    // 12ft away (safezone)
+    public void shootMax() {
+        sparkMaxShooterTopWheel.set(0.32);
+        sparkMaxShooterBottomWheel.set(-0.55);
+    }
+
+    //shoot using limelight
+    public void shootLimelight(double power) {
+        power *= ScaleFactor;
+        sparkMaxShooterTopWheel.set(power);
+        sparkMaxShooterBottomWheel.set(power);
+    }
+
+    public void shootVelocity() {
+        double shootVelocity = ShooterBrain.getShootVelocity();
+        double shootVelocityScaleFactor = ShooterBrain.getShootVelocityScaleFactor();
+
+        m_topPidController.setReference((shootVelocity / shootVelocityScaleFactor), CANSparkMax.ControlType.kVelocity);
+        m_bottomPidController.setReference(shootVelocity, CANSparkMax.ControlType.kVelocity);
+    }
+
+    public void setShooterEnableState(boolean shooterEnableState) {
+        m_isShooterEnabled = shooterEnableState;
+    }
+
+    public static boolean getShooterEnableState() {
+        return m_isShooterEnabled;
+    }
+
+    public void stopShooter() {
         sparkMaxShooterTopWheel.stopMotor();
+        sparkMaxShooterBottomWheel.stopMotor();
     }
 
     @Override
     public void periodic() {
-        // This method will be called once per scheduler run
+        double topEncoderVelocity = m_topEncoder.getVelocity();
+        double bottomEncoderVelocity = m_bottomEncoder.getVelocity();
+        
+        //ShooterBrain.setTopEncoderVelocity(topEncoderVelocity);
+        //ShooterBrain.setBottomEncoderVelocity(bottomEncoderVelocity);
     }
 
     // Translate a desired target velocity in feet per second to a motor speed in Ticks per 100 ms.

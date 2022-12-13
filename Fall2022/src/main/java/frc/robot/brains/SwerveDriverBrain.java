@@ -57,16 +57,16 @@ public class SwerveDriverBrain {
 
         switch (moduleName) {
             case "Front Left":
-                //entryDrivePowerFL.setDouble(value);
+                entryDrivePowerFL.setDouble(value);
                 break;
             case "Front Right":
-                //entryDrivePowerFR.setDouble(value);
+                entryDrivePowerFR.setDouble(value);
                 break;
             case "Rear Left":
-                //entryDrivePowerRL.setDouble(value);
+                entryDrivePowerRL.setDouble(value);
                 break;
             case "Rear Right":
-                //entryDrivePowerRR.setDouble(value);
+                entryDrivePowerRR.setDouble(value);
                 break;
 
             default:
@@ -78,16 +78,16 @@ public class SwerveDriverBrain {
 
         switch (moduleName) {
             case "Front Left":
-                //entryTurningPowerFL.setDouble(value);
+                entryTurningPowerFL.setDouble(value);
                 break;
             case "Front Right":
-                //entryTurningPowerFR.setDouble(value);
+                entryTurningPowerFR.setDouble(value);
                 break;
             case "Rear Left":
-                //entryTurningPowerRL.setDouble(value);
+                entryTurningPowerRL.setDouble(value);
                 break;
             case "Rear Right":
-                //entryTurningPowerRR.setDouble(value);
+                entryTurningPowerRR.setDouble(value);
                 break;
 
             default:
@@ -95,36 +95,37 @@ public class SwerveDriverBrain {
         }   
     }
 
-    public static void setModuleEncoderReadings(String moduleName, double [] encoderSettings) {
+    public static void setModuleEncoderReadings(String moduleName, double[] encoderSettings) {
 
         switch (moduleName) {
             case "Front Left":
-                //entryDriveEncoderTicksFL.setDouble(encoderSettings[0]);
-                //entryDriveEncoderMpsFL.setDouble(encoderSettings[1]);
-                //entryTurningEncoderTicksFL.setDouble(encoderSettings[2]);
-                //entryTurningEncoderMpsFL.setDouble(encoderSettings[3]);
+                entryDriveEncoderTicksFL.setDouble(encoderSettings[0]);
+                entryDriveEncoderMpsFL.setDouble(encoderSettings[1]);
+                entryTurningEncoderTicksFL.setDouble(encoderSettings[2]);
+                entryTurningEncoderMpsFL.setDouble(encoderSettings[3]);
                 break;
             case "Front Right":
-                //entryDriveEncoderTicksFR.setDouble(encoderSettings[0]);
-                //entryDriveEncoderMpsFR.setDouble(encoderSettings[1]);
+                entryDriveEncoderTicksFR.setDouble(encoderSettings[0]);
+                entryDriveEncoderMpsFR.setDouble(encoderSettings[1]);
+                entryTurningEncoderTicksFR.setDouble(encoderSettings[2]);
+                entryTurningEncoderMpsFR.setDouble(encoderSettings[3]);
                 break;
             case "Rear Left":
-                //entryDriveEncoderTicksRL.setDouble(encoderSettings[0]);
-                //entryDriveEncoderMpsRL.setDouble(encoderSettings[1]);
+                entryDriveEncoderTicksRL.setDouble(encoderSettings[0]);
+                entryDriveEncoderMpsRL.setDouble(encoderSettings[1]);
+                entryTurningEncoderTicksFR.setDouble(encoderSettings[2]);
+                entryTurningEncoderMpsFR.setDouble(encoderSettings[3]);
                 break;
             case "Rear Right":
-                //entryDriveEncoderTicksRR.setDouble(encoderSettings[0]);
-                //entryDriveEncoderMpsRR.setDouble(encoderSettings[1]);
+                entryDriveEncoderTicksRR.setDouble(encoderSettings[0]);
+                entryDriveEncoderMpsRR.setDouble(encoderSettings[1]);
+                entryTurningEncoderTicksRR.setDouble(encoderSettings[2]);
+                entryTurningEncoderMpsRR.setDouble(encoderSettings[3]);
                 break;
 
             default:
                 throw new java.lang.Error(String.format("Unknown module name %s", moduleName));
         }
-
     }
-
-    //---------//
-    // Getters //
-    //---------//
 
 }

@@ -15,7 +15,7 @@ public class Shuffler {
     private InputsTab m_inputsTab;
     private JoystickTab m_jstickTab;
     private ClimbTab m_climbTab;
-    private DeliveryTab m_deliveryTab;
+    private IntakeTab m_intakeTab;
     private ShootTab m_shootTab;
     private DriveTab m_driveTab;
 
@@ -25,7 +25,7 @@ public class Shuffler {
         m_inputsTab = new InputsTab();
         m_jstickTab = new JoystickTab();
         m_climbTab = new ClimbTab();
-        m_deliveryTab = new DeliveryTab();
+        m_intakeTab = new IntakeTab();
         m_shootTab = new ShootTab();
         m_driveTab = new DriveTab();
     }
@@ -36,7 +36,7 @@ public class Shuffler {
         m_inputsTab.preInitialize();
         m_jstickTab.preInitialize();
         m_climbTab.preInitialize();
-        m_deliveryTab.preInitialize();
+        m_intakeTab.preInitialize();
         m_shootTab.preInitialize();
         m_driveTab.preInitialize();
     }
@@ -47,7 +47,7 @@ public class Shuffler {
         m_inputsTab.initialize();
         m_jstickTab.initialize();
         m_climbTab.initialize();
-        m_deliveryTab.initialize();
+        m_intakeTab.initialize();
         m_shootTab.initialize();
         m_driveTab.initialize();
     }
@@ -58,7 +58,7 @@ public class Shuffler {
         m_inputsTab.configure();
         m_jstickTab.configure();
         m_climbTab.configure();
-        m_deliveryTab.configure();
+        m_intakeTab.configure();
         m_shootTab.configure();
         m_driveTab.configure();
 
@@ -70,7 +70,7 @@ public class Shuffler {
         m_inputsTab.update();
         m_inputsTab.update();
         m_climbTab.update();
-        m_deliveryTab.update();
+        m_intakeTab.update();
         m_shootTab.update();
         m_driveTab.update();
     }

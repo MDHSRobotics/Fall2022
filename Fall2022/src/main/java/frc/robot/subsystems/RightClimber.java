@@ -11,9 +11,10 @@ public class RightClimber extends SubsystemBase {
         Logger.setup("Constructing Subsystem: RightClimber...");
 
         sparkMaxRightClimber.restoreFactoryDefaults();
+        sparkMaxRightClimber.setSmartCurrentLimit(15);   
+
     } 
 
-    // Stop the climber
     public void stopRightClimb() {
         sparkMaxRightClimber.stopMotor();
     }
@@ -21,6 +22,5 @@ public class RightClimber extends SubsystemBase {
     // Move right climb based on thumbstick position
     public void moveRightClimb(double power) {
         sparkMaxRightClimber.set(power);
-        Logger.info("Right Climb Motor Power: " + power);
     }
 }

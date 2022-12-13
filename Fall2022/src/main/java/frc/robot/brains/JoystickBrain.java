@@ -13,7 +13,7 @@ public class JoystickBrain {
 
     public static double yDeadZoneDefault = .1;
     public static double xDeadZoneDefault = .1;
-    public static double zDeadZoneDefault = .5;
+    public static double zDeadZoneDefault = .1;
     public static double ySensitivityDefault = .5;
     public static double xSensitivityDefault = .5;
     public static double zSensitivityDefault = .5;
@@ -28,10 +28,6 @@ public class JoystickBrain {
     public static NetworkTableEntry ySensitivityEntry;
     public static NetworkTableEntry xSensitivityEntry;
     public static NetworkTableEntry zSensitivityEntry;
-
-    //---------//
-    // Setters //
-    //---------//
 
     //---------//
     // Getters //

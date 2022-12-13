@@ -37,11 +37,11 @@ public class BotSubsystems {
 
         // Conveyor
         Logger.setup("Pickup Teleop Default Command -> StopConveyor...");
-        conveyor.setDefaultCommand(BotCommands.stopConveyor);
+        conveyor.setDefaultCommand(BotCommands.defaultConveyor);
 
         // Pickup
         Logger.setup("Pickup Teleop Default Command -> FeedPickup...");
-        pickup.setDefaultCommand(BotCommands.raisePickup);
+        pickup.setDefaultCommand(BotCommands.defaultPickup);
 
         // Shooter
         Logger.setup("Shooter Teleop Default Command -> StopShoot...");
@@ -51,7 +51,7 @@ public class BotSubsystems {
         Logger.setup("SwerveDriver Teleop Default Command -> SwerveDrive...");
         swerveDriver.setDefaultCommand(BotCommands.swerveDrive);
         
-        //SparkMax Test
+        // SparkMax Test
         Logger.setup("SparkMaxTester Teleop Default Command -> StopTestMotor...");
         sparkMaxTester.setDefaultCommand(BotCommands.stopTestMotor);
 

@@ -2,11 +2,8 @@ package frc.robot.commands.pickup;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-import frc.robot.brains.DeliveryBrain;
 import frc.robot.consoles.Logger;
 import frc.robot.subsystems.Pickup;
-
-import java.util.Timer;
 
 public class LowerPickup extends CommandBase {
 
@@ -23,8 +20,7 @@ public class LowerPickup extends CommandBase {
     @Override
     public void initialize() {
         Logger.action("Initializing Command: LowerPickup...");
-            m_pickup.lowerPickup();
-            m_pickup.startRoller(DeliveryBrain.getSpinPower());
+        m_pickup.lowerPickup();
     }
 
     @Override
@@ -33,7 +29,6 @@ public class LowerPickup extends CommandBase {
 
     @Override
     public boolean isFinished() {
-        //need something to stop
         return false;
     }
 
