@@ -8,12 +8,14 @@ import edu.wpi.first.wpilibj.SPI;
 
 import frc.robot.consoles.Logger;
 import frc.robot.sensors.Gyro;
+import frc.robot.sensors.Limelight;
 
 // This class contains singleton instances of id mapped sensors.
 public class BotSensors {
 
     // Attitude and Heading Reference Systems
     public static final AHRS gyro = new AHRS(SPI.Port.kMXP);
+    public static final Limelight limelight = new Limelight();
 
     // This initialization is called in RobotManager at startup.
     public static void initializeSensors() {

@@ -2,9 +2,10 @@ package frc.robot.sensors;
  
 import edu.wpi.first.networktables.NetworkTable; 
 import edu.wpi.first.networktables.NetworkTableEntry; 
-import edu.wpi.first.networktables.NetworkTableInstance; 
+import edu.wpi.first.networktables.NetworkTableInstance;
+import edu.wpi.first.wpilibj2.command.SubsystemBase; 
  
-public class Limelight { 
+public class Limelight extends SubsystemBase { 
     private static double averageDistance; 
     private static int sampleSize = 20; 
     private static double[] averageDistanceSamples = new double[sampleSize]; 
@@ -34,11 +35,11 @@ public class Limelight {
         m_ledMode.setNumber(mode); 
     } 
  
-    public static void setAlignmentState() {
+    public void toggleAlignmentState() {
         m_isAligning = !m_isAligning;
     }
 
-    public static boolean getAlignmentState() {
+    public boolean getAlignmentState() {
         return m_isAligning;
     }
 

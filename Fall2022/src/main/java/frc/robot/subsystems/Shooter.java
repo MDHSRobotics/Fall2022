@@ -27,7 +27,8 @@ public class Shooter extends SubsystemBase {
 
     private static boolean m_isShooterEnabled = false;
 
-    private final double ScaleFactor = 0.007;
+    private final double m_scaleFactor = 0.007;
+    private final double m_initialPower = 0.3;
 
     public Shooter() { 
         Logger.setup("Constructing Subsystem: Shooter...");
@@ -85,8 +86,9 @@ public class Shooter extends SubsystemBase {
     }
 
     //shoot using limelight
-    public void shootLimelight(double power) {
-        power *= ScaleFactor;
+    public void shootLimelight(double distance) {
+        //scale the power based on the distance to the target
+        double power = distance * m_scaleFactor + m_initialPower;
         sparkMaxShooterTopWheel.set(power);
         sparkMaxShooterBottomWheel.set(power);
     }

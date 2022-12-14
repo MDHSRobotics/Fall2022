@@ -25,6 +25,10 @@ public class ButtonBindings {
         BotControllers.xbox.btnDpadUp.whileHeld(BotCommands.spinConveyor);
         BotControllers.xbox.btnDpadDown.whileHeld(BotCommands.reverseConveyor);
 
+        // Limelight
+        BotControllers.xbox2.btnX.whileHeld(BotCommands.alignSwerveDrive);
+        BotControllers.xbox2.btnY.whileHeld(BotCommands.shootLimelight);
+
         // Pickup
         BotControllers.xbox.btnA.whenPressed(BotCommands.togglePickup);
         

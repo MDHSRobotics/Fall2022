@@ -1,10 +1,12 @@
 package frc.robot;
 
 import frc.robot.consoles.Logger;
+import frc.robot.sensors.Limelight;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.auto.*;
 import frc.robot.commands.climber.*;
 import frc.robot.commands.conveyor.*;
+import frc.robot.commands.limelight.*;
 import frc.robot.commands.pickup.*;
 import frc.robot.commands.shoot.*;
 import frc.robot.commands.swervedrive.*;
@@ -24,6 +26,10 @@ public class BotCommands {
     // Climber
     public static MoveLeftClimb moveLeftClimb;
     public static MoveRightClimb moveRightClimb;
+
+    // Limelight
+    public static AlignSwerveDrive alignSwerveDrive;
+    public static ShootLimelight shootLimelight;
 
     // Conveyor
     public static SpinConveyor spinConveyor;
@@ -96,6 +102,10 @@ public class BotCommands {
         shootMin = new ShootMin(BotSubsystems.shooter);
         shootMid = new ShootMid(BotSubsystems.shooter);
         shootMax = new ShootMax(BotSubsystems.shooter);
+
+        // Limelight
+        alignSwerveDrive = new AlignSwerveDrive(BotSensors.limelight);
+        shootLimelight = new ShootLimelight(BotSubsystems.shooter);
 
         // SwerveDriver
         swerveDrive = new SwerveDrive(BotSubsystems.swerveDriver, BotControllers.xbox2); 

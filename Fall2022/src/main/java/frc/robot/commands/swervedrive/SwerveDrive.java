@@ -23,6 +23,8 @@ public class SwerveDrive extends CommandBase {
     private final SlewRateLimiter m_forwardBackwardLimiter, m_sideToSideLimiter, m_rotationForwardBackLimiter, m_rotationSideToSideLimiter;
     private static String m_chosenController; //jstick or xbox
 
+    private final double m_autoAlignPower = 0.5;
+
     public SwerveDrive (SwerveDriver swerveDriver, JoystickPositionAccessible controller) {
         Logger.setup("Constructing Command: SwerveDrive...");
 
@@ -94,12 +96,19 @@ public class SwerveDrive extends CommandBase {
 
         // 4. Check if robot is is aligning to target
         if(Limelight.getAlignmentState()){
+            Logger.info("Angle Offset: " + Limelight.getXOffset());
+
             forwardBackwardSpeed3 = 0;
             sideToSideSpeed3 = 0;
             rotationForwardBackwardSpeed3 = 0;
-            if(Limelight.getXOffset() > 0){
-                rotationForwardBackwardSpeed3
-            }
+
+            if (Limelight.getXOffset() > 3.0) {
+                rotationForwardBackwardSpeed3 = m_autoAlignPower;
+            } else if (Limelight.getXOffset() < -3.0) {
+                rotationForwardBackwardSpeed3 = -m_autoAlignPower;
+            } else {
+                rotationForwardBackwardSpeed3 = 0;
+            } 
         }
 
         // 5. Output each module states to wheels
